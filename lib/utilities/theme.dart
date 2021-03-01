@@ -1,6 +1,9 @@
 import 'package:flutter_common_app/utilities/index.dart';
 
-ThemeData darkTheme = ThemeData(
+ThemeData darkTheme = ThemeData.dark();
+ThemeData lightTheme = ThemeData.light();
+
+/* ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
   accentColor: Color(0xffD83F89),
   appBarTheme: AppBarTheme(elevation: 0.0),
@@ -18,4 +21,4 @@ ThemeData lightTheme = ThemeData(
   backgroundColor: Color(0xff78ab8a),
   scaffoldBackgroundColor: Color(0xff78ab8a),
   primaryColor: Color(0xfffffffF),
-);
+); */

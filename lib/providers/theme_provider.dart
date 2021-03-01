@@ -2,7 +2,7 @@ import 'package:flutter_common_app/utilities/index.dart';
 
 enum ThemeType { Light, Dark }
 
-class ThemeModel extends ChangeNotifier {
+class ThemeProvider extends ChangeNotifier {
   // Default Theme is Light Theme
   ThemeData currentTheme = lightTheme;
   ThemeType _themeType = ThemeType.Dark;
