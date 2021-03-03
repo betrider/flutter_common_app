@@ -29,8 +29,6 @@ dependencies:
   flutter_neumorphic: ^3.0.4+1
 
   #상태관리
-  bloc: ^6.1.1
-  flutter_bloc: ^6.1.1
   provider: ^4.3.3
 
   #로컬저장소
