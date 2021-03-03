@@ -1,16 +1,15 @@
 import 'package:flutter_common_app/utilities/index.dart';
 
-class MyHomePage extends StatefulWidget {
-  
+class SamplePage extends StatefulWidget {
   final String title;
 
-  const MyHomePage({Key key, this.title}) : super(key: key);
+  const SamplePage({Key key, this.title}) : super(key: key);
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _SamplePageState createState() => _SamplePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _SamplePageState extends State<SamplePage> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -45,6 +44,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     ));
               },
               child: Text('todo'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                print('theme');
+                context.read<ThemeProvider>().toggleTheme();
+              },
+              child: Text('theme'),
             )
           ],
         ),

@@ -15,6 +15,7 @@ void main() async {
       ChangeNotifierProvider<AuthProvider>(
         create: (BuildContext context) => AuthProvider(),
       ),
+      Provider(create: (context) => FirestoreDatabase()),
     ], child: App()),
   );
 }

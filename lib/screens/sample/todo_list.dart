@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_common_app/utilities/index.dart';
 
 class TodoList extends StatelessWidget {
   @override
@@ -21,12 +20,12 @@ class _TodoState extends State<_Todo> {
   String currentUserId = '';
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     _todoController.dispose();
     super.dispose();
   }
@@ -50,12 +49,12 @@ class _TodoState extends State<_Todo> {
                 ),
                 RaisedButton(
                   child: Text('추가'),
-                  onPressed: () => _addTodo(Todo(_todoController.text)),
+                  onPressed: () => context.read<FirestoreDatabase>().addTodo(TodoModel(_todoController.text)),
                 )
               ],
             ),
             StreamBuilder<QuerySnapshot>(
-              stream: FirebaseFirestore.instance.collection('todo').snapshots(),
+              stream: context.read<FirestoreDatabase>().getTodo,
               builder: (context, snapshot) {
                 if(!snapshot.hasData){
                   return CircularProgressIndicator();
@@ -75,49 +74,24 @@ class _TodoState extends State<_Todo> {
   }
 
   //할 일 객체를 ListTitle 형태로 변경하는 메서드
-  Widget _buildItemWidget(DocumentSnapshot doc){
-    final todo = Todo(doc['title'], isDone: doc['isDone']);
+  Widget _buildItemWidget(DocumentSnapshot doc) {
+    final todo = TodoModel(doc['title'], isDone: doc['isDone']);
     return ListTile(
-      onTap: () => _toggleTodo(doc),
+      onTap: () => context.read<FirestoreDatabase>().toggleTodo(doc),
       title: Text(
         '${todo.title} ',
         style: todo.isDone
-          ? TextStyle(
-          decoration: TextDecoration.lineThrough,
-          fontStyle: FontStyle.italic,
-          ) : null,
+            ? TextStyle(
+                decoration: TextDecoration.lineThrough,
+                fontStyle: FontStyle.italic,
+              )
+            : null,
       ),
       trailing: IconButton(
         icon: Icon(Icons.delete_forever_outlined),
-        onPressed: () => _deleteTodo(doc),
+        onPressed: () => context.read<FirestoreDatabase>().deleteTodo(doc),
       ),
     );
   }
-
-  //할 일 추가 메서드
-  void _addTodo(Todo todo){
-    FirebaseFirestore.instance
-        .collection('todo')
-        .add({'title':todo.title, 'isDone': todo.isDone, 'authorUid': currentUserId});
-    _todoController.text = '';
-  }
-
-  //할 일 삭제 메서드
-  void _deleteTodo(DocumentSnapshot doc){
-    FirebaseFirestore.instance.collection('todo').doc(doc.id).delete();
-  }
-
-  //할 일 완료/미완료 메서드
-  void _toggleTodo(DocumentSnapshot doc){
-    FirebaseFirestore.instance.collection('todo').doc(doc.id).update({
-      'isDone':!doc['isDone'],
-    });
-  }
 }
 
-class Todo{
-  bool isDone;
-  String title;
-
-  Todo(this.title, {this.isDone = false});
-}

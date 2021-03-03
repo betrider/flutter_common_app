@@ -7,7 +7,7 @@ class App extends StatelessWidget {
       initialRoute: '/',
       onGenerateRoute: RouteGenerator.generateRoute,
       theme: Provider.of<ThemeProvider>(context).currentTheme,
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: SamplePage(title: 'Flutter Demo Home Page'),
     );
   }
 }

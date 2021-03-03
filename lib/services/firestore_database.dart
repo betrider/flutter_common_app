@@ -1,80 +1,35 @@
-import 'dart:async';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:meta/meta.dart';
-import 'package:noteapp/models/todo_model.dart';
-import 'package:noteapp/services/firestore_path.dart';
-import 'package:noteapp/services/firestore_service.dart';
+import 'package:flutter_common_app/utilities/index.dart';
 
 String documentIdFromCurrentDate() => DateTime.now().toIso8601String();
 
-/*
-This is the main class access/call for any UI widgets that require to perform
-any CRUD activities operation in Firestore database.
-This class work hand-in-hand with FirestoreService and FirestorePath.
-
-Notes:
-For cases where you need to have a special method such as bulk update specifically
-on a field, then is ok to use custom code and write it here. For example,
-setAllTodoComplete is require to change all todos item to have the complete status
-changed to true.
-
- */
 class FirestoreDatabase {
-  FirestoreDatabase({@required this.uid}) : assert(uid != null);
-  final String uid;
+  // FirestoreDatabase._();
+  // static final instance = FirestoreDatabase._();
 
-  final _firestoreService = FirestoreService.instance;
+  final _service = FirebaseFirestore.instance;
 
-  //Method to create/update todoModel
-  Future<void> setTodo(TodoModel todo) async => await _firestoreService.setData(
-        path: FirestorePath.todo(uid, todo.id),
-        data: todo.toMap(),
-      );
+  //할 일 검색
+  Stream<QuerySnapshot> get getTodo =>
+      _service.collection(FirestorePath.todo()).snapshots();
 
-  //Method to delete todoModel entry
-  Future<void> deleteTodo(TodoModel todo) async {
-    await _firestoreService.deleteData(path: FirestorePath.todo(uid, todo.id));
+  //할 일 추가 메서드
+  void addTodo(TodoModel todo){
+    FirebaseFirestore.instance.collection('todo').add({
+      'title': todo.title,
+      'isDone': todo.isDone,
+      'authorUid': 'currentUserId'
+    });
   }
 
-  //Method to retrieve todoModel object based on the given todoId
-  Stream<TodoModel> todoStream({@required String todoId}) =>
-      _firestoreService.documentStream(
-        path: FirestorePath.todo(uid, todoId),
-        builder: (data, documentId) => TodoModel.fromMap(data, documentId),
-      );
-
-  //Method to retrieve all todos item from the same user based on uid
-  Stream<List<TodoModel>> todosStream() => _firestoreService.collectionStream(
-        path: FirestorePath.todos(uid),
-        builder: (data, documentId) => TodoModel.fromMap(data, documentId),
-      );
-
-  //Method to mark all todoModel to be complete
-  Future<void> setAllTodoComplete() async {
-    final batchUpdate = Firestore.instance.batch();
-
-    final querySnapshot = await Firestore.instance
-        .collection(FirestorePath.todos(uid))
-        .getDocuments();
-
-    for (DocumentSnapshot ds in querySnapshot.documents) {
-      batchUpdate.updateData(ds.reference, {'complete': true});
-    }
-    await batchUpdate.commit();
+  //할 일 삭제 메서드
+  void deleteTodo(DocumentSnapshot doc){
+    FirebaseFirestore.instance.collection('todo').doc(doc.id).delete();
   }
 
-  Future<void> deleteAllTodoWithComplete() async {
-    final batchDelete = Firestore.instance.batch();
-
-    final querySnapshot = await Firestore.instance
-        .collection(FirestorePath.todos(uid))
-        .where('complete', isEqualTo: true)
-        .getDocuments();
-
-    for (DocumentSnapshot ds in querySnapshot.documents) {
-      batchDelete.delete(ds.reference);
-    }
-    await batchDelete.commit();
+  //할 일 완료/미완료 메서드
+  void toggleTodo(DocumentSnapshot doc){
+    FirebaseFirestore.instance.collection('todo').doc(doc.id).update({
+      'isDone': !doc['isDone'],
+    });
   }
 }

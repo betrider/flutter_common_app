@@ -5,7 +5,7 @@ enum ThemeType { Light, Dark }
 class ThemeProvider extends ChangeNotifier {
   // Default Theme is Light Theme
   ThemeData currentTheme = lightTheme;
-  ThemeType _themeType = ThemeType.Dark;
+  ThemeType _themeType = ThemeType.Light;
 
   // Toggling Current Theme
   // Can be toggled using Provider.of<ThemeModel>(context).toggleTheme()

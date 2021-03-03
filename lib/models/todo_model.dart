@@ -1,6 +1,11 @@
-import 'package:meta/meta.dart';
-
 class TodoModel {
+  bool isDone;
+  String title;
+
+  TodoModel(this.title, {this.isDone = false});
+}
+
+/* class TodoModel2 {
   final String id;
   final String task;
   final String extraNote;
@@ -32,4 +37,4 @@ class TodoModel {
       'complete': complete,
     };
   }
-}
+} */
