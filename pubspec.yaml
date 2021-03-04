@@ -77,6 +77,9 @@ dependencies:
   #로그
   logger: ^0.9.4
 
+  #다이얼로그(안드로이드&IOS)
+  adaptive_dialog: ^0.9.0
+
 dev_dependencies:
   flutter_test:
    sdk: flutter
