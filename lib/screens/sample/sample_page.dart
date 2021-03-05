@@ -3,7 +3,7 @@ import 'package:flutter_common_app/utilities/index.dart';
 class SamplePage extends StatefulWidget {
   final String title;
 
-  const SamplePage({Key key, this.title}) : super(key: key);
+  const SamplePage({Key? key, required this.title}) : super(key: key);
 
   @override
   _SamplePageState createState() => _SamplePageState();

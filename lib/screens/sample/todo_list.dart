@@ -47,26 +47,29 @@ class _TodoState extends State<_Todo> {
                     controller: _todoController,
                   ),
                 ),
-                RaisedButton(
+                ElevatedButton(
                   child: Text('추가'),
-                  onPressed: () => context.read<FirestoreDatabase>().addTodo(TodoModel(_todoController.text)),
+                  onPressed: () => context
+                      .read<FirestoreDatabase>()
+                      .addTodo(TodoModel(_todoController.text)),
                 )
               ],
             ),
             StreamBuilder<QuerySnapshot>(
-              stream: context.read<FirestoreDatabase>().getTodo,
-              builder: (context, snapshot) {
-                if(!snapshot.hasData){
-                  return CircularProgressIndicator();
-                }
-                final documents = snapshot.data.docs;
-                return Expanded(
-                  child: ListView(
-                    children: documents.map((doc) => _buildItemWidget(doc)).toList(),
-                  ),
-                );
-              }
-            ),
+                stream: context.read<FirestoreDatabase>().getTodo,
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return CircularProgressIndicator();
+                  }
+                  final documents = snapshot.data!.docs;
+                  return Expanded(
+                    child: ListView(
+                      children: documents
+                          .map((doc) => _buildItemWidget(doc))
+                          .toList(),
+                    ),
+                  );
+                }),
           ],
         ),
       ),
@@ -94,4 +97,3 @@ class _TodoState extends State<_Todo> {
     );
   }
 }
-

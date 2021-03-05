@@ -12,10 +12,7 @@ void main() async {
       ChangeNotifierProvider<ThemeProvider>(
         create: (BuildContext context) => ThemeProvider(),
       ),
-      ChangeNotifierProvider<AuthProvider>(
-        create: (BuildContext context) => AuthProvider(),
-      ),
       Provider(create: (context) => FirestoreDatabase()),
-    ], child: App()),
+    ], child: MyApp()),
   );
 }

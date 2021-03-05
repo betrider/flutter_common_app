@@ -18,74 +18,74 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
   #디자인
-  cupertino_icons: ^1.0.0
-  flutter_neumorphic: ^3.0.4+1
+  #cupertino_icons: ^1.2.0
+  #flutter_neumorphic: ^3.0.4+1 #null-safety 나오면 해제
 
   #상태관리
-  provider: ^4.3.3
+  provider: ^5.0.0
 
   #로컬저장소
-  hive: ^1.4.4+1
-  hive_flutter: ^0.3.1
-  path_provider: ^1.6.27
+  hive: ^1.6.0-nullsafety.2
+  hive_flutter: ^1.0.0-nullsafety.0
+  path_provider: ^2.0.1
 
   #정보
-  package_info: ^0.4.3+4
-  device_info: ^1.0.0
+  package_info: ^2.0.0
+  device_info: ^2.0.0
 
   #이미지
-  photo_view: ^0.10.3
-  image_picker: ^0.6.7+14
-  cached_network_image: ^2.3.3
-  transparent_image: ^1.0.0
+  #photo_view: ^0.10.3 #null-safety 나오면 해제
+  image_picker: ^0.7.2
+  cached_network_image: ^3.0.0-nullsafety
+  transparent_image: ^2.0.0-nullsafety.0
 
   #백그라운드 실행
-  workmanager: ^0.2.3
+  #workmanager: ^0.2.3 #null-safety 나오면 해제
 
   #알림
-  fluttertoast: ^7.1.8
-  flutter_local_notifications: ^4.0.1+1
+  fluttertoast: ^8.0.1-nullsafety.0
+  flutter_local_notifications: ^5.0.0-nullsafety.0
 
   #통신
-  http: ^0.12.2
+  http: ^0.13.0
 
   #로딩 이펙트
-  shimmer: ^1.1.2
+  shimmer: ^2.0.0-nullsafety.0
 
   #다국어 지원 & date/number format & 양방향텍스트
-  intl: ^0.16.1
+  intl: ^0.17.0
 
   #url연결(http, 문자, 전화..)
-  url_launcher: ^5.7.10
+  url_launcher: ^6.0.2
 
   #파이어베이스 & 파이어스토어
-  firebase_core: ^0.7.0
-  firebase_auth: ^0.20.1
-  cloud_firestore: ^0.16.0+1
-  firebase_storage: ^7.0.0
+  firebase_core: ^1.0.0
+  firebase_auth: ^1.0.0
+  cloud_firestore: ^1.0.0
+  firebase_storage: ^8.0.0
 
   #소셜로그인
-  google_sign_in: ^4.5.9
+  google_sign_in: ^5.0.0
 
   #로그
-  logger: ^0.9.4
+  logger: ^1.0.0-nullsafety.0
 
   #다이얼로그(안드로이드&IOS)
-  adaptive_dialog: ^0.9.0
+  adaptive_dialog: ^0.10.0+5
 
 dev_dependencies:
   flutter_test:
    sdk: flutter
 
   #앱 아이콘 수정(flutter pub run flutter_launcher_icons:main)
-  flutter_launcher_icons: ^0.8.1
+  flutter_launcher_icons: ^0.9.0
 
 flutter_icons:
   android: true

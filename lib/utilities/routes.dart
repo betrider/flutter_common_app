@@ -1,18 +1,11 @@
-import 'package:flutter/material.dart';
-
+import 'package:flutter_common_app/utilities/index.dart';
 class RouteGenerator {
   static Route<dynamic> generateRoute (RouteSettings settings) {
-    final args = settings.arguments;
+    //final args = settings.arguments;
     print('route:${settings.name}');
     switch(settings.name){
-      // case '/':
-      //   return 최초호출화면;
-      case '/login':
-        //return MaterialPageRoute(builder: (context) => LoginScreen());
-      case '/splash':
-        //return MaterialPageRoute(builder: (context) => SplashScreen());
       case '/main':
-      //return MaterialPageRoute(builder: (context) => MainScreen());
+      return MaterialPageRoute(builder: (context) => MainScreen());
       default:
         return _errorRoute();
     }

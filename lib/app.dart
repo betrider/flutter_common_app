@@ -1,5 +1,5 @@
 import 'package:flutter_common_app/utilities/index.dart';
-class App extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -7,7 +7,8 @@ class App extends StatelessWidget {
       initialRoute: '/',
       onGenerateRoute: RouteGenerator.generateRoute,
       theme: Provider.of<ThemeProvider>(context).currentTheme,
-      home: SamplePage(title: 'Flutter Demo Home Page'),
+      home: MainScreen(),
+      //home: SamplePage(title: 'Flutter Demo Home Page'),
     );
   }
 }

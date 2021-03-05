@@ -6,10 +6,10 @@ class UserModel {
   String photoUrl;
 
   UserModel(
-      {this.uid,
-      this.email,
-      this.displayName,
-      this.phoneNumber,
-      this.photoUrl});
+      {required this.uid,
+      required this.email,
+      required this.displayName,
+      required this.phoneNumber,
+      required this.photoUrl});
 
 }
