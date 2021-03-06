@@ -1,10 +1,6 @@
 import 'package:flutter_common_app/utilities/index.dart';
 
 class SamplePage extends StatefulWidget {
-  final String title;
-
-  const SamplePage({Key? key, required this.title}) : super(key: key);
-
   @override
   _SamplePageState createState() => _SamplePageState();
 }
@@ -22,7 +18,7 @@ class _SamplePageState extends State<SamplePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text('Sample Page'),
       ),
       body: Center(
         child: Column(
@@ -43,7 +39,7 @@ class _SamplePageState extends State<SamplePage> {
                       builder: (_) => TodoList(),
                     ));
               },
-              child: Text('todo'),
+              child: Text('todo test'),
             ),
             ElevatedButton(
               onPressed: () {
@@ -51,6 +47,12 @@ class _SamplePageState extends State<SamplePage> {
                 context.read<ThemeProvider>().toggleTheme();
               },
               child: Text('theme'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                print('admob');
+              },
+              child: Text('admob'),
             )
           ],
         ),

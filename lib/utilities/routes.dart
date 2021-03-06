@@ -4,8 +4,17 @@ class RouteGenerator {
     //final args = settings.arguments;
     print('route:${settings.name}');
     switch(settings.name){
+      case '/sample':
+      return MaterialPageRoute(builder: (context) => SamplePage());
       case '/main':
-      return MaterialPageRoute(builder: (context) => MainScreen());
+      return MaterialPageRoute(builder: (context) {
+          return MultiProvider(
+            providers: [
+              ChangeNotifierProvider<BottomNavigationBarProvider>(create: (context) => BottomNavigationBarProvider(),)
+            ],
+            child: MainScreen()
+          );
+        });
       default:
         return _errorRoute();
     }
