@@ -25,7 +25,7 @@ dependencies:
     sdk: flutter
 
   #디자인
-  #cupertino_icons: ^1.2.0
+  cupertino_icons: ^1.0.2
   #flutter_neumorphic: ^3.0.4+1 #null-safety 나오면 해제
 
   #상태관리
@@ -79,6 +79,9 @@ dependencies:
 
   #다이얼로그(안드로이드&IOS)
   adaptive_dialog: ^0.10.0+5
+
+  #권한 관리
+  permission_handler: ^6.0.1
 
 dev_dependencies:
   flutter_test:
