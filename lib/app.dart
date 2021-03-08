@@ -1,4 +1,5 @@
 import 'package:flutter_common_app/utilities/index.dart';
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

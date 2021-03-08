@@ -1,40 +1,30 @@
+import 'package:flutter_common_app/utilities/index.dart';
+
 class TodoModel {
+  String? title;
   bool isDone;
-  String title;
 
-  TodoModel(this.title, {this.isDone = false});
-}
+  TodoModel({this.title, this.isDone = false});
 
-/* class TodoModel2 {
-  final String id;
-  final String task;
-  final String extraNote;
-  final bool complete;
-
-  TodoModel(
-      {@required this.id,
-      @required this.task,
-      this.extraNote,
-      @required this.complete});
-
-  factory TodoModel.fromMap(Map<String, dynamic> data, String documentId) {
-    if (data == null) {
-      return null;
-    }
-
-    String task = data['task'];
-    String extraNote = data['extraNote'];
-    bool complete = data['complete'];
-
+  factory TodoModel.fromMap(Map map) {
     return TodoModel(
-        id: documentId, task: task, extraNote: extraNote, complete: complete);
+      title: map['title'],
+      isDone: map['id'],
+    );
   }
 
-  Map<String, dynamic> toMap() {
-    return {
-      'task': task,
-      'extraNote': extraNote,
-      'complete': complete,
-    };
+  factory TodoModel.fromJson(Map<String, dynamic> json) {
+    return TodoModel(
+      title: json['title'],
+      isDone: json['id'],
+    );
   }
-} */
+
+  factory TodoModel.fromFireStore(DocumentSnapshot doc) {
+    Map map = doc.data()!;
+    return TodoModel(
+      title: map['title'],
+      isDone: map['isDone'],
+    );
+  }
+}

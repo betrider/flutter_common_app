@@ -9,12 +9,11 @@ class FirestoreDatabase {
   final _service = FirebaseFirestore.instance;
 
   //할 일 검색
-  Stream<QuerySnapshot> get getTodo =>
-      _service.collection(FirestorePath.todo()).snapshots();
+  Stream<QuerySnapshot> get getTodo => _service.collection(FirestorePath.todo()).snapshots();
 
   //할 일 추가 메서드
   void addTodo(TodoModel todo){
-    FirebaseFirestore.instance.collection('todo').add({
+    FirebaseFirestore.instance.collection(FirestorePath.todo()).add({
       'title': todo.title,
       'isDone': todo.isDone,
       'authorUid': 'currentUserId'
@@ -23,12 +22,12 @@ class FirestoreDatabase {
 
   //할 일 삭제 메서드
   void deleteTodo(DocumentSnapshot doc){
-    FirebaseFirestore.instance.collection('todo').doc(doc.id).delete();
+    FirebaseFirestore.instance.collection(FirestorePath.todo()).doc(doc.id).delete();
   }
 
   //할 일 완료/미완료 메서드
   void toggleTodo(DocumentSnapshot doc){
-    FirebaseFirestore.instance.collection('todo').doc(doc.id).update({
+    FirebaseFirestore.instance.collection(FirestorePath.todo()).doc(doc.id).update({
       'isDone': !doc['isDone'],
     });
   }

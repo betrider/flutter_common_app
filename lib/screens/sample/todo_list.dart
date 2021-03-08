@@ -51,7 +51,7 @@ class _TodoState extends State<_Todo> {
                   child: Text('추가'),
                   onPressed: () => context
                       .read<FirestoreDatabase>()
-                      .addTodo(TodoModel(_todoController.text)),
+                      .addTodo(TodoModel(title: _todoController.text)),
                 )
               ],
             ),
@@ -78,7 +78,7 @@ class _TodoState extends State<_Todo> {
 
   //할 일 객체를 ListTitle 형태로 변경하는 메서드
   Widget _buildItemWidget(DocumentSnapshot doc) {
-    final todo = TodoModel(doc['title'], isDone: doc['isDone']);
+    final todo = TodoModel.fromFireStore(doc);
     return ListTile(
       onTap: () => context.read<FirestoreDatabase>().toggleTodo(doc),
       title: Text(
