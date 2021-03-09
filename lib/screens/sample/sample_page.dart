@@ -28,6 +28,22 @@ class _SamplePageState extends State<SamplePage> {
               'You have pushed the button this many times:',
             ),
             Text(
+              'You have pushed the button this many times:',
+              style: TextStyle(fontFamily: 'NotoSans')
+            ),
+            Text(
+              'You have pushed the button this many times:',
+              style: TextStyle(fontWeight: FontWeight.w700)
+            ),
+            Text(
+              'You have pushed the button this many times:',
+              style: TextStyle(fontFamily: 'NotoSans', fontWeight: FontWeight.w700)
+            ),
+            Text(
+              'You have pushed the button this many times:',
+              style: MyStyle.kSubtitleTextStyle
+            ),
+            Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
