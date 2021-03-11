@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_common_app/utilities/index.dart';
 
-class MyString {
-  const MyString();
+class AppString {
+  AppString._();
 
   ///성공했습니다.
   static const String SUCCESS_MESSAGE = "성공했습니다.";

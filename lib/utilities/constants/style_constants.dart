@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_common_app/utilities/index.dart';
 
-const String _fontFamily = 'NotoSans';
+const String _fontFamily = AppFontFamily.notoSans;
 
-class MyStyle {
-  const MyStyle();
+class AppStyle {
+  AppStyle._();
 
   ///메인 타이틀
   static const kMainTitleTextStyle = TextStyle(

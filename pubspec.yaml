@@ -26,7 +26,6 @@ dependencies:
 
   #디자인
   cupertino_icons: ^1.0.2
-  #flutter_neumorphic: ^3.0.4+1 #null-safety 나오면 해제
 
   #상태관리
   provider: ^5.0.0

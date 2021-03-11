@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_common_app/utilities/index.dart';
 
-class MyColor {
-  const MyColor();
+class AppColor {
+  AppColor._();
 
   // Colors.grey
   static const Color kColorsGrey100 = Color(0xFFF5F5F5);

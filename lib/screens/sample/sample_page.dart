@@ -41,7 +41,7 @@ class _SamplePageState extends State<SamplePage> {
             ),
             Text(
               'You have pushed the button this many times:',
-              style: MyStyle.kSubtitleTextStyle
+              style: AppStyle.kSubtitleTextStyle
             ),
             Text(
               '$_counter',
