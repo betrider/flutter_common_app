@@ -18,6 +18,7 @@ export 'package:path_provider/path_provider.dart';
 export 'package:hive/hive.dart';
 export 'package:google_sign_in/google_sign_in.dart';
 export 'package:logger/logger.dart';
+export 'package:fluttertoast/fluttertoast.dart';
 
 // Models
 export 'package:flutter_common_app/models/models.dart';

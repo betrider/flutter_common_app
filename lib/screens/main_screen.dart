@@ -1,15 +1,36 @@
 import 'package:flutter_common_app/utilities/index.dart';
 
+DateTime? _firstTouchTime; //뒤로가기 버튼 첫번째 누른 시간
+DateTime? _secondTouchTime; //뒤로가기 버튼 두번째 누른 시간
 class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     logger.i('MainScreen build');
-    return Scaffold(
-      appBar: MainAppBar(),
-      body: MainBody(),
-      bottomNavigationBar: MainBottomNavigationBar(),
+    return WillPopScope(
+      onWillPop: _onBackPressed,
+      child: Scaffold(
+        appBar: MainAppBar(),
+        body: SafeArea(child: MainBody()),
+        bottomNavigationBar: MainBottomNavigationBar(),
+      ),
     );
   }
+}
+
+Future<bool> _onBackPressed() async{
+  if(_firstTouchTime == null){
+    Fluttertoast.showToast(msg: AppString.APP_CLOSE_MESSAGE1);
+    _firstTouchTime = DateTime.now();
+  }else{
+    _secondTouchTime = DateTime.now();
+    if(_secondTouchTime!.difference(_firstTouchTime!).inSeconds <= 2){
+      SystemNavigator.pop();
+    }else{
+      Fluttertoast.showToast(msg: AppString.APP_CLOSE_MESSAGE1);
+      _firstTouchTime = DateTime.now();
+    }
+  }
+  return false;
 }
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -46,8 +67,7 @@ class MainBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     logger.i('build MainBody');
-    return currentTab[
-        context.watch<BottomNavigationBarProvider>().currentIndex];
+    return currentTab[context.watch<BottomNavigationBarProvider>().currentIndex];
   }
 }
 
