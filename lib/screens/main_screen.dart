@@ -2,6 +2,7 @@ import 'package:flutter_common_app/utilities/index.dart';
 
 DateTime? _firstTouchTime; //뒤로가기 버튼 첫번째 누른 시간
 DateTime? _secondTouchTime; //뒤로가기 버튼 두번째 누른 시간
+
 class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,15 +18,15 @@ class MainScreen extends StatelessWidget {
   }
 }
 
-Future<bool> _onBackPressed() async{
-  if(_firstTouchTime == null){
+Future<bool> _onBackPressed() async {
+  if (_firstTouchTime == null) {
     Fluttertoast.showToast(msg: AppString.APP_CLOSE_MESSAGE1);
     _firstTouchTime = DateTime.now();
-  }else{
+  } else {
     _secondTouchTime = DateTime.now();
-    if(_secondTouchTime!.difference(_firstTouchTime!).inSeconds <= 2){
+    if (_secondTouchTime!.difference(_firstTouchTime!).inSeconds <= 2) {
       SystemNavigator.pop();
-    }else{
+    } else {
       Fluttertoast.showToast(msg: AppString.APP_CLOSE_MESSAGE1);
       _firstTouchTime = DateTime.now();
     }
@@ -55,26 +56,29 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 }
 
-var currentTab = [
-  FirstMainScreen(),
-  SecondMainScreen(),
-  ThirdMainScreen(),
-  FourthMainScreen(),
-  FifthMainScreen(),
-];
-
 class MainBody extends StatelessWidget {
+  final List<Widget> _children = [
+    FirstMainScreen(),
+    SecondMainScreen(),
+    ThirdMainScreen(),
+    FourthMainScreen(),
+    FifthMainScreen()
+  ];
   @override
   Widget build(BuildContext context) {
-    logger.i('build MainBody');
-    return currentTab[context.watch<BottomNavigationBarProvider>().currentIndex];
+    // logger.i('build MainBody');
+    // return currentTab[context.watch<BottomNavigationBarProvider>().currentIndex];
+    return IndexedStack(
+      index: context.watch<BottomNavigationBarProvider>().currentIndex,
+      children: _children,
+    );
   }
 }
 
 class MainBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    logger.i('build MainBottom');
+    // logger.i('build MainBottom');
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       currentIndex: context.watch<BottomNavigationBarProvider>().currentIndex,
