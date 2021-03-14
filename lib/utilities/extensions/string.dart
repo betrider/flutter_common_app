@@ -1,11 +1,18 @@
-extension NumberParsing on String {
-  int parseInt() {
-    return int.parse(this);
+extension StringSC on String {
+  
+  int? toInt({int radix = 10}) {
+    try {
+      return int.parse(this, radix: radix);
+    } catch (error) {
+      return null;
+    }
   }
-}
 
-extension ExtendedString on String {
-  bool get isValidName {
-    return !this.contains(new RegExp(r'[0–9]'));
+  double? toDouble() {
+    try {
+      return double.parse(this);
+    } catch (error) {
+      return null;
+    }
   }
 }

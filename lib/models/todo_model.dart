@@ -1,8 +1,8 @@
 import 'package:flutter_common_app/utilities/index.dart';
 
-class TodoModel {
-  String? title;
-  bool isDone;
+class TodoModel extends Equatable{
+  final String? title;
+  final bool isDone;
 
   TodoModel({this.title, this.isDone = false});
 
@@ -27,4 +27,8 @@ class TodoModel {
       isDone: map['isDone'],
     );
   }
+
+  @override
+  List<Object?> get props => [title, isDone];
+  
 }

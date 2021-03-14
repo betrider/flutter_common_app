@@ -27,6 +27,9 @@ dependencies:
   #디자인
   cupertino_icons: ^1.0.2
 
+  #equatable
+  equatable: ^2.0.0
+
   #상태관리
   provider: ^5.0.0
 
@@ -96,7 +99,7 @@ dependencies:
   #google_mobile_ads: ^0.11.0+2 #보류
 
   #extension 기능 패키지
-  supercharged: ^2.0.0
+  #supercharged: ^2.0.0
 
 dev_dependencies:
   flutter_test:
