@@ -2,6 +2,22 @@ import 'package:flutter/material.dart';
 
 extension ExtendedText on Widget {
 
+  ///시작 정렬
+  addAlignCenterStart() {
+    return Align(
+      alignment: AlignmentDirectional.centerStart,
+      child: this,
+    );
+  }
+
+  ///끝 정렬
+  addAlignCenterEnd() {
+    return Align(
+      alignment: AlignmentDirectional.centerEnd,
+      child: this,
+    );
+  }
+
   ///패딩 전체 추가
   addPaddingAll(double value){
     return Padding(

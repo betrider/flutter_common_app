@@ -95,6 +95,12 @@ dependencies:
   #공유 기능
   share: ^2.0.0
 
+  #enum 변환 패키지
+  enum_to_string: ^2.0.0-nullsafety.1
+
+  #동적 화면
+  #flutter_screenutil: ^5.0.0-nullsafety.10
+
   #광고
   #google_mobile_ads: ^0.11.0+2 #보류
 
