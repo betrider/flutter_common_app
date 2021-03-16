@@ -1,4 +1,4 @@
-extension StringSC on String {
+extension StringExtension on String {
   
   int? toInt({int radix = 10}) {
     try {
@@ -14,5 +14,9 @@ extension StringSC on String {
     } catch (error) {
       return null;
     }
+  }
+
+  get toUpper {
+    return this[0].toUpperCase() + this.substring(1);
   }
 }
