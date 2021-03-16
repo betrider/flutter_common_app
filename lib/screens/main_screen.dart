@@ -9,9 +9,9 @@ class MainScreen extends StatelessWidget {
     logger.i('MainScreen build');
     return WillPopScope(
       onWillPop: _onBackPressed,
-      child: Scaffold(
+      child: CustomScaffold(
         appBar: MainAppBar(),
-        body: SafeArea(child: MainBody()),
+        body: MainBody(),
         bottomNavigationBar: MainBottomNavigationBar(),
       ),
     );

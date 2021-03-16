@@ -16,7 +16,7 @@ class _SamplePageState extends State<SamplePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CustomScaffold(
       appBar: AppBar(
         title: Text('Sample Page'),
       ),

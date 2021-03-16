@@ -32,7 +32,7 @@ class _TodoState extends State<_Todo> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CustomScaffold(
       appBar: AppBar(
         title: Text('남은 할 일'),
       ),

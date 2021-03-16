@@ -11,7 +11,7 @@ class Splash extends State<SplashScreen> {
     Timer(Duration(seconds: 2), () {
       Navigator.pushReplacementNamed(context, '/main');
     });
-    return Scaffold(
+    return CustomScaffold(
       body: Container(
         decoration: BoxDecoration(color: Colors.white),
         child: Center(

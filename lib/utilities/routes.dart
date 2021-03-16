@@ -22,7 +22,7 @@ class RouteGenerator {
 
   static Route<dynamic> _errorRoute(){
     return MaterialPageRoute(builder: (context){
-      return Scaffold(
+      return CustomScaffold(
         appBar: AppBar(
           title: Text('ERROR'),
           centerTitle: true,
