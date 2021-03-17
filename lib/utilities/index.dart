@@ -20,6 +20,8 @@ export 'package:google_sign_in/google_sign_in.dart';
 export 'package:logger/logger.dart';
 export 'package:fluttertoast/fluttertoast.dart';
 export 'package:equatable/equatable.dart';
+export 'package:photo_view/photo_view.dart';
+export 'package:cached_network_image/cached_network_image.dart';
 
 // Models
 export 'package:flutter_common_app/models/models.dart';

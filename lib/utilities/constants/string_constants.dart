@@ -1,5 +1,3 @@
-import 'package:flutter_common_app/utilities/index.dart';
-
 class AppString {
   AppString._();
 

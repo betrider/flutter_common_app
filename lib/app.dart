@@ -12,3 +12,25 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+/* class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      initialRoute: '/',
+      onGenerateRoute: RouteGenerator.generateRoute,
+      theme: context.watch<ThemeProvider>().currentTheme,
+      home: Scaffold(
+        body: Center(
+          child: Container(
+            child: ElevatedButton(
+              child: Text('44'),
+              onPressed: () => customShowDialog(context: context),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+} */
