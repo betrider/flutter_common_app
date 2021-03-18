@@ -52,7 +52,9 @@ class CustomAlertDialogYN extends StatelessWidget {
               ),
               TextButton(
                 child: Text("네"),
-                onPressed: yesButtonFunction(),
+                onPressed: (){
+                  yesButtonFunction();
+                },
               ),
             ],
           )
@@ -68,7 +70,9 @@ class CustomAlertDialogYN extends StatelessWidget {
               ),
               CupertinoDialogAction(
                 child: Text("네"),
-                onPressed: yesButtonFunction(),
+                onPressed: (){
+                  yesButtonFunction();
+                },
               ),
             ],
           );

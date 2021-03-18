@@ -14,6 +14,10 @@ class MyApp extends StatelessWidget {
   }
 }
 
+void test() {
+  print('1112');
+}
+
 class Test extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -27,17 +31,17 @@ class Test extends StatelessWidget {
                 child: Text('44'),
                 onPressed: () => customShowDialogOK(context: context),
               ),
-              // ElevatedButton(
-              //   child: Text('55'),
-              //   onPressed: () => customShowDialogYN(
-              //     context: context,
-              //     contentText: '11',
-              //     leftButtonText: '123',
-              //     leftButtonFunction: () { print('123'); },
-              //     rightButtonText: '234',
-              //     rightButtonFunction: () { print('234');},
-              //     ),
-              // ),
+              ElevatedButton(
+                child: Text('55'),
+                onPressed: () => customShowDialogYN(
+                    context: context, yesButtonFunction: test),
+              ),
+              ElevatedButton(
+                child: Text('66'),
+                onPressed: () {
+                  customSnackBar(context: context, content: '성공했습니다.');
+                },
+              ),
             ],
           ),
         ),
