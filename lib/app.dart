@@ -8,29 +8,40 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       onGenerateRoute: RouteGenerator.generateRoute,
       theme: context.watch<ThemeProvider>().currentTheme,
-      home: SplashScreen(),
+      //home: SplashScreen(),
+      home: Test(),
     );
   }
 }
 
-/* class MyApp extends StatelessWidget {
+class Test extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      initialRoute: '/',
-      onGenerateRoute: RouteGenerator.generateRoute,
-      theme: context.watch<ThemeProvider>().currentTheme,
-      home: Scaffold(
-        body: Center(
-          child: Container(
-            child: ElevatedButton(
-              child: Text('44'),
-              onPressed: () => customShowDialog(context: context),
-            ),
+    return Scaffold(
+      body: Center(
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                child: Text('44'),
+                onPressed: () => customShowDialogOK(context: context),
+              ),
+              // ElevatedButton(
+              //   child: Text('55'),
+              //   onPressed: () => customShowDialogYN(
+              //     context: context,
+              //     contentText: '11',
+              //     leftButtonText: '123',
+              //     leftButtonFunction: () { print('123'); },
+              //     rightButtonText: '234',
+              //     rightButtonFunction: () { print('234');},
+              //     ),
+              // ),
+            ],
           ),
         ),
       ),
     );
   }
-} */
+}

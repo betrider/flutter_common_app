@@ -1,22 +1,36 @@
 import 'package:flutter_common_app/utilities/index.dart';
 import 'package:flutter/cupertino.dart';
 
-void customShowDialog({required BuildContext context, String title = 'title', String content = 'content'}) {
+///YESNO 다이얼로그
+void customShowDialogYN(
+    {required BuildContext context,
+    String title = 'title',
+    String content = 'content',
+    required Function yesButtonFunction}) {
   showDialog(
     context: context,
     barrierDismissible: true, //외부 클릭시 메시지 사라지게할지 여부
     builder: (BuildContext context) {
       // return object of type Dialog
-      return CustomAlertDialog(title: title, content: content);
+      return CustomAlertDialogYN(
+        title: title,
+        content: content,
+        yesButtonFunction: yesButtonFunction,
+      );
     },
   );
 }
 
-class CustomAlertDialog extends StatelessWidget {
+class CustomAlertDialogYN extends StatelessWidget {
   final String title;
   final String content;
+  final Function yesButtonFunction;
 
-  CustomAlertDialog({required this.title, required this.content});
+  CustomAlertDialogYN({
+    required this.title,
+    required this.content,
+    required this.yesButtonFunction,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +39,20 @@ class CustomAlertDialog extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
             ),
-            scrollable: true, //전체 스크롤
+            scrollable: true,
+            //전체 스크롤
             title: Text(title),
             content: Text(content), //content: SingleChildScrollView(child: Text("Alert Dialog body")), //바디만 스크롤
             actions: <Widget>[
               TextButton(
-                child: Text("네"),
+                child: Text("아니오"),
                 onPressed: () {
                   Navigator.pop(context);
                 },
+              ),
+              TextButton(
+                child: Text("네"),
+                onPressed: yesButtonFunction(),
               ),
             ],
           )
@@ -42,16 +61,19 @@ class CustomAlertDialog extends StatelessWidget {
             content: Text(content),
             actions: <Widget>[
               CupertinoDialogAction(
-                child: Text("네"),
+                child: Text("아니오"),
                 onPressed: () {
                   Navigator.pop(context);
                 },
+              ),
+              CupertinoDialogAction(
+                child: Text("네"),
+                onPressed: yesButtonFunction(),
               ),
             ],
           );
   }
 }
-
 
 /* void customShowDialog({required BuildContext context, String? contentText, String? leftButtonText, String? rightButtonText, Function? leftButtonFunction, Function? rightButtonFunction}) {
   showDialog(
