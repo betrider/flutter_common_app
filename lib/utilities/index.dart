@@ -4,7 +4,7 @@ export 'dart:async';
 
 // Flutter Packages
 export 'package:flutter/material.dart';
-export 'package:flutter/foundation.dart';
+export 'package:flutter/foundation.dart' show kDebugMode;
 export 'package:flutter/services.dart';
 
 // Firebase & FireStore Packages
@@ -12,7 +12,7 @@ export 'package:firebase_core/firebase_core.dart';
 export 'package:firebase_auth/firebase_auth.dart';
 export 'package:cloud_firestore/cloud_firestore.dart';
 
-// Others
+// Others Packages
 export 'package:provider/provider.dart';
 export 'package:path_provider/path_provider.dart';
 export 'package:hive/hive.dart';
