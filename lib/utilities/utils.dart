@@ -32,4 +32,17 @@ class Utils {
   double screenWidth(BuildContext context, {double dividedBy = 1}) {
     return screenSize(context).width / dividedBy;
   }
+
+  ///URL연결
+  Future<void> urlLauncher(String url) async{
+  //사이트연결 : 'https://flutter.dev'
+  //전화연결 : 'tel:010 1234 5678'
+  //문자연결 : 'sms:010 1234 5678'
+  //이메일연결 : 'mailto:sample@naver.com?subject=제목&body=내용'
+  if (await canLaunch(url)) {
+    await launch(url);
+  }else{
+    throw 'Could not launch $url';
+  }
+}
 }

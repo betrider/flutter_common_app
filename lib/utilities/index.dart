@@ -22,6 +22,8 @@ export 'package:fluttertoast/fluttertoast.dart';
 export 'package:equatable/equatable.dart';
 export 'package:photo_view/photo_view.dart';
 export 'package:cached_network_image/cached_network_image.dart';
+export 'package:flutter_local_notifications/flutter_local_notifications.dart';
+export 'package:url_launcher/url_launcher.dart';
 
 // Models
 export 'package:flutter_common_app/models/models.dart';
