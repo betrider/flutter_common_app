@@ -83,6 +83,9 @@ dependencies:
   #소셜로그인
   google_sign_in: ^5.0.0
 
+  #구글 폰트
+  #google_fonts: ^2.0.0
+
   #로그
   logger: ^1.0.0-nullsafety.0
 

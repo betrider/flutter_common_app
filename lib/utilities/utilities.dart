@@ -1,6 +1,6 @@
 export 'constants/constants.dart';
 export 'extensions/extensions.dart';
-export 'font_family.dart';
+export 'font.dart';
 export 'index.dart';
 export 'logger.dart';
 export 'routes.dart';

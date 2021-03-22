@@ -32,4 +32,19 @@ extension IterableSC<T> on Iterable<T> {
     return reduce(
         (value, element) => comparator(value, element) < 0 ? value : element);
   }
+
+  int count([bool Function(T element)? test]) {
+    final testFn = test ?? (_) => true;
+
+    if (isEmpty) {
+      return 0;
+    }
+
+    return map((element) => testFn(element) ? 1 : 0)
+        .reduce((value, element) => value + element);
+  }
+
+  Iterable<T> filter(bool Function(T element) test) {
+    return where(test);
+  }
 }
