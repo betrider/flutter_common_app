@@ -1,5 +1,4 @@
 import 'package:flutter_common_app/utilities/index.dart';
-import 'package:flutter/cupertino.dart';
 
 ///YESNO 다이얼로그
 void customShowDialogYN(

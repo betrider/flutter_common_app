@@ -118,11 +118,8 @@ class _SamplePageState extends State<SamplePage> {
               ElevatedButton(
                 child: Text('singlechildscrollview'),
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => TestExpandedSCSV()
-                      ));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => TestExpandedSCSV()));
                 },
               ),
               ElevatedButton(
@@ -133,6 +130,24 @@ class _SamplePageState extends State<SamplePage> {
                       MaterialPageRoute(
                         builder: (_) => TestExpandedCSV(),
                       ));
+                },
+              ),
+              ElevatedButton(
+                child: Text('showBottomSheet'),
+                onPressed: () {},
+              ),
+              ElevatedButton(
+                child: Text('showDatePicker'),
+                onPressed: () async{
+                  String selectedDate = await customDatePicker(context);
+                  print(selectedDate);
+                },
+              ),
+              ElevatedButton(
+                child: Text('showTimePicker'),
+                onPressed: () async {
+                  String selectedTime = await customTimePicker(context);
+                  print(selectedTime);
                 },
               ),
             ],

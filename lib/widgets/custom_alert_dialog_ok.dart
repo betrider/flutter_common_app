@@ -1,5 +1,4 @@
 import 'package:flutter_common_app/utilities/index.dart';
-import 'package:flutter/cupertino.dart';
 
 ///OK 다이얼로그
 void customShowDialogOK({required BuildContext context, String title = 'title', String content = 'content'}) {
