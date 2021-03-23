@@ -134,7 +134,10 @@ class _SamplePageState extends State<SamplePage> {
               ),
               ElevatedButton(
                 child: Text('showBottomSheet'),
-                onPressed: () {},
+                onPressed: () async{
+                  String selectedData = await customBottomSheet(context,['설정','더보기','나가기']);
+                  print(selectedData);
+                },
               ),
               ElevatedButton(
                 child: Text('showDatePicker'),
