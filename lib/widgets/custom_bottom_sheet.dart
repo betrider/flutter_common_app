@@ -15,6 +15,7 @@ Future<String> materialBottomSheet(BuildContext context, List<String> list) asyn
           child: Wrap(
             children: List.generate(list.length, (index) {
               return ListTile(
+                // leading: Icon(Icons.ac_unit),
                 title: Text(list[index]),
                 onTap: () {
                   rtnValue = list[index];
@@ -33,15 +34,27 @@ Future<String> cupertinoBottomSheet(BuildContext context, List<String> list) asy
   await showCupertinoModalPopup(
     context: context,
     builder: (BuildContext context) => CupertinoActionSheet(
-      actions: List.generate(list.length, (index) {
-              return CupertinoActionSheetAction(
-                child: Text(list[index]),
-                onPressed: (){
-                  rtnValue = list[index];
-                  Navigator.pop(context);
-                },
-              );
-            }),
+      // title: Text('title'),
+      // message: Text('message'),
+      actions: List.generate(
+        list.length,
+        (index) {
+          return CupertinoActionSheetAction(
+            child: Text(list[index]),
+            onPressed: () {
+              rtnValue = list[index];
+              Navigator.pop(context);
+            },
+          );
+        },
+      ),
+      cancelButton: CupertinoActionSheetAction(
+        child: Text('취소'),
+        onPressed: (){
+          rtnValue = '';
+          Navigator.pop(context);
+        },
+      ),
     ),
   );
   return rtnValue;

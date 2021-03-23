@@ -135,7 +135,7 @@ class _SamplePageState extends State<SamplePage> {
               ElevatedButton(
                 child: Text('showBottomSheet'),
                 onPressed: () async{
-                  String selectedData = await customBottomSheet(context,['설정','더보기','나가기']);
+                  String selectedData = await customBottomSheet(context,['Item1','Item2','Item3']);
                   print(selectedData);
                 },
               ),
