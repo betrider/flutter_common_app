@@ -1,12 +1,37 @@
 import 'package:flutter_common_app/utilities/index.dart';
 
-class FifthMainScreen extends StatelessWidget {
+class FifthMainScreen extends StatefulWidget {
+  @override
+  _FifthMainScreenState createState() => _FifthMainScreenState();
+}
+
+class _FifthMainScreenState extends State<FifthMainScreen> with AutomaticKeepAliveClientMixin{
+
+  int number = 0;
+
+  @override
+  bool get wantKeepAlive => false; //화면 최초 호출 후 데이터 보존 여부
+
   @override
   Widget build(BuildContext context) {
-    logger.i('FifthMainScreen');
+    super.build(context);
+    print('FifthMainScreen');
     return Center(
-      child: Container(
-        child: Text('FifthMainScreen'),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            child: Text('FifthMainScreen:$number'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              setState(() {
+                number += 1;
+              });
+            },
+            child: Text('UP'),
+          )
+        ],
       ),
     );
   }
