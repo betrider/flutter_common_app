@@ -3,14 +3,9 @@ import 'package:flutter_common_app/utilities/index.dart';
 DateTime? _firstTouchTime; //뒤로가기 버튼 첫번째 누른 시간
 DateTime? _secondTouchTime; //뒤로가기 버튼 두번째 누른 시간
 
-class MainScreen extends StatefulWidget {
+class MainScreen extends StatelessWidget {
   @override
-  _MainScreenState createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
-  @override
-  Widget build(BuildContext context) {    
+  Widget build(BuildContext context) {
     print('MainScreen build');
     return WillPopScope(
       onWillPop: _onBackPressed,
@@ -23,7 +18,7 @@ class _MainScreenState extends State<MainScreen> {
   }
 }
 
-class MainAppBar extends StatelessWidget implements PreferredSizeWidget{
+class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => Size.fromHeight(50);
 
@@ -32,7 +27,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget{
     return AppBar(
       title: InkWell(
         onTap: () {
-          if (!kDebugMode) {
+          if (kDebugMode) {
             Navigator.pushNamed(context, '/sample');
           } else {
             context.read<BottomNavigationBarProvider>().currentIndex = 0;
@@ -52,7 +47,7 @@ class MainBottomNavigationBar extends StatelessWidget {
       type: BottomNavigationBarType.fixed,
       currentIndex: context.watch<BottomNavigationBarProvider>().currentIndex,
       backgroundColor: Colors.white,
-      onTap: (index){
+      onTap: (index) {
         context.read<BottomNavigationBarProvider>().currentIndex = index;
       },
       items: [
@@ -82,13 +77,11 @@ class MainBottomNavigationBar extends StatelessWidget {
 }
 
 class MainBody extends StatefulWidget {
-
   @override
   _MainBodyState createState() => _MainBodyState();
 }
 
 class _MainBodyState extends State<MainBody> {
-
   final List<Widget> _children = [
     FirstMainScreen(),
     SecondMainScreen(),
@@ -97,22 +90,21 @@ class _MainBodyState extends State<MainBody> {
     FifthMainScreen()
   ];
 
-  final pageController = PageController(initialPage:0);
+  final pageController = PageController(initialPage: 0);
 
   @override
-  void dispose() { 
+  void dispose() {
     pageController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-
     var index = context.watch<BottomNavigationBarProvider>().currentIndex;
 
-    WidgetsBinding.instance!.addPostFrameCallback((_){
-        print('addPostFrameCallback');
-        pageController.jumpToPage(index);
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      print('addPostFrameCallback');
+      pageController.jumpToPage(index);
     });
 
     return PageView(

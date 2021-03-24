@@ -5,6 +5,7 @@ import 'package:flutter_common_app/screens/sample/sample_screens/test_expanded_s
 import 'package:flutter_common_app/screens/sample/sample_screens/test_hive.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test_notifications.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test.dart';
+import 'package:flutter_common_app/screens/sample/sample_screens/test_overflow.dart';
 import 'package:flutter_common_app/utilities/index.dart';
 
 import 'sample_screens/test_todo_list.dart';
@@ -151,6 +152,16 @@ class _SamplePageState extends State<SamplePage> {
                 onPressed: () async {
                   String selectedTime = await customTimePicker(context);
                   print(selectedTime);
+                },
+              ),
+              ElevatedButton(
+                child: Text('testOverflow'),
+                onPressed: () async {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => TestOverflow(),
+                      ));
                 },
               ),
             ],
