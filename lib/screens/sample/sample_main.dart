@@ -6,6 +6,7 @@ import 'package:flutter_common_app/screens/sample/sample_screens/test_hive.dart'
 import 'package:flutter_common_app/screens/sample/sample_screens/test_notifications.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test_overflow.dart';
+import 'package:flutter_common_app/screens/sample/sample_screens/test_showdialog.dart';
 import 'package:flutter_common_app/utilities/index.dart';
 
 import 'sample_screens/test_todo_list.dart';
@@ -134,10 +135,13 @@ class _SamplePageState extends State<SamplePage> {
                 },
               ),
               ElevatedButton(
-                child: Text('showBottomSheet'),
-                onPressed: () async{
-                  String selectedData = await customBottomSheet(context,['Item1','Item2','Item3']);
-                  print(selectedData);
+                child: Text('showDialog'),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => TestShowDialog(),
+                      ));
                 },
               ),
               ElevatedButton(

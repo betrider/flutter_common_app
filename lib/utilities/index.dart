@@ -26,6 +26,7 @@ export 'package:cached_network_image/cached_network_image.dart';
 export 'package:flutter_local_notifications/flutter_local_notifications.dart';
 export 'package:url_launcher/url_launcher.dart';
 export 'package:intl/intl.dart' show DateFormat;
+export 'package:adaptive_dialog/adaptive_dialog.dart';
 
 // Models
 export 'package:flutter_common_app/models/models.dart';
