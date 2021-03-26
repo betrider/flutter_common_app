@@ -5,8 +5,8 @@ class FourthMainScreen extends StatefulWidget {
   _FourthMainScreenState createState() => _FourthMainScreenState();
 }
 
-class _FourthMainScreenState extends State<FourthMainScreen> with AutomaticKeepAliveClientMixin{
-
+class _FourthMainScreenState extends State<FourthMainScreen>
+    with AutomaticKeepAliveClientMixin {
   int number = 0;
 
   @override
@@ -16,22 +16,25 @@ class _FourthMainScreenState extends State<FourthMainScreen> with AutomaticKeepA
   Widget build(BuildContext context) {
     super.build(context);
     print('FourthMainScreen');
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            child: Text('FourthMainScreen:$number'),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              setState(() {
-                number += 1;
-              });
-            },
-            child: Text('UP'),
-          )
-        ],
+    return Container(
+      color: Colors.yellow,
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              child: Text('FourthMainScreen:$number'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  number += 1;
+                });
+              },
+              child: Text('UP'),
+            )
+          ],
+        ),
       ),
     );
   }

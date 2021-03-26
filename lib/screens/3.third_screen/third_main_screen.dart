@@ -5,8 +5,8 @@ class ThirdMainScreen extends StatefulWidget {
   _ThirdMainScreenState createState() => _ThirdMainScreenState();
 }
 
-class _ThirdMainScreenState extends State<ThirdMainScreen> with AutomaticKeepAliveClientMixin{
-
+class _ThirdMainScreenState extends State<ThirdMainScreen>
+    with AutomaticKeepAliveClientMixin {
   int number = 0;
 
   @override
@@ -16,22 +16,25 @@ class _ThirdMainScreenState extends State<ThirdMainScreen> with AutomaticKeepAli
   Widget build(BuildContext context) {
     super.build(context);
     print('ThirdMainScreen');
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            child: Text('ThirdMainScreen:$number'),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              setState(() {
-                number += 1;
-              });
-            },
-            child: Text('UP'),
-          )
-        ],
+    return Container(
+      color: Colors.green,
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              child: Text('ThirdMainScreen:$number'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  number += 1;
+                });
+              },
+              child: Text('UP'),
+            )
+          ],
+        ),
       ),
     );
   }

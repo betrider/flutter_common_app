@@ -5,8 +5,8 @@ class SecondMainScreen extends StatefulWidget {
   _SecondMainScreenState createState() => _SecondMainScreenState();
 }
 
-class _SecondMainScreenState extends State<SecondMainScreen> with AutomaticKeepAliveClientMixin{
-
+class _SecondMainScreenState extends State<SecondMainScreen>
+    with AutomaticKeepAliveClientMixin {
   int number = 0;
 
   @override
@@ -16,22 +16,25 @@ class _SecondMainScreenState extends State<SecondMainScreen> with AutomaticKeepA
   Widget build(BuildContext context) {
     super.build(context);
     print('SecondMainScreen');
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            child: Text('SecondMainScreen:$number'),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              setState(() {
-                number += 1;
-              });
-            },
-            child: Text('UP'),
-          )
-        ],
+    return Container(
+      color: Colors.blue,
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              child: Text('SecondMainScreen:$number'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  number += 1;
+                });
+              },
+              child: Text('UP'),
+            )
+          ],
+        ),
       ),
     );
   }

@@ -135,6 +135,26 @@ class _SamplePageState extends State<SamplePage> {
                 },
               ),
               ElevatedButton(
+                child: Text('testToast'),
+                onPressed: () {
+                  displayToast(
+                    message: 'testToast',
+                    fontSize: 16,
+                    textColor: Colors.white,
+                    backgroundColor: Colors.red,
+                  );
+                },
+              ),
+              ElevatedButton(
+                child: Text('testSnackBar'),
+                onPressed: () {
+                  customSnackBar(
+                    context: context,
+                    content: 'testSnackBar',
+                  );
+                },
+              ),
+              ElevatedButton(
                 child: Text('showDialog'),
                 onPressed: () {
                   Navigator.push(
@@ -146,7 +166,7 @@ class _SamplePageState extends State<SamplePage> {
               ),
               ElevatedButton(
                 child: Text('showDatePicker'),
-                onPressed: () async{
+                onPressed: () async {
                   String selectedDate = await customDatePicker(context);
                   print(selectedDate);
                 },

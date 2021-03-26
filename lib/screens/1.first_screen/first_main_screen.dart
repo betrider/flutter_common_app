@@ -16,22 +16,25 @@ class _FirstMainScreenState extends State<FirstMainScreen>
   Widget build(BuildContext context) {
     super.build(context);
     print('FirstMainScreen');
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            child: Text('FirstMainScreen:$number'),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              setState(() {
-                number += 1;
-              });
-            },
-            child: Text('UP'),
-          )
-        ],
+    return Container(
+      color: Colors.red,
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              child: Text('FirstMainScreen:$number'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  number += 1;
+                });
+              },
+              child: Text('UP'),
+            )
+          ],
+        ),
       ),
     );
   }

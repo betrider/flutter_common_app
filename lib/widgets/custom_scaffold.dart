@@ -2,10 +2,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class CustomScaffold extends StatelessWidget {
-
   const CustomScaffold({
     Key? key,
     this.appBar,
+    this.bodyPadding = EdgeInsets.zero,
     this.body,
     this.floatingActionButton,
     this.floatingActionButtonLocation,
@@ -31,6 +31,7 @@ class CustomScaffold extends StatelessWidget {
   });
 
   final PreferredSizeWidget? appBar;
+  final EdgeInsetsGeometry bodyPadding;
   final Widget? body;
   final Widget? floatingActionButton;
   final FloatingActionButtonLocation? floatingActionButtonLocation;
@@ -58,28 +59,35 @@ class CustomScaffold extends StatelessWidget {
   Scaffold build(BuildContext context) {
     return Scaffold(
       appBar: appBar ?? null,
-      body: (body != null) ? SafeArea(child: body!) : null,
-      floatingActionButton : floatingActionButton ?? null,
-      floatingActionButtonLocation : floatingActionButtonLocation ?? null,
-      floatingActionButtonAnimator : floatingActionButtonAnimator ?? null,
-      persistentFooterButtons : persistentFooterButtons ?? null,
-      drawer : drawer ?? null,
-      onDrawerChanged : onDrawerChanged ?? null,
-      endDrawer : endDrawer ?? null,
-      onEndDrawerChanged : onEndDrawerChanged ?? null,
-      bottomNavigationBar : bottomNavigationBar ?? null,
-      bottomSheet : bottomSheet ?? null,
-      backgroundColor : backgroundColor ?? null,
-      resizeToAvoidBottomInset : resizeToAvoidBottomInset ?? null,
-      primary : primary,
-      drawerDragStartBehavior : drawerDragStartBehavior,
-      extendBody : extendBody,
-      extendBodyBehindAppBar : extendBodyBehindAppBar,
-      drawerScrimColor : drawerScrimColor ?? null,
-      drawerEdgeDragWidth : drawerEdgeDragWidth ?? null,
-      drawerEnableOpenDragGesture : drawerEnableOpenDragGesture,
-      endDrawerEnableOpenDragGesture : endDrawerEnableOpenDragGesture,
-      restorationId : restorationId ?? null,
+      body: (body != null)
+          ? SafeArea(
+              child: Padding(
+                padding: bodyPadding,
+                child: body!,
+              ),
+            )
+          : null,
+      floatingActionButton: floatingActionButton ?? null,
+      floatingActionButtonLocation: floatingActionButtonLocation ?? null,
+      floatingActionButtonAnimator: floatingActionButtonAnimator ?? null,
+      persistentFooterButtons: persistentFooterButtons ?? null,
+      drawer: drawer ?? null,
+      onDrawerChanged: onDrawerChanged ?? null,
+      endDrawer: endDrawer ?? null,
+      onEndDrawerChanged: onEndDrawerChanged ?? null,
+      bottomNavigationBar: bottomNavigationBar ?? null,
+      bottomSheet: bottomSheet ?? null,
+      backgroundColor: backgroundColor ?? null,
+      resizeToAvoidBottomInset: resizeToAvoidBottomInset ?? null,
+      primary: primary,
+      drawerDragStartBehavior: drawerDragStartBehavior,
+      extendBody: extendBody,
+      extendBodyBehindAppBar: extendBodyBehindAppBar,
+      drawerScrimColor: drawerScrimColor ?? null,
+      drawerEdgeDragWidth: drawerEdgeDragWidth ?? null,
+      drawerEnableOpenDragGesture: drawerEnableOpenDragGesture,
+      endDrawerEnableOpenDragGesture: endDrawerEnableOpenDragGesture,
+      restorationId: restorationId ?? null,
     );
   }
 }
