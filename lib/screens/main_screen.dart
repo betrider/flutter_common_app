@@ -47,7 +47,6 @@ class MainBottomNavigationBar extends StatelessWidget {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       currentIndex: context.watch<BottomNavigationBarProvider>().currentIndex,
-      backgroundColor: Colors.white,
       onTap: (index) {
         context.read<BottomNavigationBarProvider>().currentIndex = index;
       },
