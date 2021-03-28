@@ -200,6 +200,20 @@ class _SamplePageState extends State<SamplePage> {
                       ));
                 },
               ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/testArgument',
+                    arguments: TodoModel(title: 'title123', isDone: false)
+                    // arguments: <String, dynamic>{
+                    //   'title': 'title123',
+                    //   'isDone': false
+                    // },
+                  );
+                },
+                child: Text('Second page'),
+              ),
             ],
           ),
         ),

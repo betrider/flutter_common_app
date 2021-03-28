@@ -1,6 +1,7 @@
 // Dart Packages
 export 'dart:io' show Platform;
 export 'dart:async' show Timer;
+export 'dart:convert';
 
 // Flutter Packages
 export 'package:flutter/material.dart';

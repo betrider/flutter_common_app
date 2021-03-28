@@ -1,24 +1,31 @@
 import 'package:flutter_common_app/utilities/index.dart';
 
-class TodoModel extends Equatable{
+class TodoModel extends Equatable {
   final String? title;
   final bool isDone;
 
   TodoModel({this.title, this.isDone = false});
 
-  factory TodoModel.fromMap(Map map) {
+  @override
+  List<Object> get props => [title!, isDone];
+
+  Map<String, dynamic> toMap() {
+    return {
+      'title': title,
+      'isDone': isDone,
+    };
+  }
+
+  factory TodoModel.fromMap(Map<String, dynamic> map) {
     return TodoModel(
       title: map['title'],
-      isDone: map['id'],
+      isDone: map['isDone'],
     );
   }
 
-  factory TodoModel.fromJson(Map<String, dynamic> json) {
-    return TodoModel(
-      title: json['title'],
-      isDone: json['id'],
-    );
-  }
+  String toJson() => json.encode(toMap());
+
+  factory TodoModel.fromJson(String source) => TodoModel.fromMap(json.decode(source));
 
   factory TodoModel.fromFireStore(DocumentSnapshot doc) {
     Map map = doc.data()!;
@@ -27,8 +34,4 @@ class TodoModel extends Equatable{
       isDone: map['isDone'],
     );
   }
-
-  @override
-  List<Object?> get props => [title, isDone];
-  
 }
