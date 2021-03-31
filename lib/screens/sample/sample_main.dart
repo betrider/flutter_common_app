@@ -2,6 +2,7 @@ import 'package:flutter_common_app/screens/sample/sample_screens/test_LayoutBuil
 import 'package:flutter_common_app/screens/sample/sample_screens/test_MediaQuery.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test_expanded_custom_scroll_view.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test_expanded_single_child_scroll_view.dart';
+import 'package:flutter_common_app/screens/sample/sample_screens/test_hero.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test_hive.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test_notifications.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test.dart';
@@ -185,6 +186,16 @@ class _SamplePageState extends State<SamplePage> {
                       context,
                       MaterialPageRoute(
                         builder: (_) => TestOverflow(),
+                      ));
+                },
+              ),
+              ElevatedButton(
+                child: Text('testHero'),
+                onPressed: () async {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => TestHero(),
                       ));
                 },
               ),
