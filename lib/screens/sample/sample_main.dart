@@ -8,9 +8,10 @@ import 'package:flutter_common_app/screens/sample/sample_screens/test_notificati
 import 'package:flutter_common_app/screens/sample/sample_screens/test.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test_overflow.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test_showdialog.dart';
+import 'package:flutter_common_app/screens/sample/sample_screens/test_stateful_widget.dart';
+import 'package:flutter_common_app/screens/sample/sample_screens/test_todo_list.dart';
 import 'package:flutter_common_app/utilities/index.dart';
-
-import 'sample_screens/test_todo_list.dart';
+import 'dart:developer' as developer;
 
 class SamplePage extends StatefulWidget {
   @override
@@ -22,6 +23,7 @@ class _SamplePageState extends State<SamplePage> {
 
   void _incrementCounter() {
     setState(() {
+      developer.log('message');
       _counter++;
     });
   }
@@ -198,6 +200,30 @@ class _SamplePageState extends State<SamplePage> {
                         builder: (_) => TestHero(),
                       ));
                 },
+              ),
+              ElevatedButton(
+                child: Text('other stateful widget'),
+                onPressed: () async {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => TestStatefulWidget(),
+                      ));
+                },
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/testArgument',
+                    arguments: TodoModel(title: 'title123', isDone: false)
+                    // arguments: <String, dynamic>{
+                    //   'title': 'title123',
+                    //   'isDone': false
+                    // },
+                  );
+                },
+                child: Text('Second page'),
               ),
             ],
           ),

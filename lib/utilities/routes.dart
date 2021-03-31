@@ -1,11 +1,14 @@
+import 'package:flutter_common_app/screens/sample/sample_screens/test_argument.dart';
 import 'package:flutter_common_app/utilities/index.dart';
 class RouteGenerator {
   static Route<dynamic> generateRoute (RouteSettings settings) {
-    //final args = settings.arguments;
+    final args = settings.arguments;
     print('route:${settings.name}');
     switch(settings.name){
       case '/sample':
       return MaterialPageRoute(builder: (context) => SamplePage());
+      case '/testArgument':
+      return MaterialPageRoute(builder: (context) => TestArgument(args));
       case '/main':
       return MaterialPageRoute(builder: (context) {
           return MultiProvider(
