@@ -47,5 +47,8 @@ export 'package:flutter_common_app/enums/enums.dart';
 // Providers
 export 'package:flutter_common_app/providers/providers.dart';
 
+// Routes
+export 'package:flutter_common_app/routes/routes.dart';
+
 // Services
 export 'package:flutter_common_app/services/firestore_services.dart';
