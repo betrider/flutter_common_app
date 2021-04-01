@@ -1,7 +1,7 @@
 import 'package:flutter_common_app/utilities/index.dart';
 
 ///커스텀 토스트
-Future<bool> displayToast({
+Future<bool?> displayToast({
   required String message,
   Color? backgroundColor,
   Color? textColor,
