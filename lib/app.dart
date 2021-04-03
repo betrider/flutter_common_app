@@ -2,6 +2,9 @@ import 'package:flutter_common_app/utilities/index.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 class MyApp extends StatelessWidget {
+
+  final bool isFirst = true;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,7 +22,7 @@ class MyApp extends StatelessWidget {
           const Locale('ko', 'KR'),
           const Locale('en', 'US'),
         ],
-      home: SplashScreen(),
+      home: isFirst ? StartScreen() : SplashScreen(),
     );
   }
 }
