@@ -4,6 +4,7 @@ import 'package:flutter_common_app/screens/sample/sample_screens/test_expanded_c
 import 'package:flutter_common_app/screens/sample/sample_screens/test_expanded_single_child_scroll_view.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test_hero.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test_hive.dart';
+import 'package:flutter_common_app/screens/sample/sample_screens/test_method_classes.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test_notifications.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test_overflow.dart';
@@ -229,6 +230,16 @@ class _SamplePageState extends State<SamplePage> {
                   );
                 },
                 child: Text('Second page'),
+              ),
+              ElevatedButton(
+                child: Text('method vs classes'),
+                onPressed: () async {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => TestMethodClasses(),
+                      ));
+                },
               ),
             ],
           ),
