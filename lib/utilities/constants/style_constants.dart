@@ -6,23 +6,34 @@ class AppStyle {
   AppStyle._();
 
   ///메인 타이틀
-  static const kMainTitleTextStyle = TextStyle(
+  static const mainTitleTextStyle1 = TextStyle(
     fontSize: 20,
     fontFamily: _fontFamily,
     fontWeight: FontWeight.w700,
+    color: AppColor.titleColor
   );
 
   ///서브 타이틀
-  static const kTitleTextStyle = TextStyle(
+  static const subtitleTextStyle1 = TextStyle(
     fontSize: 18,
     fontFamily: _fontFamily,
     fontWeight: FontWeight.w700,
+    color: AppColor.subTitleColor
   );
 
   ///서브 타이틀2
-  static const kSubtitleTextStyle = TextStyle(
+  static const subtitleTextStyle2 = TextStyle(
     fontSize: 15,
+    fontWeight: FontWeight.w500,
+    fontFamily: _fontFamily,
+    color: AppColor.subTitleColor
+  );
+
+  ///서브 타이틀3
+  static const subtitleTextStyle3 = TextStyle(
+    fontSize: 12,
     fontWeight: FontWeight.w300,
     fontFamily: _fontFamily,
+    color: AppColor.subTitleColor
   );
 }

@@ -11,7 +11,7 @@ class MainScreen extends StatelessWidget {
       onWillPop: _onBackPressed,
       child: CustomScaffold(
         appBar: MainAppBar(),
-        bodyPadding: EdgeInsets.symmetric(horizontal: 8),
+        bodyPadding: EdgeInsets.all(8),
         body: MainBody(),
         bottomNavigationBar: MainBottomNavigationBar(),
       ),

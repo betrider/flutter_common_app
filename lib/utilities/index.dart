@@ -42,7 +42,7 @@ export 'package:flutter_common_app/utilities/utilities.dart';
 export 'package:flutter_common_app/widgets/widgets.dart';
 
 // Enums
-export 'package:flutter_common_app/enums/enums.dart';
+export 'package:flutter_common_app/utilities/enums/enums.dart';
 
 // Providers
 export 'package:flutter_common_app/providers/providers.dart';

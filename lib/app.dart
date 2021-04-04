@@ -3,7 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 class MyApp extends StatelessWidget {
 
-  final bool isFirst = true;
+  final bool isFirst = Hive.box('cache').get('isFirst') ?? true;
 
   @override
   Widget build(BuildContext context) {
