@@ -29,11 +29,23 @@ export 'package:url_launcher/url_launcher.dart';
 export 'package:intl/intl.dart' show DateFormat;
 export 'package:adaptive_dialog/adaptive_dialog.dart';
 
+// Enums
+export 'package:flutter_common_app/enums/enums.dart';
+
 // Models
 export 'package:flutter_common_app/models/models.dart';
 
+// Providers
+export 'package:flutter_common_app/providers/providers.dart';
+
+// Providers
+export 'package:flutter_common_app/routes/routes.dart';
+
 // Screens
 export 'package:flutter_common_app/screens/screens.dart';
+
+// Services
+export 'package:flutter_common_app/services/firestore_services.dart';
 
 // Utilities
 export 'package:flutter_common_app/utilities/utilities.dart';
@@ -41,14 +53,4 @@ export 'package:flutter_common_app/utilities/utilities.dart';
 // Widgets
 export 'package:flutter_common_app/widgets/widgets.dart';
 
-// Enums
-export 'package:flutter_common_app/utilities/enums/enums.dart';
 
-// Providers
-export 'package:flutter_common_app/providers/providers.dart';
-
-// Routes
-export 'package:flutter_common_app/routes/routes.dart';
-
-// Services
-export 'package:flutter_common_app/services/firestore_services.dart';
