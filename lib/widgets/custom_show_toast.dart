@@ -1,4 +1,4 @@
-import 'package:flutter_common_app/utilities/index.dart';
+import 'package:flutter_common_app/index.dart';
 
 ///커스텀 토스트
 Future<bool?> displayToast({

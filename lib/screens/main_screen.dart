@@ -1,4 +1,4 @@
-import 'package:flutter_common_app/utilities/index.dart';
+import 'package:flutter_common_app/index.dart';
 
 DateTime? _firstTouchTime; //뒤로가기 버튼 첫번째 누른 시간
 DateTime? _secondTouchTime; //뒤로가기 버튼 두번째 누른 시간

@@ -1,21 +1,6 @@
-import 'package:flutter_common_app/utilities/index.dart';
+import 'package:flutter_common_app/index.dart';
 
-class LowerCaseText extends TextInputFormatter {
-  @override
-  TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue) {
-    return newValue.copyWith(text: newValue.text.toLowerCase());
-  }
-}
-
-class UpperCaseText extends TextInputFormatter {
-  @override
-  TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue) {
-    return newValue.copyWith(text: newValue.text.toUpperCase());
-  }
-}
-
+///TextInputFormatter 관련 클래스
 class PhoneNumberFormatter extends TextInputFormatter {
   PhoneNumberFormatter();
 

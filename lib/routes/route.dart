@@ -1,5 +1,5 @@
 import 'package:flutter_common_app/screens/sample/sample_screens/test_argument.dart';
-import 'package:flutter_common_app/utilities/index.dart';
+import 'package:flutter_common_app/index.dart';
 class RouteGenerator {
   static Route<dynamic> generateRoute (RouteSettings settings) {
     final args = settings.arguments;

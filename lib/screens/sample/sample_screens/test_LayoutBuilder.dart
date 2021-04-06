@@ -1,4 +1,4 @@
-import 'package:flutter_common_app/utilities/index.dart';
+import 'package:flutter_common_app/index.dart';
 
 class TestLayoutBuilder extends StatelessWidget {
   const TestLayoutBuilder({Key? key}) : super(key: key);

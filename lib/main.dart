@@ -1,5 +1,5 @@
 import 'package:flutter_common_app/app.dart';
-import 'package:flutter_common_app/utilities/index.dart';
+import 'package:flutter_common_app/index.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); //비동기 메소드 사용하기 위해 선언

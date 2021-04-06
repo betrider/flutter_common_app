@@ -1,4 +1,4 @@
-import 'package:flutter_common_app/utilities/index.dart';
+import 'package:flutter_common_app/index.dart';
 
 ThemeData lightTheme = ThemeData(
   primarySwatch: AppColor.primarySwatch, //메인 위젯(버튼,슬라이더,라이너로딩,Input 라인) 색상

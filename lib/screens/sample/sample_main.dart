@@ -11,7 +11,7 @@ import 'package:flutter_common_app/screens/sample/sample_screens/test_overflow.d
 import 'package:flutter_common_app/screens/sample/sample_screens/test_showdialog.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test_stateful_widget.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test_todo_list.dart';
-import 'package:flutter_common_app/utilities/index.dart';
+import 'package:flutter_common_app/index.dart';
 import 'dart:developer' as developer;
 
 class SamplePage extends StatefulWidget {

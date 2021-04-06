@@ -1,4 +1,4 @@
-import 'package:flutter_common_app/utilities/index.dart';
+import 'package:flutter_common_app/index.dart';
 
 ///커스텀 스낵바
 void customSnackBar({required BuildContext context, required String content}) {
