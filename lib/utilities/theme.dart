@@ -4,6 +4,13 @@ ThemeData lightTheme = ThemeData(
   primarySwatch: AppColor.primarySwatch, //메인 위젯(버튼,슬라이더,라이너로딩,Input 라인) 색상
   accentColor: AppColor.accentColor, //이펙트(스크롤,스위치,체크박스,로딩,라디오) 색상 + floatingActionButton 버튼
 
+  //아웃라인 버튼 테마
+  outlinedButtonTheme: OutlinedButtonThemeData(
+    style: ButtonStyle(
+      foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+    )
+  ),
+
   //앱바 테마
   appBarTheme: AppBarTheme(
     backgroundColor: AppColor.barBackgroundColor, //앱바 백그라운드
