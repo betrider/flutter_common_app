@@ -4,6 +4,7 @@ import 'package:flutter_common_app/screens/sample/sample_screens/test_expanded_c
 import 'package:flutter_common_app/screens/sample/sample_screens/test_expanded_single_child_scroll_view.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test_hero.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test_hive.dart';
+import 'package:flutter_common_app/screens/sample/sample_screens/test_list_util.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test_method_classes.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test_notifications.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test.dart';
@@ -72,6 +73,16 @@ class _SamplePageState extends State<SamplePage> {
                       context,
                       MaterialPageRoute(
                         builder: (_) => TestTodoList(),
+                      ));
+                },
+              ),
+              ElevatedButton(
+                child: Text('list utility method'),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => TestListUtil(),
                       ));
                 },
               ),
