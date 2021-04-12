@@ -1,4 +1,5 @@
 export 'context.dart';
+export 'dynamic.dart';
 export 'iterable/iterable.dart';
 export 'list.dart';
 export 'map.dart';

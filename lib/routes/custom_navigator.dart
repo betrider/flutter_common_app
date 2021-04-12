@@ -4,9 +4,14 @@ import 'package:flutter/cupertino.dart';
 final NavigationService customNavigator = NavigationService();
 
 class NavigationService {
-  NavigationService() {
-    print('NavigationService 생성');
+
+  static final NavigationService _instance = NavigationService._internal();
+
+  factory NavigationService(){
+    return _instance;
   }
+
+  NavigationService._internal();
 
   GlobalKey<NavigatorState> navigationKey = GlobalKey<NavigatorState>();
 
