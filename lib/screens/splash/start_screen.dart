@@ -8,7 +8,7 @@ class StartScreen extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
-            image: AssetImage('assets/images/start_image.gif'),
+            image: AssetImage('assets/gifs/start_image.gif'),
           ),
         ),
         child: Stack(

@@ -8,6 +8,7 @@ class SplashScreen extends StatefulWidget {
 class Splash extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
+    print('splash');
     Timer(Duration(seconds: 2), () {
       Navigator.pushReplacementNamed(context, '/main');
     });
