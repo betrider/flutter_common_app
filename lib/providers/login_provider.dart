@@ -8,7 +8,7 @@ class LoginProvider with ChangeNotifier {
   GoogleSignIn _googleSignIn;
   Status _status = Status.Uninitialized;
 
-  LoginProvider.instance()
+  LoginProvider()
       : _auth = FirebaseAuth.instance,
         _googleSignIn = GoogleSignIn() {
     _auth.authStateChanges().listen(_onAuthStateChanged);
@@ -35,7 +35,8 @@ class LoginProvider with ChangeNotifier {
       _status = Status.Authenticating;
       notifyListeners();
       final GoogleSignInAccount googleUser = (await _googleSignIn.signIn())!;
-      final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
       final AuthCredential credential = GoogleAuthProvider.credential(
         accessToken: googleAuth.accessToken,
         idToken: googleAuth.idToken,
@@ -59,8 +60,7 @@ class LoginProvider with ChangeNotifier {
   }
 
   Future<void> _onAuthStateChanged(User? firebaseUser) async {
-
-    if(_status == Status.Uninitialized) return null;
+    if (_status == Status.Uninitialized) return null;
 
     if (firebaseUser == null) {
       _status = Status.Unauthenticated;
@@ -71,12 +71,12 @@ class LoginProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void changeUnauthenticatedStatus(){
+  void changeUnauthenticatedStatus() {
     _status = Status.Unauthenticated;
     notifyListeners();
   }
 
-  void loginPass(){
+  void loginPass() {
     _status = Status.Authenticated;
     notifyListeners();
   }

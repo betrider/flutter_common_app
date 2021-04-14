@@ -19,7 +19,7 @@ void main() async {
   runApp(
     MultiProvider(providers: [
       ChangeNotifierProvider(create: (_) => ThemeProvider(),),
-      ChangeNotifierProvider(create: (_) => LoginProvider.instance()),
+      ChangeNotifierProvider(create: (_) => LoginProvider()),
       ChangeNotifierProvider(create: (_) => BottomNavigationBarProvider(),),
       Provider(create: (context) => FirestoreDatabase()),
     ], child: MyApp()),
