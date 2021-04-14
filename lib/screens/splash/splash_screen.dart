@@ -10,7 +10,8 @@ class Splash extends State<SplashScreen> {
   Widget build(BuildContext context) {
     print('splash');
     Timer(Duration(seconds: 2), () {
-      Navigator.pushReplacementNamed(context, '/main');
+      //Navigator.pushReplacementNamed(context, '/main');
+      context.read<LoginProvider>().loginPass();
     });
     return CustomScaffold(
       body: Container(

@@ -10,14 +10,7 @@ class RouteGenerator {
       case '/testArgument':
       return MaterialPageRoute(builder: (context) => TestArgument(args));
       case '/main':
-      return MaterialPageRoute(builder: (context) {
-          return MultiProvider(
-            providers: [
-              ChangeNotifierProvider<BottomNavigationBarProvider>(create: (context) => BottomNavigationBarProvider(),)
-            ],
-            child: MainScreen()
-          );
-        });
+      return MaterialPageRoute(builder: (context) => MainScreen());
       default:
         return _errorRoute();
     }

@@ -56,6 +56,13 @@ class _SamplePageState extends State<SamplePage> {
                 style: Theme.of(context).textTheme.headline4,
               ),
               ElevatedButton(
+                child: Text('change isFirst'),
+                onPressed: () {
+                  Hive.box('cache').put('isFirst', true);
+                  print(Hive.box('cache').get('isFirst'));
+                },
+              ),
+              ElevatedButton(
                 child: Text('test'),
                 onPressed: () {
                   // Navigator.push(

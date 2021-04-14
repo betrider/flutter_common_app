@@ -47,7 +47,8 @@ class StartScreen extends StatelessWidget {
                   child: Text('시작하기'),
                   onPressed: () {
                     Hive.box('cache').put('isFirst', false);
-                    Navigator.pushReplacementNamed(context, '/main');
+                    //Navigator.pushReplacementNamed(context, '/main');
+                    context.read<LoginProvider>().loginPass();
                   },
                 ),
               ),

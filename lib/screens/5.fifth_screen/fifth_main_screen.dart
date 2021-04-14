@@ -32,6 +32,12 @@ class _FifthMainScreenState extends State<FifthMainScreen>
                 });
               },
               child: Text('UP'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                context.read<LoginProvider>().signOut();
+              },
+              child: Text('logout'),
             )
           ],
         ),
