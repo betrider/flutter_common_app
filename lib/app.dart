@@ -28,8 +28,8 @@ class MyApp extends StatelessWidget {
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Consumer(
-      builder: (context, LoginProvider loginProvider, _) {
+    return Consumer<LoginProvider>(
+      builder: (context, loginProvider, _) {
         final bool isFirst = Hive.box('cache').get('isFirst') ?? true;
         //Uninitialized -> Authenticated 로그인이 필요없는 경우
         //Uninitialized -> LoginScreen -> Authenticated 로그인이 필요한 경우
