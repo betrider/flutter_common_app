@@ -15,6 +15,9 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.dark));
+
+  //intl 언어 설정
+  Intl.defaultLocale = 'ko_KR';    
   
   runApp(
     MultiProvider(providers: [

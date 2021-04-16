@@ -26,8 +26,9 @@ export 'package:photo_view/photo_view.dart';
 export 'package:cached_network_image/cached_network_image.dart';
 export 'package:flutter_local_notifications/flutter_local_notifications.dart';
 export 'package:url_launcher/url_launcher.dart';
-export 'package:intl/intl.dart' show DateFormat, NumberFormat;
+export 'package:intl/intl.dart' hide TextDirection;
 export 'package:adaptive_dialog/adaptive_dialog.dart';
+
 
 // Enums
 export 'package:flutter_common_app/enums/enums.dart';

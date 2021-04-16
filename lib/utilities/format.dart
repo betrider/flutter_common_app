@@ -118,4 +118,23 @@ class Format{
   static String toDateA(DateTime param){
     return DateFormat("yyyy-MM-DD").format(param);
   }
+
+  /* 
+  I/flutter (26720): 2021년
+  I/flutter (26720): 2021년 4월
+  I/flutter (26720): 2021년 4월 16일
+  I/flutter (26720): 2021년 4월 16일 금요일
+  I/flutter (26720): 2021.04.16(금) 오후 2:43
+  I/flutter (26720): 2021.04.16(금요일) 오후 2:43
+  I/flutter (26720): 2021.04.16(금요일) 14:43
+  
+  var aa = DateTime.now();
+  print(DateFormat('y').format(aa));
+  print(DateFormat('yMMMM').format(aa));
+  print(DateFormat('yMMMMd').format(aa));
+  print(DateFormat('yMMMMEEEEd').format(aa));
+  print(DateFormat('yyyy.MM.dd(EEE)').addPattern('jm').format(aa));
+  print(DateFormat('yyyy.MM.dd(EEEE)').addPattern('jm').format(aa));
+  print(DateFormat('yyyy.MM.dd(EEEE) HH:mm').format(aa)); */
+
 }
