@@ -29,7 +29,7 @@ class Format{
     const List<String?> commericialNumberList = ['1588','1644']; //상업용
 
     if (param.isEmpty) {
-      return "";
+      return '';
     }
 
     if (param.length >= 2 && areaNumberList.contains(param.substring(0, 2))) {
@@ -78,63 +78,5 @@ class Format{
       return param;
     }
   }
-
-  /// HH:mm:ss 시간형식으로 변환
-  ///
-  /// Example:
-  /// ```dart
-  /// Format.toTimeA(now) // '15:11:20'
-  /// ```
-  static String toTimeA(DateTime param){
-    return DateFormat("HH:mm:ss").format(param);
-  }
-
-  /// HH:mm 시간형식으로 변환
-  ///
-  /// Example:
-  /// ```dart
-  /// Format.toTimeB(now) // '15:11'
-  /// ```
-  static String toTimeB(DateTime param){
-    return DateFormat("HH:mm").format(param);
-  }
-
-  /// HH 시간형식으로 변환
-  ///
-  /// Example:
-  /// ```dart
-  /// Format.toTimeC(now) // '15'
-  /// ```
-  static String toTimeC(DateTime param){
-    return DateFormat("HH").format(param);
-  }
-
-  /// yyyy-MM-DD 날짜형식으로 변환
-  ///
-  /// Example:
-  /// ```dart
-  /// Format.toDateA(now) // '2021-01-01'
-  /// ```
-  static String toDateA(DateTime param){
-    return DateFormat("yyyy-MM-DD").format(param);
-  }
-
-  /* 
-  I/flutter (26720): 2021년
-  I/flutter (26720): 2021년 4월
-  I/flutter (26720): 2021년 4월 16일
-  I/flutter (26720): 2021년 4월 16일 금요일
-  I/flutter (26720): 2021.04.16(금) 오후 2:43
-  I/flutter (26720): 2021.04.16(금요일) 오후 2:43
-  I/flutter (26720): 2021.04.16(금요일) 14:43
-  
-  var aa = DateTime.now();
-  print(DateFormat('y').format(aa));
-  print(DateFormat('yMMMM').format(aa));
-  print(DateFormat('yMMMMd').format(aa));
-  print(DateFormat('yMMMMEEEEd').format(aa));
-  print(DateFormat('yyyy.MM.dd(EEE)').addPattern('jm').format(aa));
-  print(DateFormat('yyyy.MM.dd(EEEE)').addPattern('jm').format(aa));
-  print(DateFormat('yyyy.MM.dd(EEEE) HH:mm').format(aa)); */
 
 }
