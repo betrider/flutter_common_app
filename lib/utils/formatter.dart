@@ -21,7 +21,16 @@ class PhoneNumberFormatter extends TextInputFormatter {
     if (newText == "") {
       return TextEditingValue();
     }
+    
+    var regExp = RegExp(r'^[\d-]+$'); //숫자 또는 하이펀 만 허용
 
+    if (!regExp.hasMatch(newText)) {
+      return TextEditingValue(
+        text: oldText.toString(),
+        selection: TextSelection.collapsed(offset: oldText.length),
+      );
+    }
+    
     //번호에 포함되어있는 하이펀을 지운경우
     if (oldText.length > newText.length) {
       if (newText.substring(newText.length - 1, newText.length) == '-') {
