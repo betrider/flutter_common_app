@@ -5,6 +5,7 @@ export 'iterable/iterable.dart';
 export 'list.dart';
 export 'map.dart';
 export 'string.dart';
+export 'num.dart';
 export 'widget.dart';
 
 //extension 참조
