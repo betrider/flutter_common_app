@@ -18,7 +18,7 @@ void main() async {
 
   //intl 언어 설정
   Intl.defaultLocale = 'ko_KR';    
-  
+
   runApp(
     MultiProvider(providers: [
       ChangeNotifierProvider(create: (_) => ThemeProvider(),),

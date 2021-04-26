@@ -49,7 +49,7 @@ export 'package:flutter_common_app/screens/screens.dart';
 export 'package:flutter_common_app/services/firestore_services.dart';
 
 // Utilities
-export 'package:flutter_common_app/utilities/utilities.dart';
+export 'package:flutter_common_app/utils/utils.dart';
 
 // Widgets
 export 'package:flutter_common_app/widgets/widgets.dart';

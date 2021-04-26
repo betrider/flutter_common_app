@@ -4,5 +4,5 @@ export 'font.dart';
 export 'formatter.dart';
 export 'logger.dart';
 export 'theme.dart';
-export 'utils.dart';
+export 'utility.dart';
 export 'validate.dart';
