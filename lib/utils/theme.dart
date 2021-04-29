@@ -41,6 +41,29 @@ ThemeData lightTheme = ThemeData(
     ),
   ),
 
+  //OutlinedButtonThemeData 테마
+  outlinedButtonTheme: OutlinedButtonThemeData(style: ButtonStyle(
+    // side: MaterialStateProperty.all(BorderSide(color: _mainColor)),
+    side: MaterialStateProperty.resolveWith<BorderSide>(
+      (Set<MaterialState> states) {
+        if (states.contains(MaterialState.disabled))
+          return BorderSide(color: AppColor.grey_EFEFEF); //Color(0xFFEFEFEF)
+        else
+          return BorderSide(color: _mainColor);
+      },
+    ),
+  )),
+  
+  switchTheme: SwitchThemeData(
+    trackColor: MaterialStateProperty.resolveWith((states) {
+      if (states.contains(MaterialState.selected)) {
+        return _mainColor;
+      }else if (states.contains(MaterialState.disabled)) {
+        return Colors.white;
+      }
+    }),
+  ),
+
 );
 
 ThemeData darkTheme = ThemeData.dark();
