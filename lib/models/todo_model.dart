@@ -28,7 +28,7 @@ class TodoModel extends Equatable {
   factory TodoModel.fromJson(String source) => TodoModel.fromMap(json.decode(source));
 
   factory TodoModel.fromFireStore(DocumentSnapshot doc) {
-    Map map = doc.data()!;
+    Map map = doc.data() as Map;
     return TodoModel(
       title: map['title'],
       isDone: map['isDone'],

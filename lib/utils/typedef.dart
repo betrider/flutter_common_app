@@ -1,2 +1,2 @@
-typedef CommonReturnFunction = void Function(dynamic? value);
+typedef CommonReturnFunction = void Function(dynamic value);
 typedef CommonVoidFunction = void Function();
