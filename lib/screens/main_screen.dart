@@ -29,7 +29,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: InkWell(
         onTap: () {
           if (kDebugMode) {
-            Navigator.pushNamed(context, '/sample');
+            Get.toNamed('/sample');
           } else {
             context.read<BottomNavigationBarProvider>().currentIndex = 0;
           }

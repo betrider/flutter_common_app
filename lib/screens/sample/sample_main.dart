@@ -65,12 +65,13 @@ class _SamplePageState extends State<SamplePage> {
               ElevatedButton(
                 child: Text('test'),
                 onPressed: () {
+                  Get.to(Test());
                   // Navigator.push(
                   //     context,
                   //     MaterialPageRoute(
                   //       builder: (_) => Test(),
                   //     ));
-                  customNavigator.push(Test());
+                  // customNavigator.push(Test());
                 },
               ),
               ElevatedButton(
@@ -233,19 +234,13 @@ class _SamplePageState extends State<SamplePage> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  /* Navigator.pushNamed(
-                    context,
-                    '/testArgument',
-                    arguments: TodoModel(title: 'title123', isDone: false)
-                    // arguments: <String, dynamic>{
-                    //   'title': 'title123',
-                    //   'isDone': false
-                    // },
-                  ); */
-                  customNavigator.pushNamed(
-                    '/testArgument',
-                    arguments: TodoModel(title: 'title123', isDone: false)
-                  );
+                  Navigator.pushNamed(context, '/testArgument',
+                      arguments: TodoModel(title: 'title123', isDone: false)
+                      // arguments: <String, dynamic>{
+                      //   'title': 'title123',
+                      //   'isDone': false
+                      // },
+                      );
                 },
                 child: Text('Second page'),
               ),

@@ -36,7 +36,7 @@ dependencies:
 
   #상태관리
   provider: ^5.0.0
-  # get: ^4.3.0
+  get: ^4.3.0
 
   #로컬저장소
   hive: ^2.0.4
@@ -101,9 +101,6 @@ dependencies:
   #링크위젯
   flutter_linkify: ^5.0.2
 
-  #extension 확장
-  supercharged: ^2.0.0
-
   #백그라운드 실행
   workmanager: ^0.4.1 
 
@@ -112,6 +109,11 @@ dependencies:
   
   #인덱스에 맞게 스크롤
   scroll_to_index: ^2.0.0
+  
+  #포맷 패턴
+  pattern_formatter: ^2.0.0
+  #파일 사이즈 변환
+  filesize: ^2.0.1
 
   #비디오
   #video_player: ^2.0.2

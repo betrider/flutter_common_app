@@ -64,6 +64,77 @@ ThemeData lightTheme = ThemeData(
     }),
   ),
 
+  // dialogTheme: DialogTheme(
+  //   titleTextStyle: TextStyle.black_2D2D2D_20_w400,
+  //   contentTextStyle: DUTextStyle.black_2D2D2D_14,
+  // ),
+
+  // snackBarTheme: SnackBarThemeData(actionTextColor: Colors.purple[200]),
+
+  // scrollbarTheme: ScrollbarThemeData(
+  //   thumbColor: MaterialStateProperty.all(_mainColor),
+  // )
+
+  // iconTheme: IconThemeData(
+  //   color: Colors.black,
+  //   size: 24
+  // ),
+
+  // popupMenuTheme: PopupMenuThemeData(color: Colors.white),
+
+  // textTheme: TextTheme(
+  //   headline1: TextStyle(fontSize: 20.0, color: Colors.black),
+  //   headline2: TextStyle(fontSize: 20.0, color: Colors.black),
+  //   headline3: TextStyle(fontSize: 20.0, color: Colors.black),
+  //   headline4: TextStyle(fontSize: 20.0, color: Colors.black),
+  //   headline5: TextStyle(fontSize: 20.0, color: Colors.black),
+  //   bodyText1: TextStyle(fontSize: 16.0, color: Colors.black),
+  //   bodyText2: TextStyle(fontSize: 14.0, color: Colors.black),
+  //   button: TextStyle(fontSize: 15.0, color: Colors.black, fontWeight: FontWeight.w600),
+  //   headline6: TextStyle(fontSize: 16.0, color: Colors.black),
+  //   subtitle1: TextStyle(fontSize: 16.0, color: Colors.black),
+  //   subtitle2: TextStyle(fontSize: 16.0, color: Colors.black),
+  //   caption: TextStyle(
+  //     fontSize: 12.0,
+  //     color: Colors.grey,
+  //   ),
+  // ),
+
+  // buttonTheme: ButtonThemeData(
+  //   shape: RoundedRectangleBorder(
+  //     borderRadius: BorderRadius.circular(8),
+  //   ),
+  //   buttonColor: Colors.blue,
+  //   textTheme: ButtonTextTheme.primary,
+  // ),
+
+  // inputDecorationTheme: InputDecorationTheme(
+  //   //prefixStyle: TextStyle(color: _lightIconColor),
+  //   border: OutlineInputBorder(
+  //       borderSide: BorderSide(width: 1.0),
+  //       borderRadius: BorderRadius.all(
+  //         Radius.circular(8.0),
+  //       )),
+  //   enabledBorder: OutlineInputBorder(
+  //     borderSide: BorderSide(color: Colors.grey, width: 1.0),
+  //     borderRadius: BorderRadius.all(Radius.circular(8.0)),
+  //   ),
+  //   focusedBorder: OutlineInputBorder(
+  //     borderSide: BorderSide(color: Colors.grey),
+  //     borderRadius: BorderRadius.all(Radius.circular(8.0)),
+  //   ),
+  //   errorBorder: OutlineInputBorder(
+  //     borderSide: BorderSide(color: Colors.grey),
+  //     borderRadius: BorderRadius.all(Radius.circular(8.0)),
+  //   ),
+  //   focusedErrorBorder: OutlineInputBorder(
+  //     borderSide: BorderSide(color: Colors.grey),
+  //     borderRadius: BorderRadius.all(Radius.circular(8.0)),
+  //   ),
+  //   fillColor: Colors.grey,
+  //   //focusColor: _lightBorderActiveColor,
+  // ),
+
 );
 
 ThemeData darkTheme = ThemeData.dark();

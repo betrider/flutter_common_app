@@ -5,8 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: customNavigator.navigationKey,
+    return GetMaterialApp(
       title: 'Flutter Demo',
       initialRoute: '/',
       onGenerateRoute: RouteGenerator.generateRoute,

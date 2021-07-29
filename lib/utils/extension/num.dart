@@ -1,8 +1,7 @@
 import 'dart:math';
-
 import 'package:intl/intl.dart';
 
-extension NumberExtension on num {
+extension CustomNumberExtension on num? {
 
   /// 
   ///
@@ -11,10 +10,10 @@ extension NumberExtension on num {
   /// 
   /// ```
   String bytesToString({int decimals = 2}) {
-    if (this <= 0) return "0 B";
+    if (this! <= 0) return "0 B";
     const suffixes = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
-    var i = (log(this) / log(1024)).floor();
-    return ((this / pow(1024, i)).toStringAsFixed(decimals)) +
+    var i = (log(this!) / log(1024)).floor();
+    return ((this! / pow(1024, i)).toStringAsFixed(decimals)) +
         ' ' +
         suffixes[i];
   }
@@ -26,6 +25,7 @@ extension NumberExtension on num {
   /// 123456789.toCurrency(); // '123,456,789'
   /// ```
   String toCurrency() {
+    if (this == null) return "";
     return NumberFormat('###,###,###,###').format(this).replaceAll(' ', '');
   }
 }

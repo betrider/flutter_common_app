@@ -1,3 +1,4 @@
+import 'package:flutter_common_app/screens/sample/sample_screens/test.dart';
 import 'package:flutter_common_app/screens/sample/sample_screens/test_argument.dart';
 import 'package:flutter_common_app/index.dart';
 class RouteGenerator {
@@ -5,6 +6,8 @@ class RouteGenerator {
     final args = settings.arguments;
     print('route:${settings.name}');
     switch(settings.name){
+      case '/test':
+      return MaterialPageRoute(builder: (context) => Test());
       case '/sample':
       return MaterialPageRoute(builder: (context) => SamplePage());
       case '/testArgument':

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-extension ListExtension<T> on List<T> {
+extension CustomListExtension<T> on List<T> {
 
   /// Converts this list into a JSON string.
   ///
@@ -18,7 +18,7 @@ extension ListExtension<T> on List<T> {
   }
 
   /// map 사용 시 value와 index를 가지고 올 수 있게끔 확장버전 추가
-  List<R> mapWithIndex<R>(R Function(T, int i) callback) {
+  List<R> mapWithIndex<R>(R Function(T value, int index) callback) {
     List<R> result = [];
     for (int i = 0; i < this.length; i++) {
       R item = callback(this[i], i);
@@ -26,4 +26,27 @@ extension ListExtension<T> on List<T> {
     }
     return result;
   }
+
+  /// forEach 사용 시 value와 index를 가지고 올 수 있게끔 확장버전 추가
+  void forEachIndexed(void Function(T value, int index) f) {
+    var i = 0;
+    forEach((e) => f(e, i++));
+  }
+
+  /// 리스트에 맞는 인덱스만 추출
+  /// 
+  /// Example:
+  /// ```dart
+  /// List<String> list = ['a','b','c','d','e']
+  /// list.toIndexList([0,1,3]) // ['a','b','d']
+  /// ```
+  List<T> toIndexList(List<int> indexList) {
+    List<T> result = [];
+    for (int i = 0; i < indexList.length; i++) {
+      result.add(this[indexList[i]]);
+    }
+    return result;
+  }
+  
+
 }

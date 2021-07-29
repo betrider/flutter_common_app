@@ -10,12 +10,15 @@ class CustomPhotoView extends StatelessWidget {
     return CustomScaffold(
       appBar: AppBar(
         title: Text(
-          '상세보기',
+          '이미지',
         ),
         centerTitle: true,
       ),
       body: Container(
-          child: PhotoView(imageProvider: CachedNetworkImageProvider(url))),
+        child: PhotoView(
+          imageProvider: CachedNetworkImageProvider(url),
+        ),
+      ),
     );
   }
 }

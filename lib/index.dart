@@ -14,22 +14,6 @@ export 'package:firebase_core/firebase_core.dart';
 export 'package:firebase_auth/firebase_auth.dart';
 export 'package:cloud_firestore/cloud_firestore.dart';
 
-// Others Packages
-export 'package:provider/provider.dart';
-export 'package:path_provider/path_provider.dart';
-export 'package:hive/hive.dart';
-export 'package:google_sign_in/google_sign_in.dart';
-export 'package:logger/logger.dart';
-export 'package:fluttertoast/fluttertoast.dart';
-export 'package:equatable/equatable.dart';
-export 'package:photo_view/photo_view.dart';
-export 'package:cached_network_image/cached_network_image.dart';
-export 'package:flutter_local_notifications/flutter_local_notifications.dart';
-export 'package:url_launcher/url_launcher.dart';
-export 'package:intl/intl.dart' hide TextDirection;
-export 'package:adaptive_dialog/adaptive_dialog.dart';
-
-
 // Enums
 export 'package:flutter_common_app/enums/enums.dart';
 
@@ -54,4 +38,18 @@ export 'package:flutter_common_app/utils/utils.dart';
 // Widgets
 export 'package:flutter_common_app/widgets/widgets.dart';
 
-
+// Others Packages
+export 'package:get/get.dart';
+export 'package:provider/provider.dart';
+export 'package:path_provider/path_provider.dart';
+export 'package:hive/hive.dart';
+export 'package:google_sign_in/google_sign_in.dart';
+export 'package:logger/logger.dart';
+export 'package:fluttertoast/fluttertoast.dart';
+export 'package:equatable/equatable.dart';
+export 'package:photo_view/photo_view.dart';
+export 'package:cached_network_image/cached_network_image.dart';
+export 'package:flutter_local_notifications/flutter_local_notifications.dart';
+export 'package:url_launcher/url_launcher.dart';
+export 'package:intl/intl.dart' hide TextDirection;
+export 'package:adaptive_dialog/adaptive_dialog.dart';

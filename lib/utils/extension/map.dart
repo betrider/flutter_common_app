@@ -1,7 +1,7 @@
 import 'iterable/iterable_object.dart';
 import 'dart:convert';
 
-extension MapSC<K, V> on Map<K, V> {
+extension CustomMapSC<K, V> on Map<K, V> {
   
   /// Returns a new [Iterable<MapEntry<K,V>>] with all elements that satisfy the
   /// predicate [test].
