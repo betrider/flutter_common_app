@@ -8,7 +8,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       initialRoute: '/',
-      onGenerateRoute: RouteGenerator.generateRoute,
+      // onGenerateRoute: RouteGenerator.generateRoute,
+      getPages: RouteGenerator.getPages(),
+      routingCallback: RouteGenerator.routingCallback,
       theme: context.watch<ThemeProvider>().currentTheme,
       localizationsDelegates: [ //다국어 지원
           GlobalMaterialLocalizations.delegate,
