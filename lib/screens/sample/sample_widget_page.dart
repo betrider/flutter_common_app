@@ -19,7 +19,14 @@ class _SampleWidgetPageState extends State<SampleWidgetPage> {
     super.initState();
     listWidget = [
       WidgetModel(title: '타이틀', widget: Text('11')),
-      // WidgetModel(title: '타이틀', widget: SampleSubTitle()),
+      WidgetModel(title: '타이틀', widget: Text('22')),
+      WidgetModel(title: '타이틀', widget: Text('33')),
+      WidgetModel(title: '타이틀', widget: Text('44')),
+      WidgetModel(title: '타이틀', widget: Text('55')),
+      WidgetModel(title: '타이틀', widget: Text('66')),
+      WidgetModel(title: '타이틀', widget: Text('77')),
+      WidgetModel(title: '타이틀', widget: Text('88')),
+      WidgetModel(title: '타이틀', widget: Text('99')),
     ];
     _widget = listWidget[0].widget;
   }
