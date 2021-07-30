@@ -39,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ElevatedButton(
               onPressed: () async {
                 if (!await context.read<LoginProvider>().signInWithGoogle()) {
-                  customSnackBar(context: context, content: 'Unable to login.');
+                  showSnackBar(content: 'Unable to login.');
                 }
               },
               child: Text('Login'),

@@ -1,7 +1,7 @@
 import 'package:flutter_common_app/index.dart';
 import 'package:flutter/material.dart';
 
-MaterialColor _mainColor = createMaterialColor(AppColor.purple_7540EE); //Color(0xFF7540EE)
+MaterialColor _mainColor = createMaterialColor(AppColor.mainColor);
 
 ThemeData lightTheme = ThemeData(
   primarySwatch: _mainColor, //메인색상
@@ -33,7 +33,7 @@ ThemeData lightTheme = ThemeData(
       backgroundColor: MaterialStateProperty.resolveWith<Color>(
         (Set<MaterialState> states) {
           if (states.contains(MaterialState.disabled))
-            return AppColor.grey_EDEDED; //Color(0xFFEDEDED)
+            return Colors.grey;
           else
             return _mainColor;
         },
@@ -47,7 +47,7 @@ ThemeData lightTheme = ThemeData(
     side: MaterialStateProperty.resolveWith<BorderSide>(
       (Set<MaterialState> states) {
         if (states.contains(MaterialState.disabled))
-          return BorderSide(color: AppColor.grey_EFEFEF); //Color(0xFFEFEFEF)
+          return BorderSide(color: Colors.grey);
         else
           return BorderSide(color: _mainColor);
       },

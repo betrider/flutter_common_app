@@ -2,34 +2,151 @@ import 'package:flutter_common_app/index.dart';
 
 const String _fontFamily = AppFontFamily.notoSans;
 
-class AppStyle {
-  AppStyle._();
+class AppTextStyle {
+  AppTextStyle._();
 
-  /// 메인 타이틀
+  /// Color : black
   ///
-  /// Size : 18
+  /// Size : 12
   ///
-  /// Weight : FontWeight.w700
-  ///
-  /// Color : #2D2D2D
-  static const mainTitleTextStyle1 = TextStyle(
-    fontSize: 18,
-    fontFamily: _fontFamily,
-    fontWeight: FontWeight.w700,
-    color: AppColor.black_2D2D2D
+  /// Weight : Regular(400)
+  static const black_12_w400 = TextStyle(
+    color: Colors.black,
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    fontFamily: _fontFamily
   );
 
-  /// 서브 타이틀
+  /// Color : black
   ///
-  /// Size : 15
+  /// Size : 14
   ///
-  /// Weight : FontWeight.w500
-  ///
-  /// Color : #2D2D2D
-  static const subtitleTextStyle1 = TextStyle(
-    fontSize: 15,
-    fontFamily: _fontFamily,
-    fontWeight: FontWeight.w500,
-    color: AppColor.black_2D2D2D
+  /// Weight : Regular(400)
+  static const black_14_w400 = TextStyle(
+    color: Colors.black,
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    fontFamily: _fontFamily
   );
+
+  /// Color : black
+  ///
+  /// Size : 20
+  ///
+  /// Weight : Regular(400)
+  static const black_20_w400 = TextStyle(
+    color: Colors.black,
+    fontSize: 20,
+    fontWeight: FontWeight.w400,
+    fontFamily: _fontFamily
+  );
+
+  /// Color : black
+  ///
+  /// Size : 24
+  ///
+  /// Weight : Regular(400)
+  static const black_24_w400 = TextStyle(
+    color: Colors.black,
+    fontSize: 24,
+    fontWeight: FontWeight.w400,
+    fontFamily: _fontFamily
+  );
+
+  /// Color : black
+  ///
+  /// Size : 30
+  ///
+  /// Weight : Regular(400)
+  static const black_30_w400 = TextStyle(
+    color: Colors.black,
+    fontSize: 30,
+    fontWeight: FontWeight.w400,
+    fontFamily: _fontFamily
+  );
+
+  /// Color : black
+  ///
+  /// Size : 16
+  ///
+  /// Weight : Regular(400)
+  static const black_16_w400 = TextStyle(
+    color: Colors.black,
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    fontFamily: _fontFamily
+  );
+
+  /// Color : grey
+  ///
+  /// Size : 12
+  ///
+  /// Weight : Regular(400)
+  static const grey_12_w400 = TextStyle(
+    color: Colors.grey,
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    fontFamily: _fontFamily
+  );
+
+  /// Color : grey
+  ///
+  /// Size : 14
+  ///
+  /// Weight : Regular(400)
+  static const grey_14_w400 = TextStyle(
+    color: Colors.grey,
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    fontFamily: _fontFamily
+  );
+
+  /// Color : grey
+  ///
+  /// Size : 16
+  ///
+  /// Weight : Regular(400)
+  static const grey_16_w400 = TextStyle(
+    color: Colors.grey,
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    fontFamily: _fontFamily
+  );
+
+  /// Color : white
+  ///
+  /// Size : 12
+  ///
+  /// Weight : Regular(400)
+  static const white_12_w400 = TextStyle(
+    color: Colors.white,
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    fontFamily: _fontFamily
+  );
+
+  /// Color : white
+  ///
+  /// Size : 14
+  ///
+  /// Weight : Regular(400)
+  static const white_14_w400 = TextStyle(
+    color: Colors.white,
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    fontFamily: _fontFamily
+  );
+
+  /// Color : white
+  ///
+  /// Size : 16
+  ///
+  /// Weight : Regular(400)
+  static const white_16_w400 = TextStyle(
+    color: Colors.white,
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    fontFamily: _fontFamily
+  );
+
 }

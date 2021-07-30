@@ -1,48 +1,170 @@
 import 'package:flutter_common_app/index.dart';
 
-  ///디바이스 타입 가져오기
-  DeviceScreenType getDeviceType(MediaQueryData mediaQuery) {
-    double deviceWidth = mediaQuery.size.shortestSide;
+///디바이스 타입 가져오기
+DeviceScreenType getDeviceType(MediaQueryData mediaQuery) {
+  double deviceWidth = mediaQuery.size.shortestSide;
 
-    if (deviceWidth > 950) {
-      return DeviceScreenType.Desktop;
-    }
-
-    if (deviceWidth > 600) {
-      return DeviceScreenType.Tablet;
-    }
-
-    return DeviceScreenType.Mobile;
+  if (deviceWidth > 950) {
+    return DeviceScreenType.Desktop;
   }
 
-  ///스크린 사이즈 가져오기
-  Size screenSize(BuildContext context) {
-    return MediaQuery.of(context).size;
+  if (deviceWidth > 600) {
+    return DeviceScreenType.Tablet;
   }
 
-  ///스크린 사이즈 세로길이 가져오기
-  double screenHeight(BuildContext context, {double dividedBy = 1}) {
-    return screenSize(context).height / dividedBy;
-  }
+  return DeviceScreenType.Mobile;
+}
 
-  ///스크린 사이즈 가로길이 가져오기
-  double screenWidth(BuildContext context, {double dividedBy = 1}) {
-    return screenSize(context).width / dividedBy;
-  }
+///스크린 사이즈 가져오기
+Size screenSize(BuildContext context) {
+  return MediaQuery.of(context).size;
+}
 
-  ///URL연결
-  ///
-  ///사이트연결 : 'https://flutter.dev'
-  ///
-  ///전화연결 : 'tel:010 1234 5678'
-  ///
-  ///문자연결 : 'sms:010 1234 5678'
-  ///
-  ///이메일연결 : 'mailto:sample@naver.com?subject=제목&body=내용'
-  Future<void> urlLauncher(String url) async{
-    if (await canLaunch(url)) {
-      await launch(url);
-    }else{
-      throw 'Could not launch $url';
-    }
+///스크린 사이즈 세로길이 가져오기
+double screenHeight(BuildContext context, {double dividedBy = 1}) {
+  return screenSize(context).height / dividedBy;
+}
+
+///스크린 사이즈 가로길이 가져오기
+double screenWidth(BuildContext context, {double dividedBy = 1}) {
+  return screenSize(context).width / dividedBy;
+}
+
+enum UrlType { INTERNET, TEL, SMS, EMAIL }
+
+/// URL연결(인터넷,전화,문자,이메일)
+///
+/// ```dart
+/// url:'www.naver.com', urlType:UrlType.INTERNET -> 'https://www.naver.com'
+/// url:'01012345678', urlType:UrlType.TEL -> 'tel:01012345678'
+/// url:'01023456789', urlType:UrlType.SMS -> 'sms:01023456789'
+/// url:'www.naver.com', urlType:UrlType.EMAIL -> 'mailto:www.naver.com'
+/// ```
+///
+Future<void> urlLauncher({
+  required String url,
+  required UrlType urlType,
+}) async {
+  switch (urlType) {
+    case UrlType.INTERNET:
+      await launch(
+        'https://$url',
+      );
+      break;
+    case UrlType.TEL:
+      await launch('tel:$url');
+      break;
+    case UrlType.SMS:
+      await launch('sms:$url');
+      break;
+    case UrlType.EMAIL:
+      await launch('mailto:$url');
+      break;
   }
+}
+
+/// 파일 가지고오기(허용파일)
+///
+/// ImageSource.any : 전부
+///
+/// ImageSource.media : 미디어
+///
+/// ImageSource.image : 사진
+///
+/// ImageSource.video : 비디오
+///
+/// ImageSource.audio : 오디오
+///
+/// ImageSource.custom : 커스텀
+///
+Future<String?> getFilePath({required FileType fileType}) async {
+  FilePickerResult? result = await FilePicker.platform.pickFiles(
+    type: fileType,
+  );
+
+  return result == null ? null : result.files.single.path;
+}
+
+/// 이미지 가지고오기(모드)
+///
+/// ImageSource.camera : 사진
+///
+/// ImageSource.gallery : 갤러리
+///
+Future<String> getImagePath({required ImageSource imageSource}) async {
+  XFile? pickedFile =
+      await ImagePicker().pickImage(source: imageSource, imageQuality: 100);
+
+  if (pickedFile == null) return '';
+
+  return pickedFile.path;
+}
+
+/// 메시지 - 토스트
+///
+///  * [message], 메시지 내용
+///  * [backgroundColor], 백그라운드 색상
+///  * [textColor], 텍스트 색상
+///  * [textColor], 폰트 사이즈
+///
+Future<bool?> showToast({
+  required String message,
+  Color? backgroundColor,
+  Color? textColor,
+  double fontSize = 16,
+}) {
+  return Fluttertoast.showToast(
+    msg: message,
+    toastLength: Toast.LENGTH_SHORT,
+    gravity: ToastGravity.BOTTOM,
+    backgroundColor: backgroundColor,
+    textColor: textColor,
+    fontSize: fontSize,
+  );
+}
+
+/// 메시지 - 스낵바
+///
+///  * [content], 메시지 내용
+///  * [actionLabel], 버튼 이름
+///  * [action], 버튼 이벤트
+///
+void showSnackBar({
+  required String content,
+  String? actionLabel,
+  void Function()? action,
+}) {
+  ScaffoldMessenger.of(Get.context!).showSnackBar(SnackBar(
+    content: Text(content),
+    duration: Duration(seconds: 1),
+    action: actionLabel != null
+        ? SnackBarAction(
+            label: actionLabel,
+            onPressed: action!,
+          )
+        : null,
+  ));
+}
+
+///다이얼로그
+
+
+/// 전역에서 사용가능
+///
+/// 로딩 표시
+void showLoading({Color? progressIndicatorColor, Color? overlayColor}) {
+  Loader.show(
+    Get.overlayContext!,
+    progressIndicator: progressIndicatorColor == null ? null : CircularProgressIndicator(
+      valueColor:AlwaysStoppedAnimation<Color>(progressIndicatorColor),
+    ),
+    overlayColor: overlayColor,
+  );
+}
+
+/// 전역에서 사용가능
+///
+/// 로딩 숨기기
+void hideLoading() {
+  Loader.hide();
+}
