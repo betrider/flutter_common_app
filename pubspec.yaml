@@ -26,10 +26,11 @@ dependencies:
 
   #디자인
   cupertino_icons: ^1.0.2
-  getwidget: ^2.0.3
   group_button: ^3.0.1
   menu_button: ^1.4.2+1
   #custom_pop_up_menu : ^1.2.0
+  flutter_rating_bar: ^4.0.0
+  introduction_screen: ^2.1.0
 
   #equatable(서로다른 인스턴스 같은 인스턴스인지 판단용)
   equatable: ^2.0.3

@@ -1,15 +1,13 @@
 import 'package:flutter_common_app/index.dart';
 
 class SampleWidgetPage extends StatefulWidget {
-
-  const SampleWidgetPage({ Key? key }) : super(key: key);
+  const SampleWidgetPage({Key? key}) : super(key: key);
 
   @override
   _SampleWidgetPageState createState() => _SampleWidgetPageState();
 }
 
 class _SampleWidgetPageState extends State<SampleWidgetPage> {
-
   late Widget _widget;
 
   late List<WidgetModel> listWidget;
@@ -18,8 +16,6 @@ class _SampleWidgetPageState extends State<SampleWidgetPage> {
   void initState() {
     super.initState();
     listWidget = [
-      WidgetModel(title: '타이틀', widget: Text('11')),
-      WidgetModel(title: '타이틀', widget: Text('22')),
       WidgetModel(title: '타이틀', widget: Text('33')),
       WidgetModel(title: '타이틀', widget: Text('44')),
       WidgetModel(title: '타이틀', widget: Text('55')),

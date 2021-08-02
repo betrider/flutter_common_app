@@ -1,7 +1,7 @@
 import 'package:flutter_common_app/index.dart';
 
-class DUInfiniteListView extends StatefulWidget {
-  DUInfiniteListView({
+class InfiniteListView extends StatefulWidget {
+  InfiniteListView({
     this.shrinkWrap = false,
     this.separatedWidget = const Divider(),
     required this.itemList,
@@ -13,12 +13,12 @@ class DUInfiniteListView extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return DUInfiniteListViewState();
+    return InfiniteListViewState();
   }
 }
 
-class DUInfiniteListViewState extends State<DUInfiniteListView>
-    with AfterLayoutMixin<DUInfiniteListView> {
+class InfiniteListViewState extends State<InfiniteListView>
+    with AfterLayoutMixin<InfiniteListView> {
   List items = [];
   ScrollController scrollController = ScrollController();
   bool isLoading = false;

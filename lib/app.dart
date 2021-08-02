@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<LoginProvider>(
       builder: (context, loginProvider, _) {
-        final bool isFirst = Hive.box('cache').get('isFirst') ?? true;
+        // final bool isFirst = Hive.box('cache').get('isFirst') ?? true;
         //Uninitialized -> Authenticated 로그인이 필요없는 경우
         //Uninitialized -> LoginScreen -> Authenticated 로그인이 필요한 경우
         switch (loginProvider.status) {

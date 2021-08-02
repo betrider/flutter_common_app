@@ -5,6 +5,42 @@ const String _fontFamily = AppFontFamily.notoSans;
 class AppTextStyle {
   AppTextStyle._();
 
+  /// Color : mainColor
+  ///
+  /// Size : 12
+  ///
+  /// Weight : Regular(400)
+  static const main_12_w400 = TextStyle(
+    color: AppColor.mainColor,
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    fontFamily: _fontFamily
+  );
+
+  /// Color : mainColor
+  ///
+  /// Size : 14
+  ///
+  /// Weight : Regular(400)
+  static const main_14_w400 = TextStyle(
+    color: AppColor.mainColor,
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    fontFamily: _fontFamily
+  );
+
+  /// Color : mainColor
+  ///
+  /// Size : 16
+  ///
+  /// Weight : Regular(400)
+  static const main_16_w400 = TextStyle(
+    color: AppColor.mainColor,
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    fontFamily: _fontFamily
+  );
+
   /// Color : black
   ///
   /// Size : 12
@@ -25,6 +61,18 @@ class AppTextStyle {
   static const black_14_w400 = TextStyle(
     color: Colors.black,
     fontSize: 14,
+    fontWeight: FontWeight.w400,
+    fontFamily: _fontFamily
+  );
+
+  /// Color : black
+  ///
+  /// Size : 16
+  ///
+  /// Weight : Regular(400)
+  static const black_16_w400 = TextStyle(
+    color: Colors.black,
+    fontSize: 16,
     fontWeight: FontWeight.w400,
     fontFamily: _fontFamily
   );
@@ -61,18 +109,6 @@ class AppTextStyle {
   static const black_30_w400 = TextStyle(
     color: Colors.black,
     fontSize: 30,
-    fontWeight: FontWeight.w400,
-    fontFamily: _fontFamily
-  );
-
-  /// Color : black
-  ///
-  /// Size : 16
-  ///
-  /// Weight : Regular(400)
-  static const black_16_w400 = TextStyle(
-    color: Colors.black,
-    fontSize: 16,
     fontWeight: FontWeight.w400,
     fontFamily: _fontFamily
   );
