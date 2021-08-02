@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 extension WidgetExtension on Widget {
-
   Widget background(Color color) {
     return DecoratedBox(
       decoration: BoxDecoration(
@@ -31,5 +30,50 @@ extension WidgetExtension on Widget {
       child: this,
     );
   }
-  
+}
+
+extension ContainerExtension on Container {
+  Container showOutLine(Color color) {
+    return Container(
+      decoration: BoxDecoration(
+       border: Border.all( 
+         width: 1,
+         color: Colors.black, 
+      ),
+    ),
+      child: this,
+    );
+  }
+}
+
+extension InkWellExtension on InkWell {
+  InkWell isEffectOff() {
+    return InkWell(
+      autofocus: this.autofocus,
+      borderRadius: this.borderRadius,
+      canRequestFocus: this.canRequestFocus,
+      child: this.child,
+      customBorder: this.customBorder,
+      enableFeedback: this.enableFeedback,
+      excludeFromSemantics: this.excludeFromSemantics,
+      focusColor: this.focusColor,
+      focusNode: this.focusNode,
+      highlightColor: Colors.transparent,
+      hoverColor: Colors.transparent,
+      key: this.key,
+      mouseCursor: this.mouseCursor,
+      onDoubleTap: this.onDoubleTap,
+      onFocusChange: this.onFocusChange,
+      onHighlightChanged: this.onHighlightChanged,
+      onHover: this.onHover,
+      onLongPress: this.onLongPress,
+      onTap: this.onTap,
+      onTapCancel: this.onTapCancel,
+      onTapDown: this.onTapDown,
+      overlayColor: this.overlayColor,
+      radius: this.radius,
+      splashColor: Colors.transparent,
+      splashFactory: this.splashFactory,
+    );
+  }
 }

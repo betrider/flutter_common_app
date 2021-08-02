@@ -1,9 +1,7 @@
 import 'package:flutter_common_app/index.dart';
-
 class SampleUtilityPage extends StatefulWidget {
+  const SampleUtilityPage({Key? key}) : super(key: key);
 
-  const SampleUtilityPage({ Key? key }) : super(key: key);
-  
   @override
   _SampleUtilityPageState createState() => _SampleUtilityPageState();
 }
@@ -50,7 +48,7 @@ class _SampleUtilityPageState extends State<SampleUtilityPage>
                           backgroundColor: Colors.amber[100],
                           label: Text(widgetModel.title),
                         ),
-                      ))
+                      ).isEffectOff())
                   .toList()
             ],
           ),

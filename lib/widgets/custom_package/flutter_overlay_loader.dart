@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 const defaultValue = 56.0;
 
-class Loader extends StatelessWidget {
+class FlutterOverlayLoader extends StatelessWidget {
   static OverlayEntry? _currentLoader;
-  Loader._(this._progressIndicator, this._themeData);
+  FlutterOverlayLoader._(this._progressIndicator, this._themeData);
   final Widget? _progressIndicator;
   final ThemeData? _themeData;
 
@@ -38,7 +38,7 @@ class Loader extends StatelessWidget {
               color: overlayColor ?? Color(0x99ffffff),
             ),
             Center(
-                child: Loader._(
+                child: FlutterOverlayLoader._(
               progressIndicator,
               themeData,
             )),

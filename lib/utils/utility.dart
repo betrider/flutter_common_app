@@ -1,4 +1,6 @@
 import 'package:flutter_common_app/index.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'dart:io';
 
 ///디바이스 타입 가져오기
 DeviceScreenType getDeviceType(MediaQueryData mediaQuery) {
@@ -148,16 +150,17 @@ void showSnackBar({
 
 ///다이얼로그
 
-
 /// 전역에서 사용가능
 ///
 /// 로딩 표시
 void showLoading({Color? progressIndicatorColor, Color? overlayColor}) {
-  Loader.show(
+  FlutterOverlayLoader.show(
     Get.overlayContext!,
-    progressIndicator: progressIndicatorColor == null ? null : CircularProgressIndicator(
-      valueColor:AlwaysStoppedAnimation<Color>(progressIndicatorColor),
-    ),
+    progressIndicator: progressIndicatorColor == null
+        ? null
+        : CircularProgressIndicator(
+            valueColor: AlwaysStoppedAnimation<Color>(progressIndicatorColor),
+          ),
     overlayColor: overlayColor,
   );
 }
@@ -166,5 +169,139 @@ void showLoading({Color? progressIndicatorColor, Color? overlayColor}) {
 ///
 /// 로딩 숨기기
 void hideLoading() {
-  Loader.hide();
+  FlutterOverlayLoader.hide();
+}
+
+///위젯
+
+/// 경로에 맞게 아이콘 위젯 가지고 오기
+///
+/// Example
+/// ```
+/// value : Icon(Icons.ac_unit)
+/// value : 'assets/images/svg/setting.svg'
+/// value : DUIcons.svgSetting
+/// ```
+///
+Widget getIconWidget(
+  dynamic value, {
+  double size = 24,
+  Color? color,
+}) {
+  if (value == null || value == '') return errorBuilderWidget(size,size);
+
+  if (value is String) {
+    if (value.contains('assets/images/svg')) {
+      return SvgPicture.asset(
+        value,
+        width: size,
+        height: size,
+        color: color,
+      );
+    } else {
+      return Image.asset(value,
+          width: size,
+          height: size,
+          color: color,
+          errorBuilder: (context, error, stackTrace) => errorBuilderWidget(size,size));
+    }
+  } else {
+    if (value is IconData) {
+      return Icon(
+        value,
+        size: size,
+        color: color,
+      );
+    } else {
+      return value;
+    }
+  }
+}
+
+/// 경로에 맞게 이미지 위젯 가지고 오기
+///
+/// Example
+/// ```
+/// value : 'assets/images/background.jpg'
+/// ```
+///
+Widget duGetImageWidget(
+  dynamic value, {
+  BoxFit boxfit = BoxFit.fill,
+  double width = 50,
+  double height = 50,
+}) {
+  if (value == null || value == '') return errorBuilderWidget(width, height);
+
+  if (value is String) {
+    if (value.contains('assets')) {
+      return Image.asset(
+        value,
+        width: width,
+        height: height,
+        fit: boxfit,
+        errorBuilder: (context, error, stackTrace) =>
+            errorBuilderWidget(width, height),
+      );
+    } else if (value.contains('/data') ||
+        value.contains('storage') ||
+        value.contains('file:') ||
+        value.contains('/private')) {
+      return Image.file(
+        File(value),
+        width: width,
+        height: height,
+        fit: boxfit,
+        errorBuilder: (context, error, stackTrace) =>
+            errorBuilderWidget(width, height),
+      );
+    } else {
+      return Image.network(
+        value,
+        width: width,
+        height: height,
+        fit: boxfit,
+        errorBuilder: (context, error, stackTrace) =>
+            errorBuilderWidget(width, height),
+      );
+    }
+  } else {
+    return value;
+  }
+}
+
+///이미지 가져오기 오류시 불러올 이미지
+Widget errorBuilderWidget(double width, double height) {
+  return SizedBox(
+    width: width,
+    height: height,
+    child: ColoredBox(
+      color: Colors.grey,
+    ),
+  );
+}
+
+/// 경로에 맞게 이미지정보 가지고 오기
+///
+/// Example
+/// ```
+/// value : getImage('assets/images/background.jpg')
+/// ```
+///
+ImageProvider? getImage(dynamic value) {
+  if (value is String) {
+    if (value.contains('assets')) {
+      return AssetImage(value);
+    } else if (value.contains('storage') || value.contains('file:')) {
+      return FileImage(File(value));
+    } else {
+      return NetworkImage(value);
+    }
+  } else {
+    if (value is File) {
+      return FileImage(value);
+    } else {
+      return value;
+    }
+  }
 }

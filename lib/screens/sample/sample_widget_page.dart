@@ -52,7 +52,7 @@ class _SampleWidgetPageState extends State<SampleWidgetPage> {
                           backgroundColor: Colors.amber[100],
                           label: Text(widgetModel.title),
                         ),
-                      ))
+                      ).isEffectOff())
                   .toList()
             ],
           ),

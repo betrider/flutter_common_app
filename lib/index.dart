@@ -1,6 +1,4 @@
 // Dart Packages
-export 'dart:io' show Platform;
-export 'dart:async' show Timer;
 export 'dart:convert';
 
 // Flutter Packages
@@ -40,6 +38,7 @@ export 'package:flutter_common_app/widgets/widgets.dart';
 
 // Others Packages
 export 'package:get/get.dart';
+export 'package:getwidget/getwidget.dart';
 export 'package:provider/provider.dart';
 export 'package:path_provider/path_provider.dart';
 export 'package:hive/hive.dart';
@@ -55,3 +54,4 @@ export 'package:intl/intl.dart' hide TextDirection;
 export 'package:adaptive_dialog/adaptive_dialog.dart';
 export 'package:file_picker/file_picker.dart';
 export 'package:image_picker/image_picker.dart';
+export 'package:flutter_svg/flutter_svg.dart';
