@@ -24,6 +24,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  #결재
+  iamport_flutter: 0.9.15 #버전 고정
+
   #디자인
   cupertino_icons: ^1.0.2
   group_button: ^3.0.1
@@ -80,7 +83,7 @@ dependencies:
   intl: ^0.17.0
 
   #url연결(http, 문자, 전화..)
-  url_launcher: ^6.0.9
+  url_launcher: 5.1.1 #iamport_flutter와 연동으로 인해 버전고정
 
   #파이어베이스 & 파이어스토어
   firebase_core: ^1.4.0

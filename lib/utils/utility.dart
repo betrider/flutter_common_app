@@ -1,6 +1,8 @@
 import 'package:flutter_common_app/index.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:io';
+
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:url_launcher/url_launcher.dart';
 
 ///디바이스 타입 가져오기
 DeviceScreenType getDeviceType(MediaQueryData mediaQuery) {
