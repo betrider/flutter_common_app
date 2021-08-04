@@ -18,10 +18,10 @@ enum ProfileStatus {
 }
 
 ///상태바 위젯
-class DUStatusBar extends StatelessWidget {
+class CustomStatusBar extends StatelessWidget {
 
   ///프로필 상태
-  DUStatusBar.profile({
+  CustomStatusBar.profile({
     required ProfileStatus profileStatus,
   }) : widget = _Profile(
           profileStatus: profileStatus,
@@ -44,27 +44,27 @@ class _Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     switch (profileStatus) {
       case ProfileStatus.JOINED:
-        return _StatusBar(
+        return CustomBar(
           text: '가입',
           backgroundColor: Colors.yellow,
         );
       case ProfileStatus.READY:
-        return _StatusBar(
+        return CustomBar(
           text: '미가입',
           backgroundColor: Colors.yellow,
         );
       case ProfileStatus.DENIED:
-        return _StatusBar(
+        return CustomBar(
           text: '차단',
           backgroundColor: Colors.red,
         );
       case ProfileStatus.BLOCKED:
-        return _StatusBar(
+        return CustomBar(
           text: '차단',
           backgroundColor: Colors.red,
         );
       case ProfileStatus.ENDED:
-        return _StatusBar(
+        return CustomBar(
           text: '종료',
           backgroundColor: Colors.black,
         );
@@ -72,8 +72,8 @@ class _Profile extends StatelessWidget {
   }
 }
 
-class _StatusBar extends StatelessWidget {
-  const _StatusBar({
+class CustomBar extends StatelessWidget {
+  const CustomBar({
     required this.text,
     this.textColor = Colors.white,
     this.textSize = 12,
