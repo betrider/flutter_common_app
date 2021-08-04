@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>xhdpi/icon/group move</title>
+    <g id="icon/group-move" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Fill-1" fill="#2D2D2D" points="7.04417899 3 2 8.485 2.01801289 8.505 2 8.524 7.04417899 14.009 7.71444824 13.302 3.79654911 9.005 14 9.005 14 8.005 3.79654911 8.005 7.71444824 3.707"></polygon>
+        <polygon id="Fill-1-Copy" fill="#2D2D2D" transform="translate(16.000000, 15.504500) scale(-1, 1) translate(-16.000000, -15.504500) " points="15.044179 10 10 15.485 10.0180129 15.505 10 15.524 15.044179 21.009 15.7144482 20.302 11.7965491 16.005 22 16.005 22 15.005 11.7965491 15.005 15.7144482 10.707"></polygon>
+    </g>
+</svg>

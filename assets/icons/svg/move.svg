@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>xhdpi/Group 10</title>
+    <defs>
+        <polygon id="path-1" points="0 0.7002 19.9999 0.7002 19.9999 2.0002 0 2.0002"></polygon>
+        <polygon id="path-3" points="0 0.7002 19.9999 0.7002 19.9999 2.0002 0 2.0002"></polygon>
+        <polygon id="path-5" points="0 0.7002 19.9999 0.7002 19.9999 2 0 2"></polygon>
+    </defs>
+    <g id="마이" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="36_상세내역_후기등록완료" transform="translate(-270.000000, -497.000000)">
+            <g id="Group-10" transform="translate(270.000000, 497.000000)">
+                <g id="Group-3" transform="translate(0.000000, 0.300000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-2"></g>
+                    <path d="M0.6499,0.7002 L19.3499,0.7002 C19.7089,0.7002 19.9999,0.9912 19.9999,1.3502 C19.9999,1.7092 19.7089,2.0002 19.3499,2.0002 L0.6499,2.0002 C0.2909,2.0002 -0.0001,1.7092 -0.0001,1.3502 C-0.0001,0.9912 0.2909,0.7002 0.6499,0.7002" id="Fill-1" fill="#CBCBCD" mask="url(#mask-2)"></path>
+                </g>
+                <g id="Group-6" transform="translate(0.000000, 5.300000)">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <g id="Clip-5"></g>
+                    <path d="M0.6499,0.7002 L19.3499,0.7002 C19.7089,0.7002 19.9999,0.9912 19.9999,1.3502 C19.9999,1.7092 19.7089,2.0002 19.3499,2.0002 L0.6499,2.0002 C0.2909,2.0002 -0.0001,1.7092 -0.0001,1.3502 C-0.0001,0.9912 0.2909,0.7002 0.6499,0.7002" id="Fill-4" fill="#CBCBCD" mask="url(#mask-4)"></path>
+                </g>
+                <g id="Group-9" transform="translate(0.000000, 10.300000)">
+                    <mask id="mask-6" fill="white">
+                        <use xlink:href="#path-5"></use>
+                    </mask>
+                    <g id="Clip-8"></g>
+                    <path d="M0.6499,0.7002 L19.3499,0.7002 C19.7089,0.7002 19.9999,0.9912 19.9999,1.3502 C19.9999,1.7092 19.7089,2.0002 19.3499,2.0002 L0.6499,2.0002 C0.2909,2.0002 -0.0001,1.7092 -0.0001,1.3502 C-0.0001,0.9912 0.2909,0.7002 0.6499,0.7002" id="Fill-7" fill="#CBCBCD" mask="url(#mask-6)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

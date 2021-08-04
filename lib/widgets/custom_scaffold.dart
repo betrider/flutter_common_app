@@ -1,5 +1,5 @@
+import 'package:flutter_common_app/index.dart';
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
 
 class CustomScaffold extends StatelessWidget {
   const CustomScaffold({
@@ -30,7 +30,7 @@ class CustomScaffold extends StatelessWidget {
     this.restorationId,
   });
 
-  final PreferredSizeWidget? appBar;
+  final CustomAppBar? appBar;
   final EdgeInsetsGeometry bodyPadding;
   final Widget? body;
   final Widget? floatingActionButton;

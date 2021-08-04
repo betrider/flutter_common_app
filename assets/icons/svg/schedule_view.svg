@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>xhdpi/icon/schedule view</title>
+    <g id="icon/schedule-view" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" stroke="#2D2D2D" stroke-width="1.2" x="1.6" y="2.6" width="20.8" height="19.8"></rect>
+        <rect id="Rectangle" fill="#2D2D2D" x="6" y="1" width="1.2" height="3"></rect>
+        <rect id="Rectangle-Copy" fill="#2D2D2D" x="17" y="1" width="1.2" height="3"></rect>
+        <rect id="Rectangle" fill="#2D2D2D" x="2" y="6" width="20" height="1.2"></rect>
+        <text id="28" font-family="Helvetica" font-size="12" font-weight="normal" fill="#2D2D2D">
+            <tspan x="5.32617188" y="19">28</tspan>
+        </text>
+    </g>
+</svg>

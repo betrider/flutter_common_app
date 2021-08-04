@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>menu/icon/account</title>
+    <g id="menu/icon/account" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M12,2.20475241 L21.645607,9.00370163 L21.6502381,21.65 L2.34976193,21.65 L2.35439302,9.00370163 L12,2.20475241 Z" id="Polygon" stroke="#8F8F8F" stroke-width="1.3" stroke-linejoin="round"></path>
+        <rect id="Rectangle" stroke="#979797" stroke-width="1.3" x="8.35" y="10.35" width="7.3" height="11.3"></rect>
+    </g>
+</svg>

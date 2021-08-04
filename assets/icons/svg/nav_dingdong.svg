@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>menu/icon/dingdong</title>
+    <g id="menu/icon/dingdong" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M2,10.846124 C2,13.0228602 2.895,15.0173663 4.375,16.5601304 L3.75558824,21 L8.42382353,19.1051602 C9.53529412,19.4831846 10.74,19.692248 12,19.692248 C17.5141176,19.692248 22,15.7238768 22,10.846124 C22,5.96837123 17.5141176,2 12,2 C6.48588235,2 2,5.96837123 2,10.846124 Z" id="Fill-1" stroke="#939393" stroke-width="1.2"></path>
+        <circle id="Oval" fill="#8F8F8F" cx="7" cy="11" r="1"></circle>
+        <circle id="Oval-Copy" fill="#8F8F8F" cx="12" cy="11" r="1"></circle>
+        <circle id="Oval-Copy-2" fill="#8F8F8F" cx="17" cy="11" r="1"></circle>
+    </g>
+</svg>

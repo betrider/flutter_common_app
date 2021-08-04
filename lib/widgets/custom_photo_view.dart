@@ -8,7 +8,7 @@ class CustomPhotoView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      appBar: AppBar(
+      appBar: CustomAppBar(
         title: Text(
           '이미지',
         ),

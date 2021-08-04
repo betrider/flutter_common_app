@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>xhdpi/icon/delete</title>
+    <g id="icon/delete" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M19.3128866,5.65 L18.4559485,21.0748845 C18.4360767,21.4325782 18.2782189,21.7513571 18.0357678,21.9807125 C17.7933168,22.210068 17.4662723,22.35 17.1080271,22.35 L17.1080271,22.35 L6.89197293,22.35 C6.53372768,22.35 6.20668324,22.210068 5.96423216,21.9807125 C5.72178107,21.7513571 5.56392333,21.4325782 5.54405145,21.0748845 L5.54405145,21.0748845 L4.68711342,5.65 L19.3128866,5.65 Z" id="Rectangle" stroke="#2D2D2D" stroke-width="1.3"></path>
+        <path d="M8.65,1.65 L15.35,1.65 L15.35,4 C15.35,4.37279221 15.1988961,4.71029221 14.9545942,4.95459415 C14.7102922,5.1988961 14.3727922,5.35 14,5.35 L14,5.35 L10,5.35 C9.62720779,5.35 9.28970779,5.1988961 9.04540585,4.95459415 C8.8011039,4.71029221 8.65,4.37279221 8.65,4 L8.65,4 L8.65,1.65 Z" id="Rectangle" stroke="#2D2D2D" stroke-width="1.3" transform="translate(12.000000, 3.500000) rotate(180.000000) translate(-12.000000, -3.500000) "></path>
+        <rect id="Rectangle" fill="#2D2D2D" x="9" y="9" width="1" height="10"></rect>
+        <rect id="Rectangle-Copy" fill="#2D2D2D" x="14" y="9" width="1" height="10"></rect>
+        <rect id="Rectangle" fill="#2D2D2D" x="2" y="5" width="20" height="1.3"></rect>
+    </g>
+</svg>

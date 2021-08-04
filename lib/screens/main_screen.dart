@@ -10,33 +10,23 @@ class MainScreen extends StatelessWidget {
     return WillPopScope(
       onWillPop: _onBackPressed,
       child: CustomScaffold(
-        appBar: MainAppBar(),
+        appBar: CustomAppBar(
+          title: InkWell(
+            onTap: () {
+              if (kDebugMode) {
+                Get.toNamed('/sample');
+              } else {
+                context.read<BottomNavigationBarProvider>().currentIndex = 0;
+              }
+            },
+            child: Text('메인타이틀'),
+          ),
+          centerTitle: true,
+        ),
         bodyPadding: EdgeInsets.all(8),
         body: MainBody(),
         bottomNavigationBar: MainBottomNavigationBar(),
       ),
-    );
-  }
-}
-
-class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
-  @override
-  Size get preferredSize => Size.fromHeight(50);
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      title: InkWell(
-        onTap: () {
-          if (kDebugMode) {
-            Get.toNamed('/sample');
-          } else {
-            context.read<BottomNavigationBarProvider>().currentIndex = 0;
-          }
-        },
-        child: Text('메인타이틀'),
-      ),
-      centerTitle: true,
     );
   }
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>xhdpi/icon/chat_my</title>
+    <g id="icon/chat_my" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="#7540EE" x="0" y="0" width="16" height="16" rx="1"></rect>
+        <text id="나" font-family="NanumSquareB, NanumSquare" font-size="10" font-weight="bold" fill="#FFFFFF">
+            <tspan x="3.45" y="11">나</tspan>
+        </text>
+    </g>
+</svg>

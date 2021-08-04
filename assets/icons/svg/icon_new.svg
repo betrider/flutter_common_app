@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>xhdpi/Group</title>
+    <g id="더보기" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="56_더보기_공지사항" transform="translate(-283.000000, -105.000000)">
+            <g id="Group" transform="translate(283.000000, 105.000000)">
+                <rect id="Rectangle" fill="#7540EE" x="0" y="0" width="16" height="16" rx="1"></rect>
+                <text id="N" font-family="Roboto-Medium, Roboto" font-size="12" font-weight="400" fill="#FFFFFF">
+                    <tspan x="4" y="12">N</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

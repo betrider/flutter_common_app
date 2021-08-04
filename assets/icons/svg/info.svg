@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>xhdpi/icon/info</title>
+    <g id="icon/info" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" stroke="#2D2D2D" cx="12" cy="12" r="10"></circle>
+        <rect id="Rectangle" fill="#2D2D2D" x="11" y="10" width="2" height="8"></rect>
+        <rect id="Rectangle" fill="#2D2D2D" x="11" y="6" width="2" height="2"></rect>
+    </g>
+</svg>

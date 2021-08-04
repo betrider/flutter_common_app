@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>xhdpi/icon/chat_master</title>
+    <defs>
+        <polygon id="path-1" points="0 0 21.7436029 0 21.7436029 21.3529412 0 21.3529412"></polygon>
+        <polygon id="path-3" points="0 0 20 0 20 15 0 15"></polygon>
+    </defs>
+    <g id="icon/chat_master" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3" transform="translate(1.000000, 3.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Clip-2"></g>
+        </g>
+        <circle id="Oval" fill="#7540EE" cx="12" cy="4" r="1"></circle>
+        <g id="Group-3" transform="translate(2.000000, 7.000000)">
+            <mask id="mask-4" fill="white">
+                <use xlink:href="#path-3"></use>
+            </mask>
+            <g id="Clip-2"></g>
+            <path d="M19.8616652,3.96056735 C19.7362639,3.84521724 19.555268,3.81851583 19.4031144,3.89199812 L13.5111328,6.74349554 L10.3748455,0.238390225 C10.3046207,0.0924936985 10.1591552,0 9.9998955,0 C9.84084481,0 9.69537927,0.0924936985 9.62494552,0.238390225 L6.48886721,6.74349554 L0.596885647,3.89199812 C0.444523029,3.81851583 0.263736109,3.84521724 0.138334777,3.96056735 C0.0129334456,4.07591746 -0.0322110338,4.25705985 0.0235925587,4.41961806 L3.56053712,14.7144017 C3.61947574,14.8855043 3.77748142,15 3.95513331,15 L16.0448667,15 C16.2223096,15 16.3805243,14.8855043 16.4392539,14.7144017 L19.9764074,4.41961806 C20.032211,4.25705985 19.9870666,4.07591746 19.8616652,3.96056735" id="Fill-1" fill="#7540EE" mask="url(#mask-4)"></path>
+        </g>
+        <circle id="Oval" fill="#7540EE" cx="2" cy="8" r="1"></circle>
+        <circle id="Oval-Copy" fill="#7540EE" cx="22" cy="8" r="1"></circle>
+    </g>
+</svg>

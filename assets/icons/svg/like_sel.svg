@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="19px" viewBox="0 0 20 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>xhdpi/icon/like</title>
+    <defs>
+        <polygon id="path-1" points="0 0.0003 19.9996 0.0003 19.9996 18.1013 0 18.1013"></polygon>
+    </defs>
+    <g id="계정" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="46_계정상세_상품소개_관심" transform="translate(-323.000000, -469.000000)">
+            <g id="Group" transform="translate(321.000000, 466.000000)">
+                <g id="Group-3" transform="translate(2.000000, 3.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-2"></g>
+                    <path d="M9.5786,17.9629 C4.0426,14.2609 -0.0004,10.1019 -0.0004,5.8449 C-0.0004,2.4429 2.3576,-0.0001 5.5256,-0.0001 C7.3596,-0.0001 9.1836,1.0879 9.9946,2.7839 C10.8156,1.0879 12.6406,-0.0001 14.4746,-0.0001 C17.6426,-0.0001 19.9996,2.4429 19.9996,5.8449 C19.9996,10.1019 15.9576,14.2609 10.4106,17.9629 C10.2936,18.0369 10.1336,18.1019 9.9946,18.1019 C9.8666,18.1019 9.7066,18.0369 9.5786,17.9629" id="Fill-1" fill="#FF1968" mask="url(#mask-2)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
