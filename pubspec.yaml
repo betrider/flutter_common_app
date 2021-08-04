@@ -71,6 +71,7 @@ dependencies:
 
   #통신
   http: ^0.13.3
+  html: ^0.15.0
   # dio: ^4.0.0
 
   #로딩 이펙트

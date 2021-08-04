@@ -307,3 +307,51 @@ ImageProvider? getImage(dynamic value) {
     }
   }
 }
+
+/// 버전체크 메서드
+void duCheckVersion() async {
+    
+    final newVersion = NewVersion(
+      //PlayStore 주소
+      androidId: 'com.dingdongu.duflutter',
+      //AppStore 주소
+      iOSId: 'com.dingdongu.duflutter',
+    );
+
+    final status = await newVersion.getVersionStatus();
+
+    String minVersion = '1.1.2';
+    // String lastedVersion = '1.1.2';
+    String localVersion = status!.localVersion;
+    String storeVersion = status.storeVersion;
+    // String releaseNotes = status.releaseNotes!;
+
+    print('minVersion : $minVersion');
+    // print('lastedVersion : $lastedVersion');
+    print('localVersion : $localVersion');
+    print('storeVersion : $storeVersion');
+    // print('releaseNotes : $releaseNotes');
+
+    bool canIgnoreUpdate = true; //업데이트 무시 가능 여부
+
+    if(Version.parse(localVersion) <= Version.parse(minVersion)){
+      canIgnoreUpdate = false;
+    }
+
+    print(canIgnoreUpdate);
+
+    if(Version.parse(localVersion) != Version.parse(storeVersion)){
+      newVersion.showUpdateDialog(
+        allowDismissal: canIgnoreUpdate,
+        context: Get.context!,
+        versionStatus: status,
+        dialogTitle: '업데이트',
+        dialogText: '최신 업데이트가 있습니다. 업데이트하시겠습니까? 로컬버전:$minVersion, 스토어버전:$storeVersion ',
+        updateButtonText: '업데이트',
+        dismissButtonText: '나중에',
+        dismissAction: () {
+          Get.back();
+        },
+      );
+    }
+  }
