@@ -133,7 +133,7 @@ dependencies:
 
   #결재
   iamport_flutter:
-    path: package/iamport_flutter
+    path: ext_package/iamport_flutter
 
 dev_dependencies:
   flutter_test:

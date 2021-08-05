@@ -437,7 +437,7 @@ packages:
   iamport_flutter:
     dependency: "direct main"
     description:
-      path: "package/iamport_flutter"
+      path: "ext_package/iamport_flutter"
       relative: true
     source: path
     version: "0.9.15"
