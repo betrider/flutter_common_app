@@ -95,7 +95,6 @@ class CustomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 20,
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: BorderRadius.circular(2),

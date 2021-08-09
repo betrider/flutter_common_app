@@ -1,23 +1,29 @@
 import 'package:flutter_common_app/index.dart';
 
 class CustomTitle extends StatelessWidget {
-  /// 타이틀 30 타입
+  /// 서브타이틀
   ///
-  /// Size 30
+  /// Size 12
   ///
-  /// Color black
-  CustomTitle.size30(this.text)
-      : isGrey = false,
-        widget = _Size30(text: text);
+  /// Color black or grey
+  CustomTitle.size12(this.text, {this.isGrey = false})
+      : widget = _Size12(text: text, isGrey: isGrey);
 
-  /// 타이틀 24 타입
+  /// 서브타이틀 타입
   ///
-  /// Size 24
+  /// Size 14
   ///
-  /// Color black
-  CustomTitle.size24(this.text)
-      : isGrey = false,
-        widget = _Size24(text: text);
+  /// Color black or grey
+  CustomTitle.size14(this.text, {this.isGrey = false})
+      : widget = _Size14(text: text, isGrey: isGrey);
+
+  /// 서브타이틀 타입
+  ///
+  /// Size 16
+  ///
+  /// Color black or grey
+  CustomTitle.size16(this.text, {this.isGrey = false})
+      : widget = _Size16(text: text, isGrey: isGrey);
 
   /// 타이틀 20 타입
   ///
@@ -28,29 +34,23 @@ class CustomTitle extends StatelessWidget {
       : isGrey = false,
         widget = _Size20(text: text);
 
-  /// 서브타이틀 타입
+  /// 타이틀 24 타입
   ///
-  /// Size 16
+  /// Size 24
   ///
-  /// Color black or grey
-  CustomTitle.size16(this.text, {this.isGrey = false})
-      : widget = _Size16(text: text, isGrey: isGrey);
+  /// Color black
+  CustomTitle.size24(this.text)
+      : isGrey = false,
+        widget = _Size24(text: text);
 
-  /// 서브타이틀 타입
+  /// 타이틀 30 타입
   ///
-  /// Size 14
+  /// Size 30
   ///
-  /// Color black or grey
-  CustomTitle.size14(this.text, {this.isGrey = false})
-      : widget = _Size14(text: text, isGrey: isGrey);
-
-  /// 서브타이틀
-  ///
-  /// Size 12
-  ///
-  /// Color black or grey
-  CustomTitle.size12(this.text, {this.isGrey = false})
-      : widget = _Size12(text: text, isGrey: isGrey);
+  /// Color black
+  CustomTitle.size30(this.text)
+      : isGrey = false,
+        widget = _Size30(text: text);
 
   /// 텍스트
   final String? text;

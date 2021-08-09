@@ -4,7 +4,15 @@ import 'package:flutter/rendering.dart';
 ///필수위젯으로 사용하기위해 du_button이랑 별개로 관리함 ex: DUScaffold - actions
 class CustomIconButton extends StatelessWidget {
   
-  /// 이미지 버튼
+  /// 아이콘 버튼
+  /// 
+  /// Example:
+  /// ```dart
+  ///  icon: Icon(Icons.more_vert_sharp)
+  ///  icon: Icons.more_vert_sharp
+  ///  icon: DUIcons.avatarDefault
+  ///  icon: 'assets/icons/information.png'
+  /// ```
   const CustomIconButton({
     required this.icon,
     this.title,
@@ -16,17 +24,7 @@ class CustomIconButton extends StatelessWidget {
     this.isHandCursor = false,
     this.isEffect = false,
   });
-
-  /// 아이콘
-  /// 
-  /// Example:
-  /// ```dart
-  ///  icon: Icon(Icons.more_vert_sharp)
-  ///  icon: Icons.more_vert_sharp
-  ///  icon: DUIcons.avatarDefault
-  ///  icon: 'assets/icons/information.png'
-  /// ```
-  /// 
+  
   final dynamic icon;
 
   /// 아이콘 제목
