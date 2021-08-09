@@ -1,5 +1,6 @@
 export 'common_widget/common_widget.dart';
 export 'custom_app_bar.dart';
+export 'custom_bar.dart';
 export 'custom_icon_button.dart';
 export 'custom_photo_view.dart';
 export 'custom_scaffold.dart';

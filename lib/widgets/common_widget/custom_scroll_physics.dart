@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 // import 'dart:ui' as ui;
 
@@ -85,6 +87,9 @@ class CustomScrollPhysics extends ScrollPhysics {
 // class MyHomePage extends StatelessWidget {
 //   final List<int> pages = List.generate(4, (index) => index);
 
+//   Color get randomColor =>
+//           Color((Random().nextDouble() * 0xFFFFFF).toInt() << 0).withOpacity(1.0);
+
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
@@ -103,3 +108,4 @@ class CustomScrollPhysics extends ScrollPhysics {
 //       ),
 //     );
 //   }
+// }
