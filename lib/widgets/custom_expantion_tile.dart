@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_common_app/index.dart';
 
 class CustomExpantionTile extends StatefulWidget {
 
@@ -39,9 +39,9 @@ class _CustomExpantionTileState extends State<CustomExpantionTile> {
         title: widget.header,
         tilePadding: EdgeInsets.zero,
         children: <Widget>[widget.body],
-        // trailing: isExpanded
-        //     ? duGetIconWidget(DUIcons.svgExpandLessSM)
-        //     : duGetIconWidget(DUIcons.svgExpandMoreSM),
+        trailing: isExpanded
+            ? getIconWidget(AppIcons.svgExpandLessSM)
+            : getIconWidget(AppIcons.svgExpandMoreSM),
         onExpansionChanged: (value) {
           setState(() {
             isExpanded = value;

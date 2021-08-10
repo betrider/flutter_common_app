@@ -48,6 +48,7 @@ class IamportError extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                   ),
+                  // ignore: deprecated_member_use
                   RaisedButton.icon(
                     icon: Icon(Icons.arrow_back),
                     onPressed: () {

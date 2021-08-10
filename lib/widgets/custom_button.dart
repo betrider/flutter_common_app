@@ -12,12 +12,12 @@ enum CustomButtonStyle {
 }
 
 class CustomButton extends StatelessWidget {
-
   const CustomButton.text({
     this.width,
     this.height = 40,
     required this.child,
     required this.onPressed,
+    this.textColor,
     this.backgroundColor,
   }) : this.customButtonStyle = CustomButtonStyle.Text;
 
@@ -26,6 +26,7 @@ class CustomButton extends StatelessWidget {
     this.height = 40,
     required this.child,
     required this.onPressed,
+    this.textColor,
     this.backgroundColor,
   }) : this.customButtonStyle = CustomButtonStyle.Elevated;
 
@@ -34,6 +35,7 @@ class CustomButton extends StatelessWidget {
     this.height = 40,
     required this.child,
     required this.onPressed,
+    this.textColor,
     this.backgroundColor,
   }) : this.customButtonStyle = CustomButtonStyle.Outlined;
 
@@ -43,6 +45,7 @@ class CustomButton extends StatelessWidget {
   final Widget child;
   final VoidCallback? onPressed;
 
+  final Color? textColor;
   final Color? backgroundColor;
 
   @override
@@ -55,38 +58,40 @@ class CustomButton extends StatelessWidget {
           return TextButton(
             child: child,
             onPressed: onPressed,
-            style: ButtonStyle(
-              elevation: MaterialStateProperty.all(0),
-              backgroundColor: backgroundColor == null
-                  ? null
-                  : MaterialStateProperty.all(backgroundColor),
-            ),
+            style: _getButtonStyle()
           );
         } else if (customButtonStyle == CustomButtonStyle.Elevated) {
           return ElevatedButton(
             child: child,
             onPressed: onPressed,
-            style: ButtonStyle(
-              elevation: MaterialStateProperty.all(0),
-              backgroundColor: backgroundColor == null
-                  ? null
-                  : MaterialStateProperty.all(backgroundColor),
-            ),
+            style: _getButtonStyle()
           );
         } else {
           //CustomButtonStyle.Outlined
           return OutlinedButton(
             child: child,
             onPressed: onPressed,
-            style: ButtonStyle(
-              elevation: MaterialStateProperty.all(0),
-              backgroundColor: backgroundColor == null
-                  ? null
-                  : MaterialStateProperty.all(backgroundColor),
-            ),
+            style: _getButtonStyle(),
           );
         }
       }()),
     );
+  }
+
+  ButtonStyle _getButtonStyle() {
+    return ButtonStyle(
+            elevation: MaterialStateProperty.all(0),
+            foregroundColor: textColor == null ? null : MaterialStateProperty.resolveWith<Color>(
+              (Set<MaterialState> states) {
+                if (!states.contains(MaterialState.disabled))
+                  return Colors.grey;
+                else
+                  return textColor!;
+              },
+            ),
+            backgroundColor: backgroundColor == null
+                ? null
+                : MaterialStateProperty.all(backgroundColor),
+          );
   }
 }

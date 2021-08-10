@@ -227,7 +227,7 @@ Widget getIconWidget(
 /// value : 'assets/images/background.jpg'
 /// ```
 ///
-Widget duGetImageWidget(
+Widget getImageWidget(
   dynamic value, {
   BoxFit boxfit = BoxFit.fill,
   double width = 50,

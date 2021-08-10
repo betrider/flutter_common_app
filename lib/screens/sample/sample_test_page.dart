@@ -21,25 +21,25 @@ class Parent {
   void createdAt() {}
 }
 
-class A extends Parent {
-  @override
-  void createdAt() {
-    // TODO: implement createdAt
-    super.createdAt();
-  }
-}
+// class A extends Parent {
+//   @override
+//   void createdAt() {
+//     // TODO: implement createdAt
+//     super.createdAt();
+//   }
+// }
 
-class B extends Parent {
-  @override
-  void createdAt() {
-    // TODO: implement createdAt
-    super.createdAt();
-  }
-}
+// class B extends Parent {
+//   @override
+//   void createdAt() {
+//     // TODO: implement createdAt
+//     super.createdAt();
+//   }
+// }
 
-void main() {
-  List<A> aList = [];
-  List<B> bList = [];
+// void main() {
+//   List<A> aList = [];
+//   List<B> bList = [];
 
-  List<Parent> childs = [...aList, ...bList];
-}
+//   List<Parent> childs = [...aList, ...bList];
+// }

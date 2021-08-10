@@ -54,7 +54,7 @@ class CustomProfile extends StatelessWidget {
                     child: SizedBox(
                         width: 54,
                         height: 54,
-                        child: duGetImageWidget(imagePath)),
+                        child: getImageWidget(imagePath)),
                   )),
               SizedBox(
                 height: 4,

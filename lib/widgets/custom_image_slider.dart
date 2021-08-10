@@ -52,7 +52,7 @@ class _DUImageSliderState extends State<DUImageSlider> {
                 child: PageView(
                   children: widget.imageList
                       .map((imagePath) =>
-                          duGetImageWidget(imagePath, boxfit: BoxFit.fill))
+                          getImageWidget(imagePath, boxfit: BoxFit.fill))
                       .toList(),
                   controller: controller,
                   onPageChanged: (value) {

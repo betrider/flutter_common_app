@@ -70,7 +70,7 @@ class CustomListTile extends StatelessWidget {
                 child: SizedBox(
                   width: 40,
                   height: 40,
-                  child: duGetImageWidget(imagePath),
+                  child: getImageWidget(imagePath),
                 ),
               ),
               SizedBox(
