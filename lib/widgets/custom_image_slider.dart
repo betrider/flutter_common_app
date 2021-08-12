@@ -1,8 +1,8 @@
 import 'package:flutter_common_app/index.dart';
 
-class DUImageSlider extends StatefulWidget {
+class CustomImageSlider extends StatefulWidget {
   /// 이미지 슬라이더
-  const DUImageSlider({
+  const CustomImageSlider({
     required this.imageList,
     this.height = 200,
   });
@@ -14,10 +14,10 @@ class DUImageSlider extends StatefulWidget {
   final double height;
 
   @override
-  _DUImageSliderState createState() => _DUImageSliderState();
+  _CustomImageSliderState createState() => _CustomImageSliderState();
 }
 
-class _DUImageSliderState extends State<DUImageSlider> {
+class _CustomImageSliderState extends State<CustomImageSlider> {
 
   int page = 0;
   late PageController controller;

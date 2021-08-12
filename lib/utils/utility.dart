@@ -1,4 +1,5 @@
 import 'package:flutter_common_app/index.dart';
+import 'package:images_picker/images_picker.dart';
 import 'dart:io';
 
 // ignore: import_of_legacy_library_into_null_safe
@@ -41,14 +42,18 @@ enum UrlType { INTERNET, TEL, SMS, EMAIL }
 /// ```dart
 /// url:'www.naver.com', urlType:UrlType.INTERNET -> 'https://www.naver.com'
 /// url:'01012345678', urlType:UrlType.TEL -> 'tel:01012345678'
-/// url:'01023456789', urlType:UrlType.SMS -> 'sms:01023456789'
-/// url:'www.naver.com', urlType:UrlType.EMAIL -> 'mailto:www.naver.com'
+/// url:'01023456789', urlType:UrlType.SMS, body:'내용 -> 'sms:01023456789?body=내용'
+/// url:'www.naver.com', urlType:UrlType.EMAIL, subject:'제목', body:'내용' -> 'mailto:www.naver.com?subject=제목&body=내용'
 /// ```
 ///
 Future<void> urlLauncher({
   required String url,
   required UrlType urlType,
-}) async {
+  ///이메일 제목
+  String subject = '제목 입력부분입니다.',
+  ///이메일&문자 내용
+  String body = '내용 입력부분입니다.',
+})  async {
   switch (urlType) {
     case UrlType.INTERNET:
       await launch(
@@ -59,10 +64,10 @@ Future<void> urlLauncher({
       await launch('tel:$url');
       break;
     case UrlType.SMS:
-      await launch('sms:$url');
+      await launch('sms:$url?body=$body'); //'sms:+39 348 060 888?body=hello%20there';
       break;
     case UrlType.EMAIL:
-      await launch('mailto:$url');
+      await launch('mailto:$url?subject=$subject&body=$body'); //<email address>?subject=<subject>&body=<body>
       break;
   }
 }
@@ -89,19 +94,49 @@ Future<String?> getFilePath({required FileType fileType}) async {
   return result == null ? null : result.files.single.path;
 }
 
-/// 이미지 가지고오기(모드)
+enum ImageSource {
+  //갤러리
+  gallery,
+  //카메라
+  camera
+}
+
+/// 이미지 가지고오기(단일모드)
 ///
 /// ImageSource.camera : 사진
 ///
 /// ImageSource.gallery : 갤러리
 ///
-Future<String> getImagePath({required ImageSource imageSource}) async {
-  XFile? pickedFile =
-      await ImagePicker().pickImage(source: imageSource, imageQuality: 100);
+Future<String> getImagePath({
+  required ImageSource imageSource,
+  int aspectRatioX = 1,
+  int aspectRatioY = 1,
+}) async {
+  List<Media>? pickedFile;
+
+  if (imageSource == ImageSource.gallery) {
+    pickedFile = await ImagesPicker.pick(
+      count: 1,
+      pickType: PickType.image,
+      language: Language.System,
+      cropOpt: CropOption(
+        aspectRatio: CropAspectRatio(aspectRatioX, aspectRatioY),
+      ),
+    );
+  } else {
+    pickedFile = await ImagesPicker.openCamera(
+      pickType: PickType.video,
+      maxTime: 15, // record video max time
+      language: Language.System,
+      cropOpt: CropOption(
+        aspectRatio: CropAspectRatio(aspectRatioX, aspectRatioY),
+      ),
+    );
+  }
 
   if (pickedFile == null) return '';
 
-  return pickedFile.path;
+  return pickedFile[0].path;
 }
 
 /// 메시지 - 토스트
@@ -150,7 +185,135 @@ void showSnackBar({
   ));
 }
 
-///다이얼로그
+/// 메시지 - Ok 다이얼로그
+///
+///  * [title], 메시지 제목
+///  * [message], 메시지 내용
+///  * [okLabel], OK 버튼 명칭 = '네'
+///
+Future<OkCancelResult> duShowOkAlertDialog({
+  String? title = '제목',
+  String? message = '내용',
+  String? okLabel = '네',
+  bool? barrierDismissible,
+}) {
+  return showOkAlertDialog(
+    barrierDismissible: barrierDismissible ?? true,
+    context: Get.context!,
+    title: title,
+    message: message,
+    okLabel: okLabel,
+  );
+}
+
+///메시지 - Ok & Cancle 다이얼로그
+///
+///  * [title], 메시지 제목
+///  * [message], 메시지 내용
+///  * [okLabel], OK 버튼 명칭 = '네'
+///  * [cancelLabel], NO 버튼 명칭 = '아니오'
+///
+Future<OkCancelResult> duShowOkCancelAlertDialog({
+  String? title = '제목',
+  String? message = '내용',
+  String? okLabel = '네',
+  String? cancelLabel = '아니오',
+  bool? barrierDismissible,
+}) {
+  return showOkCancelAlertDialog(
+    barrierDismissible: barrierDismissible ?? true,
+    context: Get.context!,
+    title: title,
+    message: message,
+    okLabel: okLabel,
+    cancelLabel: cancelLabel,
+  );
+}
+
+///메시지 - Confirm 다이얼로그
+///
+///  * [title], 메시지 제목
+///  * [message], 메시지 내용
+///  * [actions], 선택요소 모음
+///  * [okLabel], OK 버튼 명칭 = '네'
+///  * [cancelLabel], NO 버튼 명칭 = '아니오'
+///
+Future<T?> duShowConfirmationDialog<T>({
+  String? title = '제목',
+  String? message = '내용',
+  List<AlertDialogAction<T>> actions = const [],
+  String? okLabel = '네',
+  String? cancelLabel = '아니오',
+}) {
+  return showConfirmationDialog(
+    context: Get.context!,
+    title: title!,
+    message: message,
+    actions: actions,
+    okLabel: okLabel,
+    cancelLabel: cancelLabel,
+  );
+}
+
+//바텀시트
+
+///메시지 - Bottom Modal Sheet 다이얼로그
+///
+///  * [title], 메시지 제목
+///  * [message], 메시지 내용
+///  * [actions], 선택요소 모음
+///
+Future<T?> customShowBottomSheet<T>({required CustomShowBottomSheetWidget widget}) {
+  return showModalBottomSheet(
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+        topLeft: const Radius.circular(10.0),
+        topRight: const Radius.circular(10.0),
+      )),
+      context: Get.context!,
+      builder: (context) {
+        return widget;
+      });
+}
+
+///단일선택 달력
+Future<void> customShowSingleCalendar({
+  List<DateTime>? selectableDates,
+  List<DateTime>? selectDates,
+  required void Function(DateTime datetime) onSingleComplete,
+}) {
+  return showModalBottomSheet<void>(
+    isScrollControlled: true,
+    context: Get.context!,
+    builder: (BuildContext context) {
+      return CustomCalendar.singleMonth(
+          selectableDates: selectableDates,
+          selectDates: selectDates,
+          onSingleComplete: onSingleComplete);
+    },
+  );
+}
+
+//멀티선택 달력
+Future<void> showMultipleCalendar({
+  List<DateTime>? selectableDates,
+  List<DateTime>? selectDates,
+  required void Function(List<DateTime> datetime) onMultipleComplete,
+  int? maxCount,
+}) {
+  return showModalBottomSheet<void>(
+    isScrollControlled: true,
+    context: Get.context!,
+    builder: (BuildContext context) {
+      return CustomCalendar.multipleMonth(
+        selectableDates: selectableDates,
+        selectDates: selectDates,
+        onMultipleComplete: onMultipleComplete,
+        maxCount: maxCount,
+      );
+    },
+  );
+}
 
 /// 전역에서 사용가능
 ///

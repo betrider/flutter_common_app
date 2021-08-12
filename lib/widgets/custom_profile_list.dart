@@ -18,18 +18,18 @@ class ProfileModel {
   });
 }
 
-class DUSelectProfileList extends StatefulWidget {
-  DUSelectProfileList({required this.profileList, required this.onTap});
+class CustomSelectProfileList extends StatefulWidget {
+  CustomSelectProfileList({required this.profileList, required this.onTap});
 
   final List<ProfileModel> profileList;
 
   final void Function(List<ProfileModel> profileList) onTap;
 
   @override
-  _DUSelectProfileListState createState() => _DUSelectProfileListState();
+  _CustomSelectProfileListState createState() => _CustomSelectProfileListState();
 }
 
-class _DUSelectProfileListState extends State<DUSelectProfileList> {
+class _CustomSelectProfileListState extends State<CustomSelectProfileList> {
   bool get isAllSelect => widget.profileList.length == indexList.length;
 
   List<int> indexList = [];

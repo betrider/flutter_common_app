@@ -3,9 +3,9 @@ import 'package:flutter_common_app/index.dart';
 /// 사진 업로드 변경 후 이벤트(파일경로)
 typedef OnChanged = void Function(String filePath)?;
 
-class DUProfileImage extends StatelessWidget {
+class CustomProfileImage extends StatelessWidget {
   /// 프로필 이미지 원형 104사이즈
-  DUProfileImage.circle104({
+  CustomProfileImage.circle104({
     required String imagePath,
     required OnChanged onChanged,
     bool showCameraIcon = true,
@@ -18,7 +18,7 @@ class DUProfileImage extends StatelessWidget {
         );
 
   /// 프로필 이미지 사각형 96사이즈
-  DUProfileImage.square96({
+  CustomProfileImage.square96({
     required String imagePath,
     required OnChanged onChanged,
     BorderRadius borderRadius = BorderRadius.zero,

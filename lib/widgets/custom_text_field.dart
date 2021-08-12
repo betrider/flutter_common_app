@@ -1,8 +1,8 @@
 import 'package:flutter_common_app/index.dart';
 
-class DUTextField extends StatefulWidget {
+class CustomTextField extends StatefulWidget {
   
-  DUTextField.container({
+  CustomTextField.container({
     this.hintText = '요청하고 싶은 내용을 입력해주세요.',
     this.maxLength = 200,
     this.height = 96,
@@ -10,9 +10,9 @@ class DUTextField extends StatefulWidget {
   })  : maxLine = 5,
         errText = null,
         scrollbar = true,
-        _widget = _DUFillState();
+        _widget = _CustomFillState();
 
-  DUTextField.bottomLine({
+  CustomTextField.bottomLine({
     this.hintText = "",
     this.maxLength = 200,
     this.height = 0,
@@ -20,7 +20,7 @@ class DUTextField extends StatefulWidget {
     this.maxLine = 5,
     this.errText,
     this.scrollbar = true,
-  }) : _widget = _DUBottomLineState();
+  }) : _widget = _CustomBottomLineState();
 
   /// 힌트 내용
   final String hintText;
@@ -50,7 +50,7 @@ class DUTextField extends StatefulWidget {
   State createState() => _widget;
 }
 
-class _DUFillState extends State<DUTextField> {
+class _CustomFillState extends State<CustomTextField> {
   TextEditingController controller = TextEditingController();
 
   @override
@@ -107,7 +107,7 @@ class _DUFillState extends State<DUTextField> {
   }
 }
 
-class _DUBottomLineState extends State<DUTextField> {
+class _CustomBottomLineState extends State<CustomTextField> {
   TextEditingController controller = TextEditingController();
   int numLines = 0;
 

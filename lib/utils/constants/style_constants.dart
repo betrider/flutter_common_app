@@ -149,6 +149,42 @@ class AppTextStyle {
     fontFamily: _fontFamily
   );
 
+  /// Color : red
+  ///
+  /// Size : 12
+  ///
+  /// Weight : Regular(400)
+  static const red_12_w400 = TextStyle(
+    color: Colors.red,
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    fontFamily: _fontFamily
+  );
+
+  /// Color : red
+  ///
+  /// Size : 14
+  ///
+  /// Weight : Regular(400)
+  static const red_14_w400 = TextStyle(
+    color: Colors.red,
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    fontFamily: _fontFamily
+  );
+
+  /// Color : red
+  ///
+  /// Size : 16
+  ///
+  /// Weight : Regular(400)
+  static const red_16_w400 = TextStyle(
+    color: Colors.red,
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    fontFamily: _fontFamily
+  );
+
   /// Color : white
   ///
   /// Size : 12

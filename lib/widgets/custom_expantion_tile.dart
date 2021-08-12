@@ -30,7 +30,7 @@ class _CustomExpantionTileState extends State<CustomExpantionTile> {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+      data: Theme.of(context).copyWith(dividerColor: Colors.transparent, hoverColor: Colors.transparent, highlightColor: Colors.transparent, splashColor: Colors.transparent),
       child: ExpansionTile(
         initiallyExpanded: widget.initiallyExpanded,
         textColor: Colors.black,

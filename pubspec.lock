@@ -120,13 +120,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.15.0"
-  cross_file:
-    dependency: transitive
-    description:
-      name: cross_file
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.3.1+4"
   crypto:
     dependency: transitive
     description:
@@ -293,6 +286,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.2"
+  flutter_calendar_carousel:
+    dependency: "direct main"
+    description:
+      name: flutter_calendar_carousel
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.3"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -448,34 +448,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
-  image_cropper:
+  images_picker:
     dependency: "direct main"
     description:
-      name: image_cropper
+      name: images_picker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.4.1"
-  image_picker:
-    dependency: "direct main"
-    description:
-      name: image_picker
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.8.2"
-  image_picker_for_web:
-    dependency: transitive
-    description:
-      name: image_picker_for_web
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.1"
-  image_picker_platform_interface:
-    dependency: transitive
-    description:
-      name: image_picker_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.2.0"
+    version: "1.2.4"
   intl:
     dependency: "direct main"
     description:

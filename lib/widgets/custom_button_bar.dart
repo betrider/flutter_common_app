@@ -10,14 +10,14 @@ class ButtonModel {
   ButtonModel({required this.buttonText, required this.onPressed});
 }
 
-class DUButtonBar extends StatelessWidget {
-  DUButtonBar.text({
+class CustomButtonBar extends StatelessWidget {
+  CustomButtonBar.text({
     required List<ButtonModel> buttonModelList,
   }) : _widget = _Text(
           buttonModelList: buttonModelList,
         );
 
-  DUButtonBar.choice({
+  CustomButtonBar.choice({
     required List<String> buttonTextList,
     int selectIndex = 0,
     required void Function(int index) onChanged,
@@ -27,12 +27,12 @@ class DUButtonBar extends StatelessWidget {
           onChanged: onChanged,
         );
 
-  DUButtonBar.widget({
+  CustomButtonBar.widget({
     required List<Widget> widgetList,
     Widget? dividerWidget,
   }) : _widget = _Widget(widgetList: widgetList, dividerWidget: dividerWidget);
 
-  DUButtonBar.grid({
+  CustomButtonBar.grid({
     required List<Widget> widgetList,
     int crossAxisCount = 2,
     double crossAxisSpacing = 8,
