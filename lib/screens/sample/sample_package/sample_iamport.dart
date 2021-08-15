@@ -16,22 +16,25 @@ class SampleIamport extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        padding: EdgeInsets.all(16),
-        child: Center(
-          child: Column(
-            children: [
-              ElevatedButton(onPressed: (){
-                Get.to(Payment());
-              }, child: Text('카드결제')),
-              ElevatedButton(onPressed: (){
-                Get.to(Certification());
-              }, child: Text('본인인증')),
-            ],
+    return Column(
+      children: [
+        Align(
+          alignment: Alignment.centerLeft,
+          child: CustomTitle.size24(
+            '아임포트',
           ),
         ),
-      ),
+        ElevatedButton(
+            onPressed: () {
+              Get.to(Payment());
+            },
+            child: Text('카드결제')),
+        ElevatedButton(
+            onPressed: () {
+              Get.to(Certification());
+            },
+            child: Text('본인인증')),
+      ],
     );
   }
 }
@@ -115,11 +118,11 @@ class Certification extends StatelessWidget {
       userCode: 'iamport',
       /* [필수입력] 본인인증 데이터 */
       data: CertificationData.fromJson({
-        'merchantUid': 'mid_${DateTime.now().millisecondsSinceEpoch}',  // 주문번호
-        'company': '아임포트',                                            // 회사명 또는 URL
-        'carrier': 'SKT',                                               // 통신사
-        'name': '홍길동',                                                 // 이름
-        'phone': '01012341234',                                         // 전화번호
+        'merchantUid': 'mid_${DateTime.now().millisecondsSinceEpoch}', // 주문번호
+        'company': '아임포트', // 회사명 또는 URL
+        'carrier': 'SKT', // 통신사
+        'name': '홍길동', // 이름
+        'phone': '01012341234', // 전화번호
       }),
       /* [필수입력] 콜백 함수 */
       callback: (Map<String, String> result) {

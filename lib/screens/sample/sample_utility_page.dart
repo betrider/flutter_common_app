@@ -1,4 +1,7 @@
 import 'package:flutter_common_app/index.dart';
+import 'package:flutter_common_app/screens/sample/sample_package/sample_iamport.dart';
+
+import 'sample_package/sample_getx.dart';
 class SampleUtilityPage extends StatefulWidget {
   const SampleUtilityPage({Key? key}) : super(key: key);
 
@@ -22,6 +25,7 @@ class _SampleUtilityPageState extends State<SampleUtilityPage>
       WidgetModel(title: 'SampleUsefulWidget', widget: SampleUsefulWidget()),
       WidgetModel(title: 'SampleUtility', widget: SampleUtility()),
       WidgetModel(title: 'SampleExtension', widget: SampleExtension()),
+      WidgetModel(title: 'SamplePackage', widget: SamplePackage()),
     ];
     _widget = listWidget[0].widget;
   }
@@ -512,6 +516,24 @@ class SampleExtension extends StatelessWidget {
           SampleNumFormat(),
           SampleDateTimeFormat(),
           SampleDateTimeFormat(),
+        ],
+        separatorBuilder: (context, index) {
+          return Divider();
+        },
+      ),
+    );
+  }
+}
+
+class SamplePackage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: SeparatedColumn(
+        children: [
+          CustomTitle.size30('Extension'),
+          SampleIamport(),
+          SampleGetX()
         ],
         separatorBuilder: (context, index) {
           return Divider();
