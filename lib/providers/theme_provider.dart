@@ -2,7 +2,7 @@ import 'package:flutter_common_app/index.dart';
 
 enum ThemeType { Light, Dark }
 
-class ThemeProvider extends ChangeNotifier {
+class ThemeProvider2 extends GetxController {
   // Default Theme is Light Theme
   ThemeData currentTheme = lightTheme;
   ThemeType _themeType = ThemeType.Light;
@@ -13,13 +13,13 @@ class ThemeProvider extends ChangeNotifier {
     if (_themeType == ThemeType.Dark) {
       currentTheme = lightTheme;
       _themeType = ThemeType.Light;
-      return notifyListeners();
+      return update();
     }
 
     if (_themeType == ThemeType.Light) {
       currentTheme = darkTheme;
       _themeType = ThemeType.Dark;
-      return notifyListeners();
+      return update();
     }
   }
 }

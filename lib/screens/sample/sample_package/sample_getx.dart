@@ -6,10 +6,10 @@ class SampleGetX extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //2.controller 사용방법
-    final controller = Get.put(BuilderController());
+    // final controller = Get.put(BuilderController());
 
     //3.reactive 사용방법 두번째방법
-    final controller2 = Get.put(ReactiveController());
+    // final controller2 = Get.put(ReactiveController());
 
     return Column(
       children: [
@@ -41,21 +41,21 @@ class SampleGetX extends StatelessWidget {
         ),
         ElevatedButton(
           onPressed: () {
-            controller.increment();
+            Get.find<BuilderController>().increment();
           },
           child: Text('Count 업!'),
         ),
-        GetBuilder<BuilderController>(
-          builder: (controller) {
-            return Text('User : ${controller.user.id} / ${controller.user.name}');
-          },
-        ),
-        ElevatedButton(
-          onPressed: () {
-            controller.change(id: 2, name: '베라베라');
-          },
-          child: Text('User change'),
-        ),
+        // GetBuilder<BuilderController>(
+        //   builder: (controller) {
+        //     return Text('User : ${controller.user.id} / ${controller.user.name}');
+        //   },
+        // ),
+        // ElevatedButton(
+        //   onPressed: () {
+        //     controller.change(id: 2, name: '베라베라');
+        //   },
+        //   child: Text('User change'),
+        // ),
 
         /* //3.reactive 사용방법 첫번째방법
         GetX<ReactiveController>(
@@ -172,6 +172,7 @@ class ReactiveController extends GetxController {
     });
   }
 
+  // called immediately after the widget is allocated memory
   @override
   void onInit() {
     super.onInit();
@@ -204,4 +205,17 @@ class ReactiveController extends GetxController {
       time: Duration(seconds: 1),
     );
   }
+
+  @override
+  void onReady() { // called after the widget is rendered on screen
+    // showIntroDialog();
+    super.onReady();
+  }
+
+  @override
+  void onClose() { // called just before the Controller is deleted from memory
+    // closeStream();
+    super.onClose();
+  }
+
 }

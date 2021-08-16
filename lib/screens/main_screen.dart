@@ -16,7 +16,8 @@ class MainScreen extends StatelessWidget {
               if (kDebugMode) {
                 Get.toNamed('/sample');
               } else {
-                context.read<BottomNavigationBarProvider>().currentIndex = 0;
+                // context.read<BottomNavigationBarProvider>().currentIndex = 0;
+                Get.find<BottomNavigationBarProvider2>().currentIndex = 0;
               }
             },
             child: Text('메인타이틀'),
@@ -36,17 +37,19 @@ class MainBottomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-      currentIndex: context.watch<BottomNavigationBarProvider>().currentIndex,
+      // currentIndex: context.watch<BottomNavigationBarProvider>().currentIndex,
+      currentIndex: Get.find<BottomNavigationBarProvider2>().currentIndex,
       onTap: (index) {
-        context.read<BottomNavigationBarProvider>().currentIndex = index;
+        // context.read<BottomNavigationBarProvider>().currentIndex = index;
+        Get.find<BottomNavigationBarProvider2>().currentIndex = index;
       },
       items: [
         BottomNavigationBarItem(
-          icon: new Icon(Icons.home),
+          icon: Icon(Icons.home),
           label: '1',
         ),
         BottomNavigationBarItem(
-          icon: new Icon(Icons.person),
+          icon: Icon(Icons.person),
           label: '2',
         ),
         BottomNavigationBarItem(
@@ -90,7 +93,8 @@ class _MainBodyState extends State<MainBody> {
 
   @override
   Widget build(BuildContext context) {
-    var index = context.watch<BottomNavigationBarProvider>().currentIndex;
+    // var index = context.watch<BottomNavigationBarProvider>().currentIndex;
+    var index = Get.find<BottomNavigationBarProvider2>().currentIndex;
 
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       print('addPostFrameCallback');

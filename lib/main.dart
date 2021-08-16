@@ -17,14 +17,22 @@ void main() async {
       statusBarIconBrightness: Brightness.dark));
 
   //intl 언어 설정
-  Intl.defaultLocale = 'ko_KR';    
+  Intl.defaultLocale = 'ko_KR';
+
+  //getx 상태관리
+  Get.put(ThemeProvider2());
+  Get.put(LoginProvider2());
+  Get.put(BottomNavigationBarProvider2());
 
   runApp(
-    MultiProvider(providers: [
-      ChangeNotifierProvider(create: (_) => ThemeProvider(),),
-      ChangeNotifierProvider(create: (_) => LoginProvider()),
-      ChangeNotifierProvider(create: (_) => BottomNavigationBarProvider(),),
-      Provider(create: (context) => FirestoreDatabase()),
-    ], child: MyApp()),
+    GetBuilder<ThemeProvider2>(
+      builder: (theme) {
+        return GetBuilder<BottomNavigationBarProvider2>(
+          builder: (controller) {
+            return MyApp();
+          },
+        );
+      },
+    ),
   );
 }

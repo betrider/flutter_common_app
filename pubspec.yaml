@@ -37,7 +37,6 @@ dependencies:
   equatable: ^2.0.3
 
   #상태관리
-  provider: ^5.0.0
   get: ^4.3.0
 
   #로컬저장소

@@ -2,13 +2,13 @@ import 'package:flutter_common_app/index.dart';
 
 enum Status { Uninitialized, Authenticated, Authenticating, Unauthenticated }
 
-class LoginProvider with ChangeNotifier {
+class LoginProvider2 extends GetxController {
   FirebaseAuth _auth;
   User? _user;
   GoogleSignIn _googleSignIn;
   Status _status = Status.Uninitialized;
 
-  LoginProvider()
+  LoginProvider2()
       : _auth = FirebaseAuth.instance,
         _googleSignIn = GoogleSignIn() {
     _auth.authStateChanges().listen(_onAuthStateChanged);
@@ -20,12 +20,12 @@ class LoginProvider with ChangeNotifier {
   Future<bool> signIn(String email, String password) async {
     try {
       _status = Status.Authenticating;
-      notifyListeners();
+      update();
       await _auth.signInWithEmailAndPassword(email: email, password: password);
       return true;
     } catch (e) {
       _status = Status.Unauthenticated;
-      notifyListeners();
+      update();
       return false;
     }
   }
@@ -33,7 +33,7 @@ class LoginProvider with ChangeNotifier {
   Future<bool> signInWithGoogle() async {
     try {
       _status = Status.Authenticating;
-      notifyListeners();
+      update();
       final GoogleSignInAccount googleUser = (await _googleSignIn.signIn())!;
       final GoogleSignInAuthentication googleAuth =
           await googleUser.authentication;
@@ -46,7 +46,7 @@ class LoginProvider with ChangeNotifier {
     } catch (e) {
       print(e);
       _status = Status.Unauthenticated;
-      notifyListeners();
+      update();
       return false;
     }
   }
@@ -55,7 +55,7 @@ class LoginProvider with ChangeNotifier {
     _auth.signOut();
     _googleSignIn.signOut();
     _status = Status.Unauthenticated;
-    notifyListeners();
+    update();
     return Future.delayed(Duration.zero);
   }
 
@@ -68,16 +68,16 @@ class LoginProvider with ChangeNotifier {
       _user = firebaseUser;
       _status = Status.Authenticated;
     }
-    notifyListeners();
+    update();
   }
 
   void changeUnauthenticatedStatus() {
     _status = Status.Unauthenticated;
-    notifyListeners();
+    update();
   }
 
   void loginPass() {
     _status = Status.Authenticated;
-    notifyListeners();
+    update();
   }
 }

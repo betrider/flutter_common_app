@@ -41,7 +41,6 @@ export 'package:flutter_common_app/widgets/widgets.dart';
 
 // Others Packages
 export 'package:get/get.dart';
-export 'package:provider/provider.dart';
 export 'package:path_provider/path_provider.dart';
 export 'package:hive/hive.dart';
 export 'package:google_sign_in/google_sign_in.dart';

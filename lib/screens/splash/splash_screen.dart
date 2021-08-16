@@ -12,7 +12,8 @@ class Splash extends State<SplashScreen> {
     print('splash');
     Timer(Duration(seconds: 2), () {
       //Navigator.pushReplacementNamed(context, '/main');
-      context.read<LoginProvider>().loginPass();
+      // context.read<LoginProvider>().loginPass();
+      Get.find<LoginProvider2>().loginPass();
     });
     return CustomScaffold(
       body: Container(
