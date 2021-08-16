@@ -125,7 +125,7 @@ Future<String> getImagePath({
     );
   } else {
     pickedFile = await ImagesPicker.openCamera(
-      pickType: PickType.video,
+      pickType: PickType.image,
       maxTime: 15, // record video max time
       language: Language.System,
       cropOpt: CropOption(
