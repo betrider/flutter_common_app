@@ -1,39 +1,32 @@
 import 'package:flutter_common_app/index.dart';
 import 'package:images_picker/images_picker.dart';
 import 'dart:io';
-
-// ignore: import_of_legacy_library_into_null_safe
 import 'package:url_launcher/url_launcher.dart';
 
-///디바이스 타입 가져오기
-DeviceScreenType getDeviceType(MediaQueryData mediaQuery) {
-  double deviceWidth = mediaQuery.size.shortestSide;
+// 앱이 구동중인 플랫폼을 확인
+// GetPlatform.isAndroid
+// GetPlatform.isIOS
+// GetPlatform.isMacOS
+// GetPlatform.isWindows
+// GetPlatform.isLinux
+// GetPlatform.isFuchsia
 
-  if (deviceWidth > 950) {
-    return DeviceScreenType.Desktop;
-  }
+/// 가로사이즈
+// Get.width
+/// 세로사이즈
+// Get.height
 
-  if (deviceWidth > 600) {
-    return DeviceScreenType.Tablet;
-  }
+/// Navigator의 현재 context를 제공
+// Get.context
 
-  return DeviceScreenType.Mobile;
-}
+/// 코드 어디에서든지 foreground에서 snackbar/dialog/bottomsheet의 context를 제공
+// Get.contextOverlay
 
-///스크린 사이즈 가져오기
-Size screenSize(BuildContext context) {
-  return MediaQuery.of(context).size;
-}
+/// 장치의 가로 모드 확인
+// context.isLandscape()
 
-///스크린 사이즈 세로길이 가져오기
-double screenHeight(BuildContext context, {double dividedBy = 1}) {
-  return screenSize(context).height / dividedBy;
-}
-
-///스크린 사이즈 가로길이 가져오기
-double screenWidth(BuildContext context, {double dividedBy = 1}) {
-  return screenSize(context).width / dividedBy;
-}
+/// 장치의 세로 모드 확인
+// context.isPortrait()
 
 enum UrlType { INTERNET, TEL, SMS, EMAIL }
 
@@ -49,11 +42,13 @@ enum UrlType { INTERNET, TEL, SMS, EMAIL }
 Future<void> urlLauncher({
   required String url,
   required UrlType urlType,
+
   ///이메일 제목
   String subject = '제목 입력부분입니다.',
+
   ///이메일&문자 내용
   String body = '내용 입력부분입니다.',
-})  async {
+}) async {
   switch (urlType) {
     case UrlType.INTERNET:
       await launch(
@@ -64,10 +59,12 @@ Future<void> urlLauncher({
       await launch('tel:$url');
       break;
     case UrlType.SMS:
-      await launch('sms:$url?body=$body'); //'sms:+39 348 060 888?body=hello%20there';
+      await launch(
+          'sms:$url?body=$body'); //'sms:+39 348 060 888?body=hello%20there';
       break;
     case UrlType.EMAIL:
-      await launch('mailto:$url?subject=$subject&body=$body'); //<email address>?subject=<subject>&body=<body>
+      await launch(
+          'mailto:$url?subject=$subject&body=$body'); //<email address>?subject=<subject>&body=<body>
       break;
   }
 }
@@ -139,161 +136,6 @@ Future<String> getImagePath({
   return pickedFile[0].path;
 }
 
-/// 메시지 - 토스트
-///
-///  * [message], 메시지 내용
-///  * [backgroundColor], 백그라운드 색상
-///  * [textColor], 텍스트 색상
-///  * [textColor], 폰트 사이즈
-///
-Future<bool?> showToast({
-  required String message,
-  Color? backgroundColor,
-  Color? textColor,
-  double fontSize = 16,
-}) {
-  return Fluttertoast.showToast(
-    msg: message,
-    toastLength: Toast.LENGTH_SHORT,
-    gravity: ToastGravity.BOTTOM,
-    backgroundColor: backgroundColor,
-    textColor: textColor,
-    fontSize: fontSize,
-  );
-}
-
-/// 메시지 - 스낵바
-///
-///  * [content], 메시지 내용
-///  * [actionLabel], 버튼 이름
-///  * [action], 버튼 이벤트
-///
-void showSnackBar({
-  required String content,
-  String? actionLabel,
-  void Function()? action,
-}) {
-  ScaffoldMessenger.of(Get.context!).showSnackBar(SnackBar(
-    content: Text(content),
-    duration: Duration(seconds: 1),
-    action: actionLabel != null
-        ? SnackBarAction(
-            label: actionLabel,
-            onPressed: action!,
-          )
-        : null,
-  ));
-}
-
-/// 메시지 - Ok 다이얼로그
-///
-///  * [title], 메시지 제목
-///  * [message], 메시지 내용
-///  * [okLabel], OK 버튼 명칭 = '네'
-///
-Future<OkCancelResult> duShowOkAlertDialog({
-  String? title = '제목',
-  String? message = '내용',
-  String? okLabel = '네',
-  bool? barrierDismissible,
-}) {
-  return showOkAlertDialog(
-    barrierDismissible: barrierDismissible ?? true,
-    context: Get.context!,
-    title: title,
-    message: message,
-    okLabel: okLabel,
-  );
-}
-
-///메시지 - Ok & Cancle 다이얼로그
-///
-///  * [title], 메시지 제목
-///  * [message], 메시지 내용
-///  * [okLabel], OK 버튼 명칭 = '네'
-///  * [cancelLabel], NO 버튼 명칭 = '아니오'
-///
-Future<OkCancelResult> duShowOkCancelAlertDialog({
-  String? title = '제목',
-  String? message = '내용',
-  String? okLabel = '네',
-  String? cancelLabel = '아니오',
-  bool? barrierDismissible,
-}) {
-  return showOkCancelAlertDialog(
-    barrierDismissible: barrierDismissible ?? true,
-    context: Get.context!,
-    title: title,
-    message: message,
-    okLabel: okLabel,
-    cancelLabel: cancelLabel,
-  );
-}
-
-///메시지 - Confirm 다이얼로그
-///
-///  * [title], 메시지 제목
-///  * [message], 메시지 내용
-///  * [actions], 선택요소 모음
-///  * [okLabel], OK 버튼 명칭 = '네'
-///  * [cancelLabel], NO 버튼 명칭 = '아니오'
-///
-Future<T?> duShowConfirmationDialog<T>({
-  String? title = '제목',
-  String? message = '내용',
-  List<AlertDialogAction<T>> actions = const [],
-  String? okLabel = '네',
-  String? cancelLabel = '아니오',
-}) {
-  return showConfirmationDialog(
-    context: Get.context!,
-    title: title!,
-    message: message,
-    actions: actions,
-    okLabel: okLabel,
-    cancelLabel: cancelLabel,
-  );
-}
-
-//바텀시트
-
-///메시지 - Bottom Modal Sheet 다이얼로그
-///
-///  * [title], 메시지 제목
-///  * [message], 메시지 내용
-///  * [actions], 선택요소 모음
-///
-Future<T?> customShowBottomSheet<T>({required CustomShowBottomSheetWidget widget}) {
-  return showModalBottomSheet(
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-        topLeft: const Radius.circular(10.0),
-        topRight: const Radius.circular(10.0),
-      )),
-      context: Get.context!,
-      builder: (context) {
-        return widget;
-      });
-}
-
-///단일선택 달력
-Future<void> customShowSingleCalendar({
-  List<DateTime>? selectableDates,
-  List<DateTime>? selectDates,
-  required void Function(DateTime datetime) onSingleComplete,
-}) {
-  return showModalBottomSheet<void>(
-    isScrollControlled: true,
-    context: Get.context!,
-    builder: (BuildContext context) {
-      return CustomCalendar.singleMonth(
-          selectableDates: selectableDates,
-          selectDates: selectDates,
-          onSingleComplete: onSingleComplete);
-    },
-  );
-}
-
 //멀티선택 달력
 Future<void> showMultipleCalendar({
   List<DateTime>? selectableDates,
@@ -337,6 +179,92 @@ void hideLoading() {
   FlutterOverlayLoader.hide();
 }
 
+/// Snackbar
+void showSnackbar({
+  String title = '제목',
+  String subTitle = '내용',
+  SnackPosition? snackPosition,
+}) {
+  Get.snackbar(
+    title,
+    subTitle,
+    snackPosition: SnackPosition.TOP,
+  );
+}
+
+/// Dialog
+
+/// 메시지 - Ok 다이얼로그
+///
+///  * [title], 메시지 제목
+///  * [message], 메시지 내용
+///  * [okLabel], OK 버튼 명칭 = '네'
+///  * [barrierDismissible], 가장자리 클릭 가능 여부
+///
+Future<OkCancelResult> showOkDialog({
+  String? title = '제목',
+  String? message = '내용',
+  String? okLabel = '네',
+  bool barrierDismissible = true,
+}) {
+  return showOkAlertDialog(
+    barrierDismissible: barrierDismissible,
+    context: Get.context!,
+    title: title,
+    message: message,
+    okLabel: okLabel,
+  );
+}
+
+/// 메시지 - Ok & Cancle 다이얼로그
+///
+///  * [title], 메시지 제목
+///  * [message], 메시지 내용
+///  * [okLabel], OK 버튼 명칭 = '네'
+///  * [cancelLabel], NO 버튼 명칭 = '아니오'
+///  * [barrierDismissible], 가장자리 클릭 가능 여부
+///
+Future<OkCancelResult> showOkCancelDialog({
+  String? title = '제목',
+  String? message = '내용',
+  String? okLabel = '네',
+  String? cancelLabel = '아니오',
+  bool barrierDismissible = true,
+}) {
+  return showOkCancelAlertDialog(
+    barrierDismissible: barrierDismissible,
+    context: Get.context!,
+    title: title,
+    message: message,
+    okLabel: okLabel,
+    cancelLabel: cancelLabel,
+  );
+}
+
+///BottomSheet
+
+///메시지 - Bottom Modal Sheet 다이얼로그
+///
+///  * [title], 메시지 제목
+///  * [message], 메시지 내용
+///  * [actions], 선택요소 모음
+///
+Future<T?> getShowBottomSheet<T>({
+  required CustomShowBottomSheetWidget widget,
+}) {
+  return showModalBottomSheet(
+    shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+      topLeft: const Radius.circular(10.0),
+      topRight: const Radius.circular(10.0),
+    )),
+    context: Get.context!,
+    builder: (context) {
+      return widget;
+    },
+  );
+}
+
 ///위젯
 
 /// 경로에 맞게 아이콘 위젯 가지고 오기
@@ -353,7 +281,7 @@ Widget getIconWidget(
   double size = 24,
   Color? color,
 }) {
-  if (value == null || value == '') return errorBuilderWidget(size,size);
+  if (value == null || value == '') return _errorBuilderWidget(size, size);
 
   if (value is String) {
     if (value.contains('assets/images/svg')) {
@@ -368,7 +296,8 @@ Widget getIconWidget(
           width: size,
           height: size,
           color: color,
-          errorBuilder: (context, error, stackTrace) => errorBuilderWidget(size,size));
+          errorBuilder: (context, error, stackTrace) =>
+              _errorBuilderWidget(size, size));
     }
   } else {
     if (value is IconData) {
@@ -396,7 +325,7 @@ Widget getImageWidget(
   double width = 50,
   double height = 50,
 }) {
-  if (value == null || value == '') return errorBuilderWidget(width, height);
+  if (value == null || value == '') return _errorBuilderWidget(width, height);
 
   if (value is String) {
     if (value.contains('assets')) {
@@ -406,7 +335,7 @@ Widget getImageWidget(
         height: height,
         fit: boxfit,
         errorBuilder: (context, error, stackTrace) =>
-            errorBuilderWidget(width, height),
+            _errorBuilderWidget(width, height),
       );
     } else if (value.contains('/data') ||
         value.contains('storage') ||
@@ -418,7 +347,7 @@ Widget getImageWidget(
         height: height,
         fit: boxfit,
         errorBuilder: (context, error, stackTrace) =>
-            errorBuilderWidget(width, height),
+            _errorBuilderWidget(width, height),
       );
     } else {
       return Image.network(
@@ -427,7 +356,7 @@ Widget getImageWidget(
         height: height,
         fit: boxfit,
         errorBuilder: (context, error, stackTrace) =>
-            errorBuilderWidget(width, height),
+            _errorBuilderWidget(width, height),
       );
     }
   } else {
@@ -436,7 +365,7 @@ Widget getImageWidget(
 }
 
 ///이미지 가져오기 오류시 불러올 이미지
-Widget errorBuilderWidget(double width, double height) {
+Widget _errorBuilderWidget(double width, double height) {
   return SizedBox(
     width: width,
     height: height,
@@ -472,49 +401,49 @@ ImageProvider? getImage(dynamic value) {
 }
 
 /// 버전체크 메서드
-void duCheckVersion() async {
-    
-    final newVersion = NewVersion(
-      //PlayStore 주소
-      androidId: 'com.dingdongu.duflutter',
-      //AppStore 주소
-      iOSId: 'com.dingdongu.duflutter',
+void checkVersion() async {
+  final newVersion = NewVersion(
+    //PlayStore 주소
+    androidId: 'com.dingdongu.duflutter',
+    //AppStore 주소
+    iOSId: 'com.dingdongu.duflutter',
+  );
+
+  final status = await newVersion.getVersionStatus();
+
+  String minVersion = '1.1.2';
+  // String lastedVersion = '1.1.2';
+  String localVersion = status!.localVersion;
+  String storeVersion = status.storeVersion;
+  // String releaseNotes = status.releaseNotes!;
+
+  print('minVersion : $minVersion');
+  // print('lastedVersion : $lastedVersion');
+  print('localVersion : $localVersion');
+  print('storeVersion : $storeVersion');
+  // print('releaseNotes : $releaseNotes');
+
+  bool canIgnoreUpdate = true; //업데이트 무시 가능 여부
+
+  if (Version.parse(localVersion) <= Version.parse(minVersion)) {
+    canIgnoreUpdate = false;
+  }
+
+  print(canIgnoreUpdate);
+
+  if (Version.parse(localVersion) != Version.parse(storeVersion)) {
+    newVersion.showUpdateDialog(
+      allowDismissal: canIgnoreUpdate,
+      context: Get.context!,
+      versionStatus: status,
+      dialogTitle: '업데이트',
+      dialogText:
+          '최신 업데이트가 있습니다. 업데이트하시겠습니까? 로컬버전:$minVersion, 스토어버전:$storeVersion ',
+      updateButtonText: '업데이트',
+      dismissButtonText: '나중에',
+      dismissAction: () {
+        Get.back();
+      },
     );
-
-    final status = await newVersion.getVersionStatus();
-
-    String minVersion = '1.1.2';
-    // String lastedVersion = '1.1.2';
-    String localVersion = status!.localVersion;
-    String storeVersion = status.storeVersion;
-    // String releaseNotes = status.releaseNotes!;
-
-    print('minVersion : $minVersion');
-    // print('lastedVersion : $lastedVersion');
-    print('localVersion : $localVersion');
-    print('storeVersion : $storeVersion');
-    // print('releaseNotes : $releaseNotes');
-
-    bool canIgnoreUpdate = true; //업데이트 무시 가능 여부
-
-    if(Version.parse(localVersion) <= Version.parse(minVersion)){
-      canIgnoreUpdate = false;
-    }
-
-    print(canIgnoreUpdate);
-
-    if(Version.parse(localVersion) != Version.parse(storeVersion)){
-      newVersion.showUpdateDialog(
-        allowDismissal: canIgnoreUpdate,
-        context: Get.context!,
-        versionStatus: status,
-        dialogTitle: '업데이트',
-        dialogText: '최신 업데이트가 있습니다. 업데이트하시겠습니까? 로컬버전:$minVersion, 스토어버전:$storeVersion ',
-        updateButtonText: '업데이트',
-        dismissButtonText: '나중에',
-        dismissAction: () {
-          Get.back();
-        },
-      );
-    }
-  } 
+  }
+}

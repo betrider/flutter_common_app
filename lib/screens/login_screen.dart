@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 //   showSnackBar(content: 'Unable to login.');
                 // }
                 if (!await Get.find<LoginProvider2>().signInWithGoogle()) {
-                  showSnackBar(content: 'Unable to login.');
+                  Get.snackbar('','Unable to login.');
                 }
               },
               child: Text('Login'),

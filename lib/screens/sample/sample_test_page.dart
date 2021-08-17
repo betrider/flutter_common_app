@@ -1,7 +1,4 @@
-
 import 'package:flutter_common_app/index.dart';
-import 'sample_package/sample_package.dart';
-
 
 class SampleTestPage extends StatelessWidget {
   const SampleTestPage({Key? key}) : super(key: key);
@@ -10,9 +7,12 @@ class SampleTestPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(16),
-        child: SampleIamport()
-      ),
+          padding: EdgeInsets.all(16),
+          child: ElevatedButton(
+            child: Text('11'),
+            onPressed: () {
+            },
+          )),
     );
   }
 }
