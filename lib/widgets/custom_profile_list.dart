@@ -19,14 +19,18 @@ class ProfileModel {
 }
 
 class CustomSelectProfileList extends StatefulWidget {
-  CustomSelectProfileList({required this.profileList, required this.onTap});
+  CustomSelectProfileList(
+      {required this.profileList, this.height = 500, required this.onTap});
 
   final List<ProfileModel> profileList;
 
   final void Function(List<ProfileModel> profileList) onTap;
 
+  final double height;
+
   @override
-  _CustomSelectProfileListState createState() => _CustomSelectProfileListState();
+  _CustomSelectProfileListState createState() =>
+      _CustomSelectProfileListState();
 }
 
 class _CustomSelectProfileListState extends State<CustomSelectProfileList> {
@@ -36,86 +40,93 @@ class _CustomSelectProfileListState extends State<CustomSelectProfileList> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return ConstrainedBox(
+          constraints: BoxConstraints(
+            maxHeight: (constraints.maxHeight == double.infinity) ? widget.height: constraints.maxHeight
+          ),
+          child: Column(
             children: [
-              Text('전체선택'),
-              InkWell(
-                onTap: () {
-                  setState(() {
-                    if (isAllSelect) {
-                      indexList.clear();
-                    } else {
-                      indexList.clear();
-                      widget.profileList.forEachIndexed(
-                        (value, index) {
-                          indexList.add(index);
-                        },
-                      );
-                    }
-                  });
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('전체선택'),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        if (isAllSelect) {
+                          indexList.clear();
+                        } else {
+                          indexList.clear();
+                          widget.profileList.forEachIndexed(
+                            (value, index) {
+                              indexList.add(index);
+                            },
+                          );
+                        }
+                      });
+                    },
+                    child: isAllSelect
+                        ? getIconWidget(AppIcons.checkboxOn)
+                        : getIconWidget(AppIcons.checkboxOff),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 24,
+              ),
+              ListView.builder(
+                shrinkWrap: true,
+                primary: false,
+                itemCount: widget.profileList.length,
+                itemBuilder: (context, index) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: CustomListTile(
+                          imageShape: ImageShape.CIRCLE,
+                          imagePath: widget.profileList[index].imagePath!,
+                          title: Text(widget.profileList[index].title!),
+                          subTitle: widget.profileList[index].subTitle,
+                          padding: EdgeInsets.zero,
+                          onTap: () {
+                            setState(() {
+                              if (indexList.contains(index)) {
+                                indexList.remove(index);
+                              } else {
+                                indexList.add(index);
+                              }
+                            });
+                          },
+                          isEffect: false,
+                          trailing: indexList.contains(index)
+                              ? getIconWidget(AppIcons.checkboxOn)
+                              : getIconWidget(AppIcons.checkboxOff),
+                        ),
+                      )
+                    ],
+                  );
                 },
-                child: isAllSelect
-                    ? getIconWidget(AppIcons.checkboxOn)
-                    : getIconWidget(AppIcons.checkboxOff),
+              ),
+              const SizedBox(
+                height: 24,
+              ),
+              CustomButton.elevated(
+                child: Text('추가'),
+                onPressed: indexList.length == 0
+                    ? null
+                    : () {
+                        indexList.sort();
+                        return widget
+                            .onTap(widget.profileList.toIndexList(indexList));
+                      },
               ),
             ],
           ),
-          SizedBox(
-            height: 24,
-          ),
-          ListView.builder(
-            shrinkWrap: true,
-            primary: false,
-            itemCount: widget.profileList.length,
-            itemBuilder: (context, index) {
-              return Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: CustomListTile(
-                      imageShape: ImageShape.CIRCLE,
-                      imagePath: widget.profileList[index].imagePath!,
-                      title: Text(widget.profileList[index].title!),
-                      subTitle: widget.profileList[index].subTitle,
-                      padding: EdgeInsets.zero,
-                      onTap: () {
-                        setState(() {
-                          if (indexList.contains(index)) {
-                            indexList.remove(index);
-                          } else {
-                            indexList.add(index);
-                          }
-                        });
-                      },
-                      isEffect: false,
-                      trailing: indexList.contains(index)
-                          ? getIconWidget(AppIcons.checkboxOn)
-                          : getIconWidget(AppIcons.checkboxOff),
-                    ),
-                  )
-                ],
-              );
-            },
-          ),
-          const SizedBox(
-            height: 24,
-          ),
-          CustomButton.elevated(
-            child: Text('추가'),
-            onPressed: indexList.length == 0
-                ? null
-                : () {
-                    indexList.sort();
-                    return widget
-                        .onTap(widget.profileList.toIndexList(indexList));
-                  },
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 }
