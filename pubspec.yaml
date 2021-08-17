@@ -72,6 +72,8 @@ dependencies:
   http: ^0.13.3
   html: ^0.15.0
   # dio: ^4.0.0
+  graphql_flutter: ^5.0.0
+
 
   #로딩 이펙트
   shimmer: ^2.0.0

@@ -31,7 +31,7 @@ export 'package:flutter_common_app/routes/routes.dart';
 export 'package:flutter_common_app/screens/screens.dart';
 
 // Services
-export 'package:flutter_common_app/services/firestore_services.dart';
+export 'package:flutter_common_app/services/firebase//firestore_services.dart';
 
 // Utilities
 export 'package:flutter_common_app/utils/utils.dart';

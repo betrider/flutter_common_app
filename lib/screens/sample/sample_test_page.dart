@@ -9,8 +9,9 @@ class SampleTestPage extends StatelessWidget {
       body: Container(
           padding: EdgeInsets.all(16),
           child: ElevatedButton(
-            child: Text('11'),
+            child: Text('테마변경'),
             onPressed: () {
+              Get.changeTheme(Get.isDarkMode? lightTheme: darkTheme);
             },
           )),
     );

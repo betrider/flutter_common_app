@@ -25,13 +25,9 @@ void main() async {
   Get.put(BottomNavigationBarProvider2());
 
   runApp(
-    GetBuilder<ThemeProvider2>(
-      builder: (theme) {
-        return GetBuilder<BottomNavigationBarProvider2>(
-          builder: (controller) {
-            return MyApp();
-          },
-        );
+    GetBuilder<BottomNavigationBarProvider2>(
+      builder: (controller) {
+        return MyApp();
       },
     ),
   );

@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       getPages: RouteGenerator.getPages(),
       routingCallback: RouteGenerator.routingCallback,
       // theme: context.watch<ThemeProvider>().currentTheme,
-      theme: Get.find<ThemeProvider2>().currentTheme,
+      theme: lightTheme,
       localizationsDelegates: [
         //다국어 지원
         GlobalMaterialLocalizations.delegate,
