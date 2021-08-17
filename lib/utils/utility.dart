@@ -136,27 +136,6 @@ Future<String> getImagePath({
   return pickedFile[0].path;
 }
 
-//멀티선택 달력
-Future<void> showMultipleCalendar({
-  List<DateTime>? selectableDates,
-  List<DateTime>? selectDates,
-  required void Function(List<DateTime> datetime) onMultipleComplete,
-  int? maxCount,
-}) {
-  return showModalBottomSheet<void>(
-    isScrollControlled: true,
-    context: Get.context!,
-    builder: (BuildContext context) {
-      return CustomCalendar.multipleMonth(
-        selectableDates: selectableDates,
-        selectDates: selectDates,
-        onMultipleComplete: onMultipleComplete,
-        maxCount: maxCount,
-      );
-    },
-  );
-}
-
 /// 전역에서 사용가능
 ///
 /// 로딩 표시
@@ -202,9 +181,9 @@ void showSnackbar({
 ///  * [barrierDismissible], 가장자리 클릭 가능 여부
 ///
 Future<OkCancelResult> showOkDialog({
-  String? title = '제목',
-  String? message = '내용',
-  String? okLabel = '네',
+  String title = '제목',
+  String message = '내용',
+  String okLabel = '네',
   bool barrierDismissible = true,
 }) {
   return showOkAlertDialog(
@@ -225,10 +204,10 @@ Future<OkCancelResult> showOkDialog({
 ///  * [barrierDismissible], 가장자리 클릭 가능 여부
 ///
 Future<OkCancelResult> showOkCancelDialog({
-  String? title = '제목',
-  String? message = '내용',
-  String? okLabel = '네',
-  String? cancelLabel = '아니오',
+  String title = '제목',
+  String message = '내용',
+  String okLabel = '네',
+  String cancelLabel = '아니오',
   bool barrierDismissible = true,
 }) {
   return showOkCancelAlertDialog(
@@ -249,7 +228,7 @@ Future<OkCancelResult> showOkCancelDialog({
 ///  * [message], 메시지 내용
 ///  * [actions], 선택요소 모음
 ///
-Future<T?> getShowBottomSheet<T>({
+Future<T?> showBottomSheet<T>({
   required CustomShowBottomSheetWidget widget,
 }) {
   return showModalBottomSheet(
@@ -261,6 +240,27 @@ Future<T?> getShowBottomSheet<T>({
     context: Get.context!,
     builder: (context) {
       return widget;
+    },
+  );
+}
+
+//멀티선택 달력
+Future<void> showMultipleCalendar({
+  List<DateTime>? selectableDates,
+  List<DateTime>? selectDates,
+  required void Function(List<DateTime> datetime) onMultipleComplete,
+  int? maxCount,
+}) {
+  return showModalBottomSheet<void>(
+    isScrollControlled: true,
+    context: Get.context!,
+    builder: (BuildContext context) {
+      return CustomCalendar.multipleMonth(
+        selectableDates: selectableDates,
+        selectDates: selectDates,
+        onMultipleComplete: onMultipleComplete,
+        maxCount: maxCount,
+      );
     },
   );
 }
