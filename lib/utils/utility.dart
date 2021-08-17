@@ -20,7 +20,7 @@ import 'package:url_launcher/url_launcher.dart';
 // Get.context
 
 /// 코드 어디에서든지 foreground에서 snackbar/dialog/bottomsheet의 context를 제공
-// Get.contextOverlay
+// Get.overlayContext
 
 /// 장치의 가로 모드 확인
 // context.isLandscape()
@@ -171,6 +171,29 @@ void showSnackbar({
   );
 }
 
+// /// 메시지 - 스낵바
+// ///
+// ///  * [content], 메시지 내용
+// ///  * [actionLabel], 버튼 이름
+// ///  * [action], 버튼 이벤트
+// ///
+// void duShowSnackBar({
+//   required String content,
+//   String? actionLabel,
+//   void Function()? action,
+// }) {
+//   ScaffoldMessenger.of(Get.overlayContext!).showSnackBar(SnackBar(
+//     content: Text(content),
+//     duration: Duration(seconds: 1),
+//     action: actionLabel != null
+//         ? SnackBarAction(
+//             label: actionLabel,
+//             onPressed: action!,
+//           )
+//         : null,
+//   ));
+// }
+
 /// Dialog
 
 /// 메시지 - Ok 다이얼로그
@@ -188,7 +211,7 @@ Future<OkCancelResult> showOkDialog({
 }) {
   return showOkAlertDialog(
     barrierDismissible: barrierDismissible,
-    context: Get.context!,
+    context: Get.overlayContext!,
     title: title,
     message: message,
     okLabel: okLabel,
@@ -212,7 +235,7 @@ Future<OkCancelResult> showOkCancelDialog({
 }) {
   return showOkCancelAlertDialog(
     barrierDismissible: barrierDismissible,
-    context: Get.context!,
+    context: Get.overlayContext!,
     title: title,
     message: message,
     okLabel: okLabel,
@@ -220,14 +243,27 @@ Future<OkCancelResult> showOkCancelDialog({
   );
 }
 
+///메시지 - Custom Alert Dialog
+void showCustomAlertDialog({Widget? widget}) {
+
+  if (widget == null)
+    widget = Container(
+      height: 100,
+      child: Center(
+        child: Text('Dialog'),
+      ),
+    );
+
+  Get.dialog(
+    Dialog(
+      child: widget
+    ),
+  );
+}
+
 ///BottomSheet
 
-///메시지 - Bottom Modal Sheet 다이얼로그
-///
-///  * [title], 메시지 제목
-///  * [message], 메시지 내용
-///  * [actions], 선택요소 모음
-///
+///메시지 - Custom Bottom Modal Sheet
 Future<T?> showCustomBottomSheet<T>({
   required CustomShowBottomSheetWidget widget,
 }) {
@@ -237,7 +273,7 @@ Future<T?> showCustomBottomSheet<T>({
       topLeft: const Radius.circular(10.0),
       topRight: const Radius.circular(10.0),
     )),
-    context: Get.context!,
+    context: Get.overlayContext!,
     builder: (context) {
       return widget;
     },
@@ -253,7 +289,7 @@ Future<void> showMultipleCalendar({
 }) {
   return showModalBottomSheet<void>(
     isScrollControlled: true,
-    context: Get.context!,
+    context: Get.overlayContext!,
     builder: (BuildContext context) {
       return CustomCalendar.multipleMonth(
         selectableDates: selectableDates,

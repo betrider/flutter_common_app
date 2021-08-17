@@ -1,9 +1,7 @@
+import 'package:flutter_common_app/utils/regexp.dart';
 import 'package:intl/intl.dart';
 
-extension CustomStringExtension on String {
-  DateTime? dateParse() {
-    return DateTime.parse(this);
-  }
+extension StringExtension2 on String? {
 
   /// 화폐단위로 변환
   ///
@@ -12,9 +10,13 @@ extension CustomStringExtension on String {
   /// '123456789'.toCurrency(); // '123,456,789'
   /// ```
   String toCurrency() {
-    return new NumberFormat('###,###,###,###')
-        .format(int.parse(this))
-        .replaceAll(' ', '');
+    if (this == null) {
+      return '';
+    } else {
+      return NumberFormat('###,###,###,###')
+          .format(int.parse(this!))
+          .replaceAll(' ', '');
+    }
   }
 
   /// 생년월일 포맷 변환
@@ -24,12 +26,13 @@ extension CustomStringExtension on String {
   /// '19921001'.toBirthday(); // '1992.10.01'
   /// ```
   String toBirthday() {
-    if (this.length != 8) return this;
-    return this.substring(0, 4) +
+    if (this == null) return '';
+    if (this!.length != 8) return this!;
+    return this!.substring(0, 4) +
         '.' +
-        this.substring(4, 6) +
+        this!.substring(4, 6) +
         '.' +
-        this.substring(6, 8);
+        this!.substring(6, 8);
   }
 
   /// 가격 포맷
@@ -40,7 +43,13 @@ extension CustomStringExtension on String {
   /// '325'.toPrice(); // '325'
   /// ```
   String toPrice() {
-    return this.isEmpty || this == "0" || this == "" ? "무료" : this.toCurrency();
+    if (this == null) {
+      return '';
+    } else {
+      return this!.isEmpty || this == "0" || this == ""
+          ? "무료"
+          : this.toCurrency();
+    }
   }
 
   /// 가격 포맷2
@@ -51,11 +60,22 @@ extension CustomStringExtension on String {
   /// '325'.toPrice(); // '325원'
   /// ```
   String toPrice2() {
-    return this.isEmpty || this == "0" || this == ""
-        ? "무료"
-        : this.toCurrency() + "원";
+    if (this == null) {
+      return '';
+    } else {
+      return this!.isEmpty || this == "0" || this == ""
+          ? "무료"
+          : this.toCurrency() + "원";
+    }
   }
 
+  /// 가격 포맷2
+  ///
+  /// Example:
+  /// ```dart
+  /// ''.toPrice(); // '무료'
+  /// '325'.toPrice(); // '325원'
+  /// ```
   /// 전화번호 형식으로 변환
   ///
   /// Example:
@@ -96,61 +116,63 @@ extension CustomStringExtension on String {
     const List<String?> internetNumberList = ['010', '070']; //인터넷
     const List<String?> commericialNumberList = ['1588', '1644']; //상업용
 
-    if (this.isEmpty) {
+    if (this == null) return '';
+
+    if (this!.isEmpty) {
       return "";
     }
 
-    if (this.length >= 2 && areaNumberList.contains(this.substring(0, 2))) {
-      if (this.length <= 6) {
-        return this.substring(0, 2) + '-' + this.substring(2, this.length);
+    if (this!.length >= 2 && areaNumberList.contains(this!.substring(0, 2))) {
+      if (this!.length <= 6) {
+        return this!.substring(0, 2) + '-' + this!.substring(2, this!.length);
       } else {
-        return this.substring(0, 2) +
+        return this!.substring(0, 2) +
             '-' +
-            this.substring(2, 6) +
+            this!.substring(2, 6) +
             '-' +
-            this.substring(6, this.length);
+            this!.substring(6, this!.length);
       }
-    } else if (areaNumberList.contains(this.substring(0, 3))) {
-      if (this.length <= 6) {
-        return this.substring(0, 3) + '-' + this.substring(3, this.length);
+    } else if (areaNumberList.contains(this!.substring(0, 3))) {
+      if (this!.length <= 6) {
+        return this!.substring(0, 3) + '-' + this!.substring(3, this!.length);
       } else {
-        return this.substring(0, 3) +
+        return this!.substring(0, 3) +
             '-' +
-            this.substring(3, 6) +
+            this!.substring(3, 6) +
             '-' +
-            this.substring(6, this.length);
+            this!.substring(6, this!.length);
       }
-    } else if (oldNumberList.contains(this.substring(0, 3))) {
-      if (this.length <= 6) {
-        return this.substring(0, 3) + '-' + this.substring(3, this.length);
+    } else if (oldNumberList.contains(this!.substring(0, 3))) {
+      if (this!.length <= 6) {
+        return this!.substring(0, 3) + '-' + this!.substring(3, this!.length);
       } else {
-        return this.substring(0, 3) +
+        return this!.substring(0, 3) +
             '-' +
-            this.substring(3, 6) +
+            this!.substring(3, 6) +
             '-' +
-            this.substring(6, this.length);
+            this!.substring(6, this!.length);
       }
-    } else if (internetNumberList.contains(this.substring(0, 3))) {
-      if (this.length <= 7) {
-        return this.substring(0, 3) + '-' + this.substring(3, this.length);
+    } else if (internetNumberList.contains(this!.substring(0, 3))) {
+      if (this!.length <= 7) {
+        return this!.substring(0, 3) + '-' + this!.substring(3, this!.length);
       } else {
-        return this.substring(0, 3) +
+        return this!.substring(0, 3) +
             '-' +
-            this.substring(3, 7) +
+            this!.substring(3, 7) +
             '-' +
-            this.substring(7, this.length);
+            this!.substring(7, this!.length);
       }
-    } else if (commericialNumberList.contains(this.substring(0, 4))) {
-      return this.substring(0, 4) + '-' + this.substring(4, this.length);
+    } else if (commericialNumberList.contains(this!.substring(0, 4))) {
+      return this!.substring(0, 4) + '-' + this!.substring(4, this!.length);
     } else {
-      return this;
+      return this!;
     }
   }
 
   /// Parses string and returns integer value.
   ///
-  /// You can set an optional [radix] to specify the numeric base.
-  /// If no [radix] is set, it will use the decimal system (10).
+  /// You can set an optional [radix!] to specify the numeric base.
+  /// If no [radix!] is set, it will use the decimal system (10).
   ///
   /// Returns `null` if parsing fails.
   ///
@@ -161,7 +183,8 @@ extension CustomStringExtension on String {
   /// ```
   int toInt() {
     try {
-      return int.parse(this, radix: 10);
+      if (this == null) return 0;
+      return int.parse(this!, radix: 10);
     } catch (error) {
       return 0;
     }
@@ -178,7 +201,8 @@ extension CustomStringExtension on String {
   /// ```
   double toDouble() {
     try {
-      return double.parse(this);
+      if (this == null) return 0;
+      return double.parse(this!);
     } catch (error) {
       return 0;
     }
@@ -196,12 +220,13 @@ extension CustomStringExtension on String {
   /// 'i   like cats'.allAfter(RegExp('\\s+')) // 'like cats'
   /// ```
   String allAfter(Pattern pattern) {
-    var matchIterator = pattern.allMatches(this).iterator;
+    if (this == null) return '';
+    var matchIterator = pattern.allMatches(this!).iterator;
 
     if (matchIterator.moveNext()) {
       var match = matchIterator.current;
       var length = match.end - match.start;
-      return substring(match.start + length);
+      return this!.substring(match.start + length);
     }
     return '';
   }
@@ -217,7 +242,8 @@ extension CustomStringExtension on String {
   /// 'i like turtles'.allBefore('like') // 'i '
   /// ```
   String allBefore(Pattern pattern) {
-    var matchIterator = pattern.allMatches(this).iterator;
+    if (this == null) return '';
+    var matchIterator = pattern.allMatches(this!).iterator;
 
     Match? match;
     while (matchIterator.moveNext()) {
@@ -225,7 +251,7 @@ extension CustomStringExtension on String {
     }
 
     if (match != null) {
-      return substring(0, match.start);
+      return this!.substring(0, match.start);
     }
     return '';
   }
@@ -243,83 +269,31 @@ extension CustomStringExtension on String {
   String allBetween(Pattern startPattern, Pattern endPattern) {
     return allAfter(startPattern).allBefore(endPattern);
   }
-}
 
-extension CustomStringExtension2 on String? {
-  DateTime? dateParse() {
-    return DateTime.parse(this ?? "");
+  /// 정규식 
+  
+  /// 이메일 확인
+  bool get isEmail{
+    if (this == null) return false;
+    return RegExp(RegExpEMAIL).hasMatch(this!);
   }
 
-  String toCurrency() {
-    if (this == null) {
-      return '';
-    } else {
-      return this!.toCurrency();
-    }
+  /// 휴대폰 번호 확인
+  bool get isPhoneNumber{
+    if (this == null) return false;
+    return RegExp(RegExpSMARTPHONE).hasMatch(this!);
   }
 
-  String toPrice() {
-    if (this == null) {
-      return '';
-    } else {
-      return this!.toPrice();
-    }
+  /// URL 확인
+  bool get isUrl{
+    if (this == null) return false;
+    return RegExp(RegExpURL).hasMatch(this!);
   }
 
-  String toPrice2() {
-    if (this == null) {
-      return '';
-    } else {
-      return this!.toPrice2();
-    }
-  }
-
-  String toPhoneNumber() {
-    if (this == null) {
-      return '';
-    } else {
-      return this!.toPhoneNumber();
-    }
-  }
-
-  int? toInt() {
-    if (this == null) {
-      return 0;
-    } else {
-      return this!.toInt();
-    }
-  }
-
-  double? toDouble() {
-    if (this == null) {
-      return 0;
-    } else {
-      return this!.toDouble();
-    }
-  }
-
-  String allAfter(Pattern pattern) {
-    if (this == null) {
-      return '';
-    } else {
-      return this!.allAfter(pattern);
-    }
-  }
-
-  String allBefore(Pattern pattern) {
-    if (this == null) {
-      return '';
-    } else {
-      return this!.allBefore(pattern);
-    }
-  }
-
-  String allBetween(Pattern startPattern, Pattern endPattern) {
-    if (this == null) {
-      return '';
-    } else {
-      return this!.allBetween(startPattern, endPattern);
-    }
+  /// 생년월일 확인
+  bool get isBirthDay {
+    if (this == null) return false;
+    return RegExp(RegExpBIRTHDAY).hasMatch(this!);
   }
 
   /// null or empty check
