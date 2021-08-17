@@ -228,7 +228,7 @@ Future<OkCancelResult> showOkCancelDialog({
 ///  * [message], 메시지 내용
 ///  * [actions], 선택요소 모음
 ///
-Future<T?> showBottomSheet<T>({
+Future<T?> showCustomBottomSheet<T>({
   required CustomShowBottomSheetWidget widget,
 }) {
   return showModalBottomSheet(
