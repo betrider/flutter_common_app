@@ -4,6 +4,7 @@ import 'package:flutter/scheduler.dart';
 
 typedef void OnWidgetSizeChange(Size size);
 
+//build된 위젯 사이즈 체크용
 class MeasuredSize extends StatefulWidget {
   /// Widget to calculate it's size.
   final Widget child;
