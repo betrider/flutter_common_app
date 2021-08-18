@@ -192,4 +192,14 @@ extension CustomDateTimeExtension on DateTime {
         this.day == other.day;
   }
 
+  /// Returns the [bool] wheather the given date are inside iterval or not.
+  ///
+  /// Example:
+  /// ```dart
+  /// DateTime(2000, 1, 2).isBetween(DateTime(2000, 1, 1), DateTime(2000, 1, 31)); // true
+  /// DateTime(2000, 1, 1).isBetween(DateTime(2000, 1, 1), DateTime(2000, 1, 1)); // true
+  /// ```
+  bool isBetween(DateTime from, DateTime to) {
+    return (isAfter(from) && isBefore(to)) || this == from || this == to;
+  }
 }

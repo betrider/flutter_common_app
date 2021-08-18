@@ -9,24 +9,26 @@ class MainScreen extends StatelessWidget {
     print('MainScreen build');
     return WillPopScope(
       onWillPop: _onBackPressed,
-      child: CustomScaffold(
-        appBar: CustomAppBar(
-          title: InkWell(
-            onTap: () {
-              if (kDebugMode) {
-                Get.toNamed('/sample');
-              } else {
-                // context.read<BottomNavigationBarProvider>().currentIndex = 0;
-                Get.find<BottomNavigationBarProvider2>().currentIndex = 0;
-              }
-            },
-            child: Text('메인타이틀'),
+      child: GetBuilder<BottomNavigationBarProvider2>(
+        builder: (controller) => CustomScaffold(
+          appBar: CustomAppBar(
+            title: InkWell(
+              onTap: () {
+                if (kDebugMode) {
+                  Get.toNamed('/sample');
+                } else {
+                  // context.read<BottomNavigationBarProvider>().currentIndex = 0;
+                  Get.find<BottomNavigationBarProvider2>().currentIndex = 0;
+                }
+              },
+              child: Text('메인타이틀'),
+            ),
+            centerTitle: true,
           ),
-          centerTitle: true,
+          bodyPadding: EdgeInsets.all(8),
+          body: MainBody(),
+          bottomNavigationBar: MainBottomNavigationBar(),
         ),
-        bodyPadding: EdgeInsets.all(8),
-        body: MainBody(),
-        bottomNavigationBar: MainBottomNavigationBar(),
       ),
     );
   }

@@ -177,7 +177,7 @@ void showSnackbar({
 // ///  * [actionLabel], 버튼 이름
 // ///  * [action], 버튼 이벤트
 // ///
-// void duShowSnackBar({
+// void showSnackBar({
 //   required String content,
 //   String? actionLabel,
 //   void Function()? action,

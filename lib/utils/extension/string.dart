@@ -122,6 +122,8 @@ extension StringExtension2 on String? {
       return "";
     }
 
+    if(this!.contains('-')) return this!;
+
     if (this!.length >= 2 && areaNumberList.contains(this!.substring(0, 2))) {
       if (this!.length <= 6) {
         return this!.substring(0, 2) + '-' + this!.substring(2, this!.length);
@@ -148,9 +150,9 @@ extension StringExtension2 on String? {
       } else {
         return this!.substring(0, 3) +
             '-' +
-            this!.substring(3, 6) +
+            this!.substring(3, 7) +
             '-' +
-            this!.substring(6, this!.length);
+            this!.substring(7, this!.length);
       }
     } else if (internetNumberList.contains(this!.substring(0, 3))) {
       if (this!.length <= 7) {

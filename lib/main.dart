@@ -20,15 +20,8 @@ void main() async {
   Intl.defaultLocale = 'ko_KR';
 
   //getx 상태관리
-  Get.put(ThemeProvider2());
   Get.put(LoginProvider2());
   Get.put(BottomNavigationBarProvider2());
 
-  runApp(
-    GetBuilder<BottomNavigationBarProvider2>(
-      builder: (controller) {
-        return MyApp();
-      },
-    ),
-  );
+  runApp(MyApp());
 }
