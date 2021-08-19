@@ -1,4 +1,5 @@
 import 'package:flutter_common_app/index.dart';
+import 'package:global_configuration/global_configuration.dart';
 import 'package:images_picker/images_picker.dart';
 import 'dart:io';
 import 'package:url_launcher/url_launcher.dart';
@@ -90,6 +91,15 @@ Future<String?> getFilePath({required FileType fileType}) async {
 
   return result == null ? null : result.files.single.path;
 }
+
+/// 환경설정정보 가져오기
+/// 
+/// Example
+/// ```dart
+/// print(getGlobalConfig.getValue('showDebug'));
+/// print(getGlobalConfig.getValue('showQuery'));
+/// ```
+GlobalConfiguration get getGlobalConfig => GlobalConfiguration();
 
 enum ImageSource {
   //갤러리

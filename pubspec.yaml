@@ -51,6 +51,7 @@ dependencies:
 
   #이미지 & 파일
   photo_view: ^0.12.0
+  # image_picker: ^0.7.4 #0.7.5부터는 permission을 무시하고 접근이 가능해서 버전고정함.
   images_picker: ^1.2.4
   cached_network_image: ^3.1.0
   transparent_image: ^2.0.0
@@ -74,6 +75,8 @@ dependencies:
   # dio: ^4.0.0
   graphql_flutter: ^5.0.0
 
+  #전역 세팅
+  global_configuration: ^2.0.0-nullsafety.1
 
   #로딩 이펙트
   shimmer: ^2.0.0
@@ -167,6 +170,7 @@ flutter:
     - assets/logos/
     - assets/gifs/
     - assets/icons/
+    - assets/cfg/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

@@ -4,7 +4,7 @@ import 'package:flutter/scheduler.dart';
 
 typedef void OnWidgetSizeChange(Size size);
 
-//build된 위젯 사이즈 체크용
+//build된 위젯 사이즈 체크용(자식에 FutureBuilder가 있는경우 데이터 가져오기 전 상태의 크기를 가져올수있음)
 class MeasuredSize extends StatefulWidget {
   /// Widget to calculate it's size.
   final Widget child;
