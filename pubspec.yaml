@@ -115,7 +115,7 @@ dependencies:
   after_layout: ^1.1.0
   
   #인덱스에 맞게 스크롤
-  scroll_to_index: ^2.0.0
+  scrollable_positioned_list: ^0.2.0-nullsafety.0
   
   #포맷 패턴
   pattern_formatter: ^2.0.0

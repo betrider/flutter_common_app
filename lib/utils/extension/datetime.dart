@@ -63,6 +63,16 @@ extension CustomDateTimeExtension on DateTime {
   ///
   /// Example:
   /// ```dart
+  /// datetimeA.toFullDateTimeString5(); // 2021.04.26(월) 11:39
+  /// ```
+  String toFullDateTimeString5() {
+    return DateFormat('yyyy.MM.dd(EEE) HH:mm').format(this.toLocal());
+  }
+
+  /// 날짜 포맷
+  ///
+  /// Example:
+  /// ```dart
   /// datetimeA.toFullDateString1(); // 2021년 4월 26일 월요일
   /// ```
   String toFullDateString1() {

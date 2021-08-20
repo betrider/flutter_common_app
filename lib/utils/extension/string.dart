@@ -3,6 +3,22 @@ import 'package:intl/intl.dart';
 
 extension StringExtension2 on String? {
 
+  /// 문자열 변환 시 데이터가 없는경우 초기값 제공
+  ///
+  /// Example:
+  /// ```dart
+  /// ''.toDefaultString(); // '-'
+  /// null.toDefaultString(); // '-'
+  /// '123'.toDefaultString(); // '123'
+  /// ```
+  String toDefaultString({String defaultString = '-'}) {
+    if (this == null || this!.isEmpty) {
+      return defaultString;
+    } else {
+      return this.toString();
+    }
+  }
+
   /// 화폐단위로 변환
   ///
   /// Example:

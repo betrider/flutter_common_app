@@ -22,6 +22,7 @@ export 'custom_rating.dart';
 export 'custom_scaffold.dart';
 export 'custom_slider_list.dart';
 export 'custom_status_bar.dart';
+export 'custom_stepper.dart';
 export 'custom_tab_bar.dart';
 export 'custom_text_container.dart';
 export 'custom_text_field.dart';

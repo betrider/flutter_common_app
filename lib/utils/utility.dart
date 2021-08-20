@@ -29,7 +29,27 @@ import 'package:url_launcher/url_launcher.dart';
 /// 장치의 세로 모드 확인
 // context.isPortrait()
 
-enum UrlType { INTERNET, TEL, SMS, EMAIL }
+enum UrlType {
+  INTERNET,
+  TEL,
+  SMS,
+  EMAIL,
+}
+
+extension UrlTypeExtension on UrlType {
+  String get name {
+    switch (this) {
+      case UrlType.INTERNET:
+        return "인터넷";
+      case UrlType.TEL:
+        return "전화번호";
+      case UrlType.SMS:
+        return "문자";
+      case UrlType.EMAIL:
+        return "이메일";
+    }
+  }
+}
 
 /// URL연결(인터넷,전화,문자,이메일)
 ///
@@ -93,7 +113,7 @@ Future<String?> getFilePath({required FileType fileType}) async {
 }
 
 /// 환경설정정보 가져오기
-/// 
+///
 /// Example
 /// ```dart
 /// print(getGlobalConfig.getValue('showDebug'));
@@ -255,7 +275,6 @@ Future<OkCancelResult> showOkCancelDialog({
 
 ///메시지 - Custom Alert Dialog
 void showCustomAlertDialog({Widget? widget}) {
-
   if (widget == null)
     widget = Container(
       height: 100,
@@ -265,9 +284,7 @@ void showCustomAlertDialog({Widget? widget}) {
     );
 
   Get.dialog(
-    Dialog(
-      child: widget
-    ),
+    Dialog(child: widget),
   );
 }
 
