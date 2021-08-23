@@ -32,6 +32,7 @@ dependencies:
   flutter_rating_bar: ^4.0.0
   introduction_screen: ^2.1.0
   flutter_calendar_carousel: ^2.0.1
+  expandable_page_view: ^1.0.6 #PageView 대체
 
   #equatable(서로다른 인스턴스 같은 인스턴스인지 판단용)
   equatable: ^2.0.3

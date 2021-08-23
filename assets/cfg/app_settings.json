@@ -1,4 +1,4 @@
 {
-    "showDebug": true,
-    "showQuery": true
-  }
+  "showSuccessQuery": false,
+  "showErrorQuery": true
+}

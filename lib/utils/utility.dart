@@ -112,14 +112,14 @@ Future<String?> getFilePath({required FileType fileType}) async {
   return result == null ? null : result.files.single.path;
 }
 
-/// 환경설정정보 가져오기
-///
-/// Example
-/// ```dart
-/// print(getGlobalConfig.getValue('showDebug'));
-/// print(getGlobalConfig.getValue('showQuery'));
-/// ```
-GlobalConfiguration get getGlobalConfig => GlobalConfiguration();
+///전역설정값 가져오기
+GlobalConfiguration get _getConfig => GlobalConfiguration();
+
+/// 성공 쿼리로그 보이기 옵션(assets > cfg > app_setting.json 참조)
+bool get getShowSuccessQuery => _getConfig.get("showSuccessQuery");
+
+/// 실패 쿼리로그 보이기 옵션(assets > cfg > app_setting.json 참조)
+bool get getShowErrorQuery => _getConfig.get("showErrorQuery");
 
 enum ImageSource {
   //갤러리
