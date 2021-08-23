@@ -1,6 +1,12 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_common_app/index.dart';
 
 extension WidgetExtension on Widget {
+
+  ///불러오는 화면으로 부터 데이터를 받는 경우 사용
+  Future<dynamic>? getData() {
+    return Get.to(this);
+  }
+
   Widget background(Color color) {
     return DecoratedBox(
       decoration: BoxDecoration(

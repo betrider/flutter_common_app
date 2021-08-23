@@ -9,6 +9,7 @@ export 'custom_expanded_list_view.dart';
 export 'custom_expanded_view.dart';
 export 'custom_expantion_tile.dart';
 export 'custom_icon_button.dart';
+export 'custom_image_crop_page.dart';
 export 'custom_image_slider.dart';
 export 'custom_list_item.dart';
 export 'custom_list_tile.dart';

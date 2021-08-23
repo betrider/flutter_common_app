@@ -121,6 +121,81 @@ bool get getShowSuccessQuery => _getConfig.get("showSuccessQuery");
 /// 실패 쿼리로그 보이기 옵션(assets > cfg > app_setting.json 참조)
 bool get getShowErrorQuery => _getConfig.get("showErrorQuery");
 
+/// 이미지 가지고오기(단일모드)
+///
+/// ImageSource.camera : 사진
+///
+/// ImageSource.gallery : 갤러리
+///
+Future<String> getImagePath({
+  required ImageSource imageSource,
+  int aspectRatioX = 1,
+  int aspectRatioY = 1,
+  bool useCrop = false,
+}) async {
+  String? filePath;
+
+  if (imageSource == ImageSource.gallery) {
+    if (Platform.isAndroid) {
+      PickedFile? pickedFile = await ImagePicker().getImage(
+        source: ImageSource.gallery,
+        imageQuality: 100,
+      );
+
+      if (pickedFile == null) return '';
+
+      if (useCrop) {
+        String imagePath = await ImageCropPage(
+          file: File(pickedFile.path),
+          aspectRatio: aspectRatioX / aspectRatioY,
+        ).getData() as String;
+
+        filePath = imagePath;
+      } else {
+        filePath = pickedFile.path;
+      }
+    } else {
+      List<Media>? pickedFile = await ImagesPicker.pick(
+        count: 1,
+        pickType: PickType.image,
+        language: Language.System,
+      );
+
+      if (pickedFile == null) return '';
+
+      if (useCrop) {
+        String imagePath = await ImageCropPage(
+          file: File(pickedFile[0].path),
+          aspectRatio: aspectRatioX / aspectRatioY,
+        ).getData() as String;
+
+        filePath = imagePath;
+      } else {
+        filePath = pickedFile[0].path;
+      }
+    }
+  } else {
+    List<Media>? pickedFile = await ImagesPicker.openCamera(
+      pickType: PickType.image,
+      maxTime: 15, // record video max time
+      language: Language.System,
+      cropOpt: useCrop
+          ? CropOption(
+              aspectRatio: CropAspectRatio(aspectRatioX, aspectRatioY),
+            )
+          : null,
+    );
+
+    if (pickedFile == null) return '';
+
+    filePath = pickedFile[0].path;
+  }
+
+  return filePath;
+}
+
+/* 
+
 enum ImageSource {
   //갤러리
   gallery,
@@ -164,7 +239,7 @@ Future<String> getImagePath({
   if (pickedFile == null) return '';
 
   return pickedFile[0].path;
-}
+} */
 
 /// 전역에서 사용가능
 ///

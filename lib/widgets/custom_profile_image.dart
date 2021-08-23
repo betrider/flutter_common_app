@@ -84,8 +84,7 @@ class _Circle104 extends StatelessWidget {
                     highlightColor: Colors.transparent,
                     splashColor: Colors.transparent,
                     onTap: () async {
-                      String imagePath =
-                          await getImagePath(imageSource: ImageSource.gallery);
+                      String imagePath = await getImagePath(imageSource: ImageSource.gallery);
                       return onChanged(imagePath);
                     },
                     child: Padding(
