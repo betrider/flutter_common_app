@@ -8,7 +8,7 @@ class StepModel {
 }
 
 /// 스탭페이지 위젯
-/// 
+///
 /// Example
 /// ```dart
 /// CustomStepper(
@@ -19,9 +19,9 @@ class StepModel {
 ///           child: Text('첫번째'),
 ///         )),
 ///         StepModel(
-///         title: '두번째F',
+///         title: '두번째',
 ///         content: Center(
-///           child: Text('두번째F'),
+///           child: Text('두번째'),
 ///         )),
 ///     StepModel(
 ///         title: '세번째',
@@ -76,7 +76,9 @@ class _CustomStepperState extends State<CustomStepper> {
                   ),
                   TextButton(
                     onPressed: onStepContinue,
-                    child: _currentStep == 2 ? Text('완료') : Text('다음'),
+                    child: _currentStep == widget.listStepModel.length - 1
+                        ? Text('완료')
+                        : Text('다음'),
                   ),
                 ],
               );
@@ -88,19 +90,13 @@ class _CustomStepperState extends State<CustomStepper> {
                 title: Text(value.title),
                 content: value.content,
                 isActive: _currentStep >= index,
-                state:
-                    _currentStep >= index ? StepState.complete : StepState.disabled,
+                state: _currentStep >= index
+                    ? StepState.complete
+                    : StepState.disabled,
               );
-            })
-            ),
+            })),
       ),
     );
-  }
-
-  switchStepsType() {
-    setState(() => stepperType == StepperType.vertical
-        ? stepperType = StepperType.horizontal
-        : stepperType = StepperType.vertical);
   }
 
   tapped(int step) {
@@ -110,7 +106,7 @@ class _CustomStepperState extends State<CustomStepper> {
   continued() {
     if (_currentStep < widget.listStepModel.length - 1) {
       setState(() => _currentStep += 1);
-    }else{
+    } else {
       return widget.onComplete();
     }
   }
@@ -133,7 +129,8 @@ const Color _kCircleActiveDark = Colors.black87;
 const Color _kDisabledLight = Colors.black38;
 const Color _kDisabledDark = Colors.white38;
 const double _kStepSize = 24.0;
-const double _kTriangleHeight = _kStepSize * 0.866025; // Triangle height. sqrt(3.0) / 2.0
+const double _kTriangleHeight =
+    _kStepSize * 0.866025; // Triangle height. sqrt(3.0) / 2.0
 
 class _CustomStepper extends StatefulWidget {
   const _CustomStepper({

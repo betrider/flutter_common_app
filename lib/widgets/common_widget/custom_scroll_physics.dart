@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'dart:ui' as ui;
 
 class CustomScrollPhysics extends ScrollPhysics {
   final double itemDimension;
@@ -54,27 +53,17 @@ class CustomScrollPhysics extends ScrollPhysics {
     // If we're out of range and not headed back in range, defer to the parent
     // ballistics, which should put us back in range at a page boundary.
     if ((velocity <= 0.0 && position.pixels <= position.minScrollExtent) ||
-        (velocity >= 0.0 && position.pixels >= position.maxScrollExtent)) {
+        (velocity >= 0.0 && position.pixels >= position.maxScrollExtent))
       return super.createBallisticSimulation(position, velocity);
-    }
 
     final Tolerance tolerance = this.tolerance;
-    // <--
-
-    //1.itemDimension의 절반씩 양쪽에 여백을 남기는 포지션
-    final portion = (position.extentInside - itemDimension) / 2;
-
-    // //2.itemDimension만큼 오른쪽에 여백을 남기는 포지션
-    // double deviceWidth = (ui.window.physicalSize / ui.window.devicePixelRatio).width ;
-    // final portion = (position.extentInside - (deviceWidth - itemDimension));
-
+    //final portion = (position.extentInside - itemDimension) / 2;
+    final portion = itemDimension;
     final double target =
         _getTargetPixels(position, tolerance, velocity, portion);
-    // -->
-    if (target != position.pixels) {
+    if (target != position.pixels)
       return ScrollSpringSimulation(spring, position.pixels, target, velocity,
           tolerance: tolerance);
-    }
     return null;
   }
 
@@ -85,22 +74,30 @@ class CustomScrollPhysics extends ScrollPhysics {
 // class MyHomePage extends StatelessWidget {
 //   final List<int> pages = List.generate(4, (index) => index);
 
-//   Color get randomColor =>
-//           Color((Random().nextDouble() * 0xFFFFFF).toInt() << 0).withOpacity(1.0);
+//   ItemScrollController _scrollController = ItemScrollController();
+
+//   List<Color> listColor = [Colors.red, Colors.blue, Colors.green, Colors.yellow];
 
 //   @override
 //   Widget build(BuildContext context) {
+//     print(duWindowWidth);
 //     return Scaffold(
 //       body: SafeArea(
-//         child: ListView.builder(
+//         child: ScrollablePositionedList.builder(
+//           itemScrollController: _scrollController,
 //           scrollDirection: Axis.horizontal,
-//           physics: CustomScrollPhysics(itemDimension: 300),
+//           physics: CustomScrollPhysics(itemDimension: 205),
 //           itemCount: pages.length,
 //           itemBuilder: (context, index) => Container(
 //             height: double.infinity,
-//             width: 290,
-//             color: randomColor,
-//             margin: const EdgeInsets.only(right: 10),
+//             width: 205,
+//             color: listColor[index],
+//             child: Center(child: ElevatedButton(
+//               child: Text('next'),
+//               onPressed: () {
+//                 _scrollController.scrollTo(index: index + 1, duration: Duration(milliseconds: 250));
+//               },
+//             )),
 //           ),
 //         ),
 //       ),
