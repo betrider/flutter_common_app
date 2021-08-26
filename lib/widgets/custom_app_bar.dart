@@ -39,7 +39,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   final dynamic title;
   final CustomIconButton? leading;
-  final List<CustomIconButton>? actions;
+  final List<Widget>? actions;
   final bool automaticallyImplyLeading;
   final Widget? flexibleSpace;
   final PreferredSizeWidget? bottom;

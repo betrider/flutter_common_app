@@ -36,6 +36,13 @@ class AppColor {
   /// RGB : 183, 183, 183
   static const grey_B7B7B7 = const Color(0xFFB7B7B7);
 
+  /// 회색(배경)
+  ///
+  /// HEX : #EDEDED
+  ///
+  /// RGB : 237, 237, 237
+  static const grey_EDEDED = const Color(0xFFEDEDED);
+
   //---------------------------------------------------
 
   /// 빨간색

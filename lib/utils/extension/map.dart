@@ -41,4 +41,26 @@ extension CustomMapSC<K, V> on Map<K, V> {
   String toJSON({Object? Function(Object? nonEncodable)? toEncodable}) {
     return jsonEncode(this, toEncodable: toEncodable);
   }
+
+  String getValueFromIndex<T>(int index) {
+    MapEntry<String, dynamic> _map = this.entries.cast().toList()[index];
+    return _map.value.toString();
+  }
+
+  String getKeyFromIndex(int index) {
+    return this.keys.cast().toList()[index];
+  }
+
+  String getValueFromKey(String key) {
+    dynamic _map = this.cast()[key];
+    return _map.toString();
+  }
+
+  String getKeyFromValue(String value) {
+    String _key = '';
+    this.entries.forEach((element) {
+      if (element.value.toString() == value) _key = element.key.toString();
+    });
+    return _key;
+  }
 }
