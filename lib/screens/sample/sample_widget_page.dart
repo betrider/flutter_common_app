@@ -8,6 +8,7 @@ class SampleWidgetPage extends StatefulWidget {
 }
 
 class _SampleWidgetPageState extends State<SampleWidgetPage> {
+  late String _title;
   late Widget _widget;
 
   late List<WidgetModel> listWidget;
@@ -24,6 +25,7 @@ class _SampleWidgetPageState extends State<SampleWidgetPage> {
       WidgetModel(title: '타이틀', widget: Text('88')),
       WidgetModel(title: '타이틀', widget: Text('99')),
     ];
+    _title = listWidget[0].title;
     _widget = listWidget[0].widget;
   }
 
@@ -41,6 +43,7 @@ class _SampleWidgetPageState extends State<SampleWidgetPage> {
                   .mapWithIndex((widgetModel, index) => InkWell(
                         onTap: () {
                           setState(() {
+                            _title = widgetModel.title;
                             _widget = widgetModel.widget;
                           });
                         },
@@ -53,6 +56,15 @@ class _SampleWidgetPageState extends State<SampleWidgetPage> {
             ],
           ),
           Divider(),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: CustomTitle.size24(
+              _title,
+            ),
+          ),
+          SizedBox(
+            height: 16,
+          ),
           Expanded(child: _widget)
         ],
       ),
