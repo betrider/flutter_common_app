@@ -79,6 +79,7 @@ dependencies:
   html: ^0.15.0
   # dio: ^4.0.0
   graphql_flutter: ^5.0.0
+  connectivity: ^3.0.6 #통신 단절여부 확인 패키지
 
   #전역 세팅
   global_configuration: ^2.0.0-nullsafety.1

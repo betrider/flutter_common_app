@@ -287,6 +287,29 @@ void showSnackbar({
   );
 }
 
+/// 메시지 - 토스트
+///
+///  * [message], 메시지 내용
+///  * [backgroundColor], 백그라운드 색상
+///  * [textColor], 텍스트 색상
+///  * [fontSize], 폰트 사이즈
+///
+Future<bool?> showToast({
+  required String message,
+  Color? backgroundColor,
+  Color? textColor,
+  double fontSize = 16,
+}) {
+  return Fluttertoast.showToast(
+    msg: message,
+    toastLength: Toast.LENGTH_SHORT,
+    gravity: ToastGravity.BOTTOM,
+    backgroundColor: backgroundColor,
+    textColor: textColor,
+    fontSize: fontSize,
+  );
+}
+
 // /// 메시지 - 스낵바
 // ///
 // ///  * [content], 메시지 내용
