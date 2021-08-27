@@ -41,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 // if (!await context.read<LoginProvider>().signInWithGoogle()) {
                 //   showSnackBar(content: 'Unable to login.');
                 // }
-                if (!await Get.find<LoginProvider2>().signInWithGoogle()) {
+                if (!await Get.find<LoginProvider>().signInWithGoogle()) {
                   Get.snackbar('','Unable to login.');
                 }
               },

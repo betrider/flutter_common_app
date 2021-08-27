@@ -36,7 +36,7 @@ class _FifthMainScreenState extends State<FifthMainScreen>
             ElevatedButton(
               onPressed: () {
                 // context.read<LoginProvider>().signOut();
-                Get.find<LoginProvider2>().signOut();
+                Get.find<LoginProvider>().signOut();
               },
               child: Text('logout'),
             )

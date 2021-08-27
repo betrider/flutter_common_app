@@ -23,8 +23,8 @@ void main() async {
   Intl.defaultLocale = 'ko_KR';
 
   //getx 상태관리
-  Get.put(LoginProvider2());
-  Get.put(BottomNavigationBarProvider2());
+  Get.put(LoginProvider());
+  Get.put(BottomNavigationBarProvider());
 
   runApp(MyApp());
 }

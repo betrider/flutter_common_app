@@ -9,7 +9,7 @@ class MainScreen extends StatelessWidget {
     print('MainScreen build');
     return WillPopScope(
       onWillPop: _onBackPressed,
-      child: GetBuilder<BottomNavigationBarProvider2>(
+      child: GetBuilder<BottomNavigationBarProvider>(
         builder: (controller) => CustomScaffold(
           appBar: CustomAppBar(
             title: InkWell(
@@ -18,7 +18,7 @@ class MainScreen extends StatelessWidget {
                   Get.toNamed('/sample');
                 } else {
                   // context.read<BottomNavigationBarProvider>().currentIndex = 0;
-                  Get.find<BottomNavigationBarProvider2>().currentIndex = 0;
+                  Get.find<BottomNavigationBarProvider>().currentIndex = 0;
                 }
               },
               child: Text('메인타이틀'),
@@ -40,10 +40,10 @@ class MainBottomNavigationBar extends StatelessWidget {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       // currentIndex: context.watch<BottomNavigationBarProvider>().currentIndex,
-      currentIndex: Get.find<BottomNavigationBarProvider2>().currentIndex,
+      currentIndex: Get.find<BottomNavigationBarProvider>().currentIndex,
       onTap: (index) {
         // context.read<BottomNavigationBarProvider>().currentIndex = index;
-        Get.find<BottomNavigationBarProvider2>().currentIndex = index;
+        Get.find<BottomNavigationBarProvider>().currentIndex = index;
       },
       items: [
         BottomNavigationBarItem(
@@ -96,7 +96,7 @@ class _MainBodyState extends State<MainBody> {
   @override
   Widget build(BuildContext context) {
     // var index = context.watch<BottomNavigationBarProvider>().currentIndex;
-    var index = Get.find<BottomNavigationBarProvider2>().currentIndex;
+    var index = Get.find<BottomNavigationBarProvider>().currentIndex;
 
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       print('addPostFrameCallback');

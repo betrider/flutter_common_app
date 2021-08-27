@@ -1,6 +1,6 @@
 import 'package:flutter_common_app/index.dart';
 
-class BottomNavigationBarProvider2 extends GetxController {
+class BottomNavigationBarProvider extends GetxController {
   int _currentIndex = 0;
 
   int get currentIndex => _currentIndex;

@@ -49,7 +49,7 @@ class StartScreen extends StatelessWidget {
                     Hive.box('cache').put('isFirst', false);
                     //Navigator.pushReplacementNamed(context, '/main');
                     // context.read<LoginProvider>().loginPass();
-                    Get.find<LoginProvider2>().loginPass();
+                    Get.find<LoginProvider>().loginPass();
                   },
                 ),
               ),

@@ -6,4 +6,3 @@ export '4.fourth_screen/4.fourth_screen.dart';
 export '5.fifth_screen/5.fifth_screen.dart';
 export 'main_screen.dart';
 export 'sample/sample.dart';
-export 'splash/splash.dart';

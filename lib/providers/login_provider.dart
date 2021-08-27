@@ -2,13 +2,13 @@ import 'package:flutter_common_app/index.dart';
 
 enum Status { Uninitialized, Authenticated, Authenticating, Unauthenticated }
 
-class LoginProvider2 extends GetxController {
+class LoginProvider extends GetxController {
   FirebaseAuth _auth;
   User? _user;
   GoogleSignIn _googleSignIn;
   Status _status = Status.Uninitialized;
 
-  LoginProvider2()
+  LoginProvider()
       : _auth = FirebaseAuth.instance,
         _googleSignIn = GoogleSignIn() {
     _auth.authStateChanges().listen(_onAuthStateChanged);
