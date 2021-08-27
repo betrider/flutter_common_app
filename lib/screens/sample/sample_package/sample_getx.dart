@@ -7,18 +7,13 @@ class SampleGetX extends StatelessWidget {
   Widget build(BuildContext context) {
     //2.controller 사용방법
     // final controller = Get.put(BuilderController());
+    Get.put(BuilderController());
 
     //3.reactive 사용방법 두번째방법
     // final controller2 = Get.put(ReactiveController());
 
     return Column(
       children: [
-        Align(
-          alignment: Alignment.centerLeft,
-          child: CustomTitle.size24(
-            'GetX',
-          ),
-        ),
         // //1.init에서 사용하는방법
         // GetBuilder<BuilderController>(
         //   init: BuilderController(),

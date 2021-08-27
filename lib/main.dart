@@ -11,6 +11,12 @@ void main() async {
 
   await GlobalConfiguration().loadFromAsset("app_settings"); //환경설정 세팅
 
+  //워크매니저 설정
+  Workmanager().initialize(
+    callbackDispatcher, // The top level function, aka callbackDispatcher
+    isInDebugMode: isDebug() ? true : false // If enabled it will post a notification whenever the task is running. Handy for debugging tasks
+  );
+
   //화면 회전 막기
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
@@ -27,4 +33,11 @@ void main() async {
   Get.put(BottomNavigationBarProvider());
 
   runApp(MyApp());
+}
+
+void callbackDispatcher() {
+  Workmanager().executeTask((task, inputData) {
+    print("Native called task: $task / inputData: $inputData"); //simpleTask will be emitted here.
+    return Future.value(true);
+  });
 }

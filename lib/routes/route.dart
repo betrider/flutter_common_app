@@ -1,4 +1,5 @@
 import 'package:flutter_common_app/index.dart';
+import 'package:flutter_common_app/screens/sample/sample_page.dart';
 
 class RouteGenerator {
   static void routingCallback(Routing? routing){

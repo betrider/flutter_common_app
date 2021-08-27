@@ -4,6 +4,9 @@ import 'package:images_picker/images_picker.dart';
 import 'dart:io';
 import 'package:url_launcher/url_launcher.dart';
 
+bool isDebug() => kDebugMode;
+bool isRelease() => kDebugMode;
+
 // 앱이 구동중인 플랫폼을 확인
 // GetPlatform.isAndroid
 // GetPlatform.isIOS
@@ -11,6 +14,14 @@ import 'package:url_launcher/url_launcher.dart';
 // GetPlatform.isWindows
 // GetPlatform.isLinux
 // GetPlatform.isFuchsia
+
+// 장치 타입을 확인
+// GetPlatform.isMobile
+// GetPlatform.isDesktop
+// 모든 플랫폼은 독립적으로 웹을 제공합니다!
+// Windows, iOS, OSX, Android 등의
+// 브러우저에서 구동중이면 알 수 있습니다.
+// GetPlatform.isWeb
 
 /// 가로사이즈
 // Get.width
@@ -116,10 +127,10 @@ Future<String?> getFilePath({required FileType fileType}) async {
 GlobalConfiguration get _getConfig => GlobalConfiguration();
 
 /// 성공 쿼리로그 보이기 옵션(assets > cfg > app_setting.json 참조)
-bool get getShowSuccessQuery => _getConfig.get("showSuccessQuery");
+bool get getShowSuccessQuery => _getConfig.get("showSuccessQuery") ?? false;
 
 /// 실패 쿼리로그 보이기 옵션(assets > cfg > app_setting.json 참조)
-bool get getShowErrorQuery => _getConfig.get("showErrorQuery");
+bool get getShowErrorQuery => _getConfig.get("showErrorQuery") ?? false;
 
 /// 이미지 가지고오기(단일모드)
 ///
@@ -362,6 +373,11 @@ void showCustomAlertDialog({Widget? widget}) {
     Dialog(child: widget),
   );
 }
+
+//showConfirmationDialog
+//showModalActionSheet
+//showTextInputDialog
+//showTextAnswerDialog
 
 ///BottomSheet
 

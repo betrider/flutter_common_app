@@ -33,6 +33,7 @@ dependencies:
   introduction_screen: ^2.1.0
   flutter_calendar_carousel: ^2.0.1
   expandable_page_view: ^1.0.6 #PageView 대체
+  smooth_page_indicator: ^0.3.0-nullsafety.0
 
   #equatable(서로다른 인스턴스 같은 인스턴스인지 판단용)
   equatable: ^2.0.3
@@ -61,15 +62,15 @@ dependencies:
   flutter_svg: ^0.22.0 
 
   ##알림
-
+  
+  #flutter_local_notifications 샘플
+  flutter_native_timezone: ^2.0.0
+  #알림 메시지
+  flutter_local_notifications: ^7.0.0
   #토스트 메시지
   fluttertoast: ^8.0.7
   #다이얼로그
   adaptive_dialog: ^1.1.0
-  #알림 메시지
-  flutter_local_notifications: ^7.0.0
-  #바텀 시트
-  modal_bottom_sheet: ^2.0.0
 
   #통신
   http: ^0.13.3

@@ -1,7 +1,4 @@
 import 'package:flutter_common_app/index.dart';
-import 'package:flutter_common_app/screens/sample/sample_package/sample_iamport.dart';
-
-import 'sample_package/sample_getx.dart';
 class SampleUtilityPage extends StatefulWidget {
   const SampleUtilityPage({Key? key}) : super(key: key);
 
@@ -14,6 +11,7 @@ class _SampleUtilityPageState extends State<SampleUtilityPage>
   @override
   bool get wantKeepAlive => true; //화면 최초 호출 후 데이터 보존 여부
 
+  late String _title;
   late Widget _widget;
 
   late List<WidgetModel> listWidget;
@@ -25,8 +23,8 @@ class _SampleUtilityPageState extends State<SampleUtilityPage>
       WidgetModel(title: 'SampleUsefulWidget', widget: SampleUsefulWidget()),
       WidgetModel(title: 'SampleUtility', widget: SampleUtility()),
       WidgetModel(title: 'SampleExtension', widget: SampleExtension()),
-      WidgetModel(title: 'SamplePackage', widget: SamplePackage()),
     ];
+    _title = listWidget[0].title;
     _widget = listWidget[0].widget;
   }
 
@@ -45,6 +43,7 @@ class _SampleUtilityPageState extends State<SampleUtilityPage>
                   .mapWithIndex((widgetModel, index) => InkWell(
                         onTap: () {
                           setState(() {
+                            _title = widgetModel.title;
                             _widget = widgetModel.widget;
                           });
                         },
@@ -57,6 +56,13 @@ class _SampleUtilityPageState extends State<SampleUtilityPage>
             ],
           ),
           Divider(),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: CustomTitle.size24(
+              _title,
+            ),
+          ),
+          SizedBox(height: 16,),
           Expanded(child: _widget)
         ],
       ),
@@ -474,7 +480,6 @@ class SampleUsefulWidget extends StatelessWidget {
     return SingleChildScrollView(
       child: SeparatedColumn(
         children: [
-          CustomTitle.size30('UsefulWidget'),
           SampleSeparatedColumn(),
           SampleSeparatedRow(),
           SampleIgnorePadding(),
@@ -494,7 +499,6 @@ class SampleUtility extends StatelessWidget {
     return SingleChildScrollView(
       child: SeparatedColumn(
         children: [
-          CustomTitle.size30('Utility'),
           SampleLoading(),
         ],
         separatorBuilder: (context, index) {
@@ -511,29 +515,10 @@ class SampleExtension extends StatelessWidget {
     return SingleChildScrollView(
       child: SeparatedColumn(
         children: [
-          CustomTitle.size30('Extension'),
           SampleStringFormat(),
           SampleNumFormat(),
           SampleDateTimeFormat(),
           SampleDateTimeFormat(),
-        ],
-        separatorBuilder: (context, index) {
-          return Divider();
-        },
-      ),
-    );
-  }
-}
-
-class SamplePackage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: SeparatedColumn(
-        children: [
-          CustomTitle.size30('Extension'),
-          SampleIamport(),
-          SampleGetX()
         ],
         separatorBuilder: (context, index) {
           return Divider();

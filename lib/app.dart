@@ -1,6 +1,4 @@
 import 'package:flutter_common_app/index.dart';
-import 'package:flutter_common_app/screens/login_screen.dart';
-import 'package:flutter_common_app/screens/start_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 class MyApp extends StatelessWidget {

@@ -1,4 +1,5 @@
 import 'package:flutter_common_app/index.dart';
+import 'package:flutter_common_app/screens/sample/sample.dart';
 
 class SamplePage extends StatelessWidget {
   @override
@@ -17,13 +18,19 @@ class SamplePage extends StatelessWidget {
             ),
           ),
           TabBarModel(
+            tabName: 'Package',
+            tabWidget: SamplePackagePage(
+              key: GlobalKey(),
+            ),
+          ),
+          TabBarModel(
             tabName: 'Utility',
             tabWidget: SampleUtilityPage(
               key: GlobalKey(),
             ),
           ),
           TabBarModel(
-            tabName: 'Test Page',
+            tabName: 'Test',
             tabWidget: SampleTestPage(
               key: GlobalKey(),
             ),

@@ -18,12 +18,6 @@ class SampleIamport extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Align(
-          alignment: Alignment.centerLeft,
-          child: CustomTitle.size24(
-            '아임포트',
-          ),
-        ),
         ElevatedButton(
             onPressed: () {
               Get.to(Payment());
