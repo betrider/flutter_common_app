@@ -3,10 +3,15 @@ import 'package:flutter_common_app/index.dart';
 DateTime? _firstTouchTime; //뒤로가기 버튼 첫번째 누른 시간
 DateTime? _secondTouchTime; //뒤로가기 버튼 두번째 누른 시간
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
+  @override
+  _MainScreenState createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+
   @override
   Widget build(BuildContext context) {
-    print('MainScreen build');
     return WillPopScope(
       onWillPop: _onBackPressed,
       child: GetBuilder<BottomNavigationBarProvider>(
