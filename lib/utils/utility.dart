@@ -4,8 +4,12 @@ import 'package:images_picker/images_picker.dart';
 import 'dart:io';
 import 'package:url_launcher/url_launcher.dart';
 
-bool isDebug() => kDebugMode;
-bool isRelease() => kDebugMode;
+bool get isDebug => kDebugMode;
+bool get isRelease => kDebugMode;
+
+///ex)getCache.box.put('name', 'David');
+///ex)getCache.box.get('name');
+dynamic get getCache => Hive.box('cache');
 
 // 앱이 구동중인 플랫폼을 확인
 // GetPlatform.isAndroid
@@ -124,13 +128,14 @@ Future<String?> getFilePath({required FileType fileType}) async {
 }
 
 ///전역설정값 가져오기
-GlobalConfiguration get _getConfig => GlobalConfiguration();
+///ex)getGlobalConfig.get('domain');
+GlobalConfiguration get getGlobalConfig => GlobalConfiguration();
 
 /// 성공 쿼리로그 보이기 옵션(assets > cfg > app_setting.json 참조)
-bool get getShowSuccessQuery => _getConfig.get("showSuccessQuery") ?? false;
+bool get getShowSuccessQuery => getGlobalConfig.get("showSuccessQuery") ?? false;
 
 /// 실패 쿼리로그 보이기 옵션(assets > cfg > app_setting.json 참조)
-bool get getShowErrorQuery => _getConfig.get("showErrorQuery") ?? false;
+bool get getShowErrorQuery => getGlobalConfig.get("showErrorQuery") ?? false;
 
 /// 이미지 가지고오기(단일모드)
 ///
