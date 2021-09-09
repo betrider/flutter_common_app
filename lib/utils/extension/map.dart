@@ -63,4 +63,21 @@ extension CustomMapSC<K, V> on Map<K, V> {
     });
     return _key;
   }
+
+  /// {"aaa,bbb":"test"} => {"aaa":"test","bbb":"test"}
+  Map<String, String> splitDoubleKey() {
+
+    Map<String,String> returnMap = {};
+
+    this.forEach((key, value) {
+      String keyString = key.toString();
+      List<String> keys = keyString.split(',');
+      
+      keys.forEach((element) {
+        returnMap.addAll({'$element':'$value'});
+      });
+    });
+
+    return returnMap;
+  }
 }
