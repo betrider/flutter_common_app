@@ -34,6 +34,7 @@ dependencies:
   flutter_calendar_carousel: ^2.0.1
   expandable_page_view: ^1.0.6 #PageView 대체
   smooth_page_indicator: ^0.3.0-nullsafety.0
+  dropdown_below: ^1.0.0
 
   #equatable(서로다른 인스턴스 같은 인스턴스인지 판단용)
   equatable: ^2.0.3

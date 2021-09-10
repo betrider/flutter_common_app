@@ -261,7 +261,7 @@ Future<String> getImagePath({
 ///
 /// 로딩 표시
 void showLoading({Color? progressIndicatorColor, Color? overlayColor}) {
-  FlutterOverlayLoader.show(
+  Loader.show(
     Get.overlayContext!,
     progressIndicator: progressIndicatorColor == null
         ? null
@@ -276,7 +276,7 @@ void showLoading({Color? progressIndicatorColor, Color? overlayColor}) {
 ///
 /// 로딩 숨기기
 void hideLoading() {
-  FlutterOverlayLoader.hide();
+  Loader.hide();
 }
 
 /// Snackbar
@@ -337,6 +337,27 @@ Future<bool?> showToast({
 //         : null,
 //   ));
 // }
+
+/// 위젯 정보보기
+Future<void> showWidgetDialog(Widget widget) {
+  return showDialog(
+    context: Get.context!,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        insetPadding: EdgeInsets.zero,
+        titlePadding: EdgeInsets.zero,
+        buttonPadding: EdgeInsets.zero,
+        actionsPadding: EdgeInsets.zero,
+        contentPadding: EdgeInsets.zero,
+        content: SingleChildScrollView(
+          child: ListBody(
+            children: <Widget>[widget],
+          ),
+        ),
+      );
+    },
+  );
+}
 
 /// Dialog
 
