@@ -3,16 +3,46 @@ import 'package:flutter_common_app/index.dart';
 class CustomTextField extends StatefulWidget {
   
   CustomTextField.container({
+    this.initialValue,
     this.hintText = '요청하고 싶은 내용을 입력해주세요.',
     this.maxLength = 200,
     this.height = 96,
     this.onChanged,
+    this.controller,
+    this.validator
   })  : maxLine = 5,
         errText = null,
         scrollbar = true,
         _widget = _CustomFillState();
 
+  CustomTextField.single({
+    this.initialValue,
+    this.hintText = '요청하고 싶은 내용을 입력해주세요.',
+    this.maxLength = 200,
+    this.height = 96,
+    this.onChanged,
+    this.controller,
+    this.validator
+  })  : maxLine = 5,
+        errText = null,
+        scrollbar = true,
+        _widget = _Single();
+
+  CustomTextField.multi({
+    this.initialValue,
+    this.hintText = '요청하고 싶은 내용을 입력해주세요.',
+    this.maxLength = 200,
+    this.maxLine = 5,
+    this.height = 96,
+    this.onChanged,
+    this.controller,
+    this.validator
+  })  : errText = null,
+        scrollbar = true,
+        _widget = _Multi();
+
   CustomTextField.bottomLine({
+    this.initialValue,
     this.hintText = "",
     this.maxLength = 200,
     this.height = 0,
@@ -20,7 +50,12 @@ class CustomTextField extends StatefulWidget {
     this.maxLine = 5,
     this.errText,
     this.scrollbar = true,
+    this.controller,
+    this.validator
   }) : _widget = _CustomBottomLineState();
+
+  /// 초기값
+  final String? initialValue;
 
   /// 힌트 내용
   final String hintText;
@@ -45,6 +80,12 @@ class CustomTextField extends StatefulWidget {
 
   /// 스크롤바 기능 여부 (default : true)
   final bool scrollbar;
+
+  /// 컨트롤러
+  final TextEditingController? controller;
+
+  /// 조건체크
+  final String? Function(String?)? validator;
 
   @override
   State createState() => _widget;
@@ -77,7 +118,8 @@ class _CustomFillState extends State<CustomTextField> {
             height: widget.height,
             color: AppColor.grey_B7B7B7,
             padding: EdgeInsets.all(8.0),
-            child: TextField(
+            child: TextFormField(
+              initialValue: widget.initialValue,
               onChanged: widget.onChanged,
               style: AppTextStyle.black_12_w400,
               keyboardType: TextInputType.multiline,
@@ -107,6 +149,86 @@ class _CustomFillState extends State<CustomTextField> {
   }
 }
 
+class _Single extends State<CustomTextField> {
+  _Single({this.trailing});
+
+  final String? trailing;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: AppColor.grey_EDEDED,
+      padding: EdgeInsets.symmetric(horizontal: 8),
+      child: Row(
+        children: [
+          Expanded(
+            child: TextFormField(
+              initialValue: widget.initialValue,
+              onChanged: widget.onChanged,
+              style: AppTextStyle.black_14_w400,
+              keyboardType: TextInputType.multiline,
+              maxLength: widget.maxLength,
+              maxLines: 1,
+              controller: widget.controller,
+              decoration: new InputDecoration(
+                hintStyle: AppTextStyle.grey_14_w400,
+                border: InputBorder.none,
+                hintText: widget.hintText,
+                counterText: '',
+              ),
+              validator: widget.validator,
+            ),
+          ),
+          SizedBox(
+            width: 8,
+          ),
+          if (trailing != null)
+            Text(
+              trailing!,
+              style: AppTextStyle.black_14_w400,
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class _Multi extends State<CustomTextField> {
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: AppColor.grey_EDEDED,
+      padding: EdgeInsets.symmetric(horizontal: 8),
+      child: Row(
+        children: [
+          Expanded(
+            child: TextFormField(
+              initialValue: widget.initialValue,
+              onChanged: widget.onChanged,
+              style: AppTextStyle.black_14_w400,
+              keyboardType: TextInputType.multiline,
+              maxLength: widget.maxLength,
+              maxLines: widget.maxLine,
+              controller: widget.controller,
+              decoration: new InputDecoration(
+                hintStyle: AppTextStyle.grey_14_w400,
+                border: InputBorder.none,
+                hintText: widget.hintText,
+                counterText: '',
+              ),
+              validator: widget.validator,
+            ),
+          ),
+          SizedBox(
+            width: 8,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class _CustomBottomLineState extends State<CustomTextField> {
   TextEditingController controller = TextEditingController();
   int numLines = 0;
@@ -126,7 +248,8 @@ class _CustomBottomLineState extends State<CustomTextField> {
   }
 
   Widget _textField() {
-    return TextField(
+    return TextFormField(
+      initialValue: widget.initialValue,
       onChanged: widget.onChanged,
       style: AppTextStyle.black_12_w400,
       keyboardType: TextInputType.multiline,
