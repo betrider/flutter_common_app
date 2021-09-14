@@ -290,6 +290,13 @@ extension StringExtension2 on String? {
 
   /// 정규식 
   
+  bool hasMatch(String regEx){
+    if (this == null) return false;
+    String p = regEx;
+    RegExp regExp = new RegExp(p);
+    return regExp.hasMatch(this!);
+  }
+  
   /// 이메일 확인
   bool get isEmail{
     if (this == null) return false;
