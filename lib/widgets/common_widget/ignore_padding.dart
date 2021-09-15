@@ -29,7 +29,7 @@ class IgnorePadding extends StatelessWidget {
       textDirection: child.textDirection,
       verticalDirection: child.verticalDirection,
       children: (child.children).map((widget) {
-        if (widget is Ignore) {
+        if (widget is Ignore || widget is Expanded || widget is Flexible) {
           return widget;
         } else {
           return Padding(
