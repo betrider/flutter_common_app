@@ -318,7 +318,15 @@ extension StringExtension2 on String? {
   /// 생년월일 확인
   bool get isBirthDay {
     if (this == null) return false;
-    return RegExp(RegExpBIRTHDAY).hasMatch(this!);
+    DateTime date = DateTime.parse(this!);
+
+    String y = date.year.toString().padLeft(4, '0');
+    String m = date.month.toString().padLeft(2, '0');
+    String d = date.day.toString().padLeft(2, '0');
+
+    final originalFormatString = "$y$m$d";
+
+    return this! == originalFormatString;
   }
 
   /// null or empty check
