@@ -315,6 +315,12 @@ extension StringExtension2 on String? {
     return RegExp(RegExpURL).hasMatch(this!);
   }
 
+  /// 문자열 -> Uri 변환
+  Uri get toUri{
+    if (this == null) return Uri.parse('');
+    return Uri.parse(this!);
+  }
+
   /// 생년월일 확인
   bool get isBirthDay {
     if (this == null) return false;

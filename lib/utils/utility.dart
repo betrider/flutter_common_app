@@ -139,7 +139,7 @@ bool get getShowErrorQuery => getGlobalConfig.get("showErrorQuery") ?? false;
 
 /// 이미지 가지고오기(단일모드)
 ///
-/// ImageSource.camera : 사진
+/// ImageSource.camera : 카메라
 ///
 /// ImageSource.gallery : 갤러리
 ///
