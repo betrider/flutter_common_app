@@ -1,15 +1,16 @@
 import 'package:flutter_common_app/index.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:global_configuration/global_configuration.dart';
-import 'package:images_picker/images_picker.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'dart:io';
 import 'package:url_launcher/url_launcher.dart';
 
 bool get isDebug => kDebugMode;
 bool get isRelease => kDebugMode;
 
-///ex)getCache.put('name', 'David');
-///ex)getCache.get('name');
-dynamic get getCache => Hive.box('cache');
+/// ex)storage.write('name', 'David');
+/// ex)storage.read('name');
+GetStorage get storage => GetStorage();
 
 // 앱이 구동중인 플랫폼을 확인
 // GetPlatform.isAndroid
@@ -132,7 +133,8 @@ Future<String?> getFilePath({required FileType fileType}) async {
 GlobalConfiguration get getGlobalConfig => GlobalConfiguration();
 
 /// 성공 쿼리로그 보이기 옵션(assets > cfg > app_setting.json 참조)
-bool get getShowSuccessQuery => getGlobalConfig.get("showSuccessQuery") ?? false;
+bool get getShowSuccessQuery =>
+    getGlobalConfig.get("showSuccessQuery") ?? false;
 
 /// 실패 쿼리로그 보이기 옵션(assets > cfg > app_setting.json 참조)
 bool get getShowErrorQuery => getGlobalConfig.get("showErrorQuery") ?? false;
@@ -151,60 +153,47 @@ Future<String> getImagePath({
 }) async {
   String? filePath;
 
-  if (imageSource == ImageSource.gallery) {
-    if (Platform.isAndroid) {
-      PickedFile? pickedFile = await ImagePicker().getImage(
-        source: ImageSource.gallery,
-        imageQuality: 100,
-      );
+  PickedFile? pickedFile = await ImagePicker().getImage(
+    source: imageSource,
+    imageQuality: 100,
+  );
 
-      if (pickedFile == null) return '';
+  if (pickedFile == null) return '';
 
-      if (useCrop) {
-        String imagePath = await ImageCropPage(
-          file: File(pickedFile.path),
-          aspectRatio: aspectRatioX / aspectRatioY,
-        ).getData() as String;
-
-        filePath = imagePath;
-      } else {
-        filePath = pickedFile.path;
-      }
-    } else {
-      List<Media>? pickedFile = await ImagesPicker.pick(
-        count: 1,
-        pickType: PickType.image,
-        language: Language.System,
-      );
-
-      if (pickedFile == null) return '';
-
-      if (useCrop) {
-        String imagePath = await ImageCropPage(
-          file: File(pickedFile[0].path),
-          aspectRatio: aspectRatioX / aspectRatioY,
-        ).getData() as String;
-
-        filePath = imagePath;
-      } else {
-        filePath = pickedFile[0].path;
-      }
-    }
+  if (useCrop) {
+    File? croppedFile = await ImageCropper.cropImage(
+        sourcePath: pickedFile.path,
+        aspectRatioPresets: Platform.isAndroid
+            ? [
+                CropAspectRatioPreset.square,
+                CropAspectRatioPreset.ratio3x2,
+                CropAspectRatioPreset.original,
+                CropAspectRatioPreset.ratio4x3,
+                CropAspectRatioPreset.ratio16x9
+              ]
+            : [
+                CropAspectRatioPreset.original,
+                CropAspectRatioPreset.square,
+                CropAspectRatioPreset.ratio3x2,
+                CropAspectRatioPreset.ratio4x3,
+                CropAspectRatioPreset.ratio5x3,
+                CropAspectRatioPreset.ratio5x4,
+                CropAspectRatioPreset.ratio7x5,
+                CropAspectRatioPreset.ratio16x9
+              ],
+        androidUiSettings: AndroidUiSettings(
+            toolbarTitle: 'Cropper',
+            toolbarColor: Colors.deepOrange,
+            toolbarWidgetColor: Colors.white,
+            initAspectRatio: CropAspectRatioPreset.original,
+            lockAspectRatio: false),
+        iosUiSettings: IOSUiSettings(
+          title: 'Cropper',
+        ));
+    
+    filePath = croppedFile!.path;
   } else {
-    List<Media>? pickedFile = await ImagesPicker.openCamera(
-      pickType: PickType.image,
-      maxTime: 15, // record video max time
-      language: Language.System,
-      cropOpt: useCrop
-          ? CropOption(
-              aspectRatio: CropAspectRatio(aspectRatioX, aspectRatioY),
-            )
-          : null,
-    );
-
-    if (pickedFile == null) return '';
-
-    filePath = pickedFile[0].path;
+    filePath = pickedFile.path;
   }
 
   return filePath;

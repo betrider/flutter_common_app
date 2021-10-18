@@ -1,10 +1,14 @@
 import 'package:flutter_common_app/index.dart';
+import 'package:flutter_common_app/localization_service.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      locale: LocalizationService.locale,
+      fallbackLocale: LocalizationService.fallbackLocale,
+      translations: LocalizationService(),
       title: 'Flutter Demo',
       initialRoute: '/',
       // onGenerateRoute: RouteGenerator.generateRoute,
@@ -31,7 +35,7 @@ class MyApp extends StatelessWidget {
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final bool isFirst = Hive.box('cache').get('isFirst') ?? true;
+    final bool isFirst = storage.read('isFirst') ?? true;
     return GetBuilder<LoginProvider>(
       builder: (controller) {
         switch (controller.status) {

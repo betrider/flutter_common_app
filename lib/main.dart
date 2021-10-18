@@ -1,14 +1,13 @@
 import 'package:flutter_common_app/app.dart';
 import 'package:flutter_common_app/index.dart';
 import 'package:flutter_common_app/screens/sample/sample.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:global_configuration/global_configuration.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); //비동기 메소드 사용하기 위해 선언
   await Firebase.initializeApp(); //Firebase 초기화
-  await Hive.initFlutter(); //Hive 초기화
-  await Hive.openBox('cache'); //Hive cache박스 등록
+  await GetStorage.init();
 
   await GlobalConfiguration().loadFromAsset("app_settings"); //환경설정 세팅
 
